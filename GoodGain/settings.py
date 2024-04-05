@@ -25,6 +25,9 @@ SECRET_KEY = 'django-insecure-zz(zy=a9017=f)x)(g8pe!3im(=xp1gdikdri6uu)y9xc%-^e4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ["localhost2.com.br", "localhost"]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,3 +124,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CORS_ORIGIN_WHITELIST = ['http://localhost:4200']
+CORS_ALLOW_ALL_ORIGINS = True
+# for localhost (REACT Default)     'http://192.168.0.50:3000/',  # for network      'http://localhost:8080/',  # for localhost (Developlemt)     'http://192.168.0.50:8080/',  # for network (Development) )
