@@ -1,7 +1,9 @@
+from django.http import JsonResponse
+
 import BO.cliente.cliente
+from rest_framework.views import APIView
 
-
-class CadastroCliente():
+class CadastroCliente(APIView):
     def post(self, *args, **kwargs):
         user = self.request.POST.get('user')
         password = self.request.POST.get('password')
@@ -12,13 +14,14 @@ class CadastroCliente():
         status = BO.cliente.cliente.Cliente(username=user, password=password).logar()
 
         return status
-class Login():
+class Login(APIView):
     def get(self, *args, **kwargs):
         return
+
     def post(self, *args, **kwargs):
-        user = self.request.POST.get('user')
+        user = self.request.POST.get('username')
         password = self.request.POST.get('password')
 
         status = BO.cliente.cliente.Cliente(username=user, password=password).logar()
 
-        return status
+        return JsonResponse({'status': status})
