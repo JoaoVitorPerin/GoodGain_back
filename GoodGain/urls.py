@@ -23,4 +23,5 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('login', GoodGain.views.Login.as_view(), name='login'),
+    re_path('cadastro', GoodGain.views.CadastroCliente.as_view(), name='login'),
 ]
