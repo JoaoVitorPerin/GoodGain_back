@@ -30,4 +30,4 @@ class Login(APIView):
 
         status, descricao, token_jwt = BO.cliente.cliente.Cliente(username=user, password=password).logar()
 
-        return JsonResponse({'status': status,'descricao': descricao,'token_jwt': token_jwt})
+        return JsonResponse({'status': status,'descricao': descricao,'token': token_jwt})
