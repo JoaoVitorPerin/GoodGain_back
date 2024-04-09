@@ -9,21 +9,30 @@ class Cliente():
          self.username =  username
          self.password = password
 
+     @staticmethod
+     def limpar_cpf(cpf):
+         return cpf.replace(".", "").replace("-", "")
+
+     @staticmethod
+     def limpar_data(cpf):
+         return cpf.replace("/", "").replace("-", "")
+
      def get_cliente(self):
         return
 
      def logar(self):
-         #aqui fica a pesquisa no banco
          descricao = 'Não foi possivel logar o cliente, senha ou usuario incorretos'
          token_jwt = {}
          cliente = core.cliente.models.Cliente.objects.filter(username=self.username).first()
-         status = cliente.check_password(raw_password=self.password)
-         if status:
-             descricao = ''
-             token_jwt = self.get_token(cliente=cliente)
+         if cliente is not None:
+             status = cliente.check_password(raw_password=self.password)
+             if status:
+                 descricao = ''
+                 token_jwt = self.get_token(cliente=cliente)
+         else:
+             status = False
 
-
-         return status, descricao ,token_jwt
+         return status, descricao, token_jwt
 
      def get_token(self, cliente=None):
          # Definindo a chave secreta para assinar o token
@@ -51,15 +60,16 @@ class Cliente():
          return token
      def cadastrar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
          try:
-             cliente =core.cliente.models.Cliente()
+             cliente = core.cliente.models.Cliente()
              cliente.username = self.username
              cliente.set_password(raw_password=self.password)
              cliente.email = email
-             cliente.cpf = cpf
+             cliente.cpf = Cliente.limpar_cpf(cpf)
              cliente.nome = nome
              cliente.sobrenome = sobrenome
-             cliente.data_nascimento = data_nasc
+             cliente.data_nascimento = Cliente.limpar_data(data_nasc)
              cliente.save()
              return True, ''
-         except:
-             return False, 'Erro ao cadastrar o cliente'
+         except Exception as e:  # Captura a exceção e armazena na variável e
+             print(e)  # Imprime ou faça log da exceção para ver o erro exato
+             return False, str(e)  # Retorna a mensagem de erro
