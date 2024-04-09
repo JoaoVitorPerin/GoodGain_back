@@ -5,12 +5,12 @@ import requests
 import json
 from django.apps import apps
 
-from base.settings import BANCO
-import core.sistema.models
-import core.produto.models
+
+# import core.sistema.models
+# import core.produto.models
 import http.client
 import xmltodict
-import util.TratarCampos
+# import util.TratarCampos
 
 
 class Integracao:
@@ -28,24 +28,24 @@ class Integracao:
         self.request = request
         http.client._MAXHEADERS = 1000
 
-    def salvar(self):
-
-        try:
-            log_model = apps.get_model('log', BANCO.capitalize() + 'Integracao')
-
-            nova_integracao = log_model(
-                servico=self.servico,
-                url=self.url,
-                body=self.body,
-                headers=self.headers,
-                response=self.response,
-                status_code=self.status_code,
-                tipo=self.tipo
-            )
-            nova_integracao.save(request_=self.request, using='log')
-            return True
-        except:
-            return False
+    # def salvar(self):
+    #
+    #     try:
+    #         log_model = apps.get_model('log', BANCO.capitalize() + 'Integracao')
+    #
+    #         nova_integracao = log_model(
+    #             servico=self.servico,
+    #             url=self.url,
+    #             body=self.body,
+    #             headers=self.headers,
+    #             response=self.response,
+    #             status_code=self.status_code,
+    #             tipo=self.tipo
+    #         )
+    #         nova_integracao.save(request_=self.request, using='log')
+    #         return True
+    #     except:
+    #         return False
 
     def tratar_campo(self, campo=None):
 
@@ -72,7 +72,7 @@ class Integracao:
             resposta = requests.post(self.url, json=data, headers=self.headers, files=arquivos, params=parametros, auth=auth, timeout=timeout, verify=verify, cert=self.cert)
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def get(self, dumps=False, auth=None, parametros=None, verify=True):
 
@@ -85,13 +85,13 @@ class Integracao:
         self.response = resposta.content
         self.response_text = resposta.text
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def delete(self):
         resposta = requests.delete(self.url, headers=self.headers, data=self.body)
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def put(self, dumps=False, unicode=True, ensure_ascii=False, arquivos=None):
         data = self.body
@@ -101,19 +101,19 @@ class Integracao:
         resposta = requests.put(self.url, headers=self.headers, data=data, files=arquivos)
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def options(self):
         resposta = requests.options(self.url, headers=self.headers, data=self.body)
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def head(self):
         resposta = requests.head(self.url, headers=self.headers, data=self.body)
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def patch(self, dumps=True, unicode=True, ensure_ascii=False):
         data = self.body
@@ -126,14 +126,14 @@ class Integracao:
 
         self.response = resposta.content
         self.status_code = resposta.status_code
-        self.salvar()
+        # self.salvar()
 
     def salvar_webhook(self, body=None, status_code=None, headers=None, response=None):
         self.body = body
         self.status_code = status_code
         self.headers = headers
         self.response = response
-        self.salvar()
+        # self.salvar()
 
     def converter_resposta_xml_para_json(self):
         self.response = xmltodict.parse(self.response)
@@ -197,14 +197,14 @@ class Integracao:
                 servico = 'google_shop'
             else:
                 servico = self.servico
-
-            feed = core.produto.models.Feed.objects.get(nome=servico)
-            core.produto.models.ProdutoFeedLog(
-                feed_id=feed.id,
-                qtd_produtos=len(lista_produtos),
-                json_produtos=json.dumps(lista_produtos),
-                status=status
-            ).save()
+            #
+            # feed = core.produto.models.Feed.objects.get(nome=servico)
+            # core.produto.models.ProdutoFeedLog(
+            #     feed_id=feed.id,
+            #     qtd_produtos=len(lista_produtos),
+            #     json_produtos=json.dumps(lista_produtos),
+            #     status=status
+            # ).save()
             return True
         except:
             return False
@@ -262,46 +262,46 @@ class Integracao:
             return True
         return False
 
-    def verificar_integracoes(self):
-        urls = core.sistema.models.ChavesIntegracao.objects.ativos().values_list('url', flat=True)
-        urls = list(set(urls))
-
-        lista_ativos = []
-        lista_inativos = []
-        lista_codigo_erro = []
-
-        self.tipo = 'verificar_integracoes'
-        for url in urls:
-            try:
-                self.url = url
-                self.head()
-                if self.status_code == 200:
-                    # print(f"URL {url} is active.")
-                    lista_ativos.append(url)
-                elif util.TratarCampos.is_url_local(url=url):
-                    # print(f"URL {url} is private.")
-                    lista_ativos.append(url)
-                else:
-                    # print(f"URL {url} returned a status code: {self.status_code}")
-                    lista_codigo_erro.append(url)
-            except Exception as e:
-                # print(f"Could not connect to URL: {url}")
-                lista_inativos.append(url)
-
-        # print(f'Ativos: {len(lista_ativos)} {lista_ativos}')
-        # print(f'Inativos: {len(lista_inativos)} {lista_inativos}')
-        # print(f'Codigos_erro: {len(lista_codigo_erro)} {lista_codigo_erro}')
-
-        #Update
-        core.sistema.models.ChavesIntegracao.objects\
-            .ativos()\
-            .filter(url__in=lista_ativos+lista_codigo_erro)\
-            .update(is_ativo=True)
-
-        core.sistema.models.ChavesIntegracao.objects\
-            .ativos()\
-            .filter(url__in=lista_inativos)\
-            .update(is_ativo=False)
+    # def verificar_integracoes(self):
+    #     urls = core.sistema.models.ChavesIntegracao.objects.ativos().values_list('url', flat=True)
+    #     urls = list(set(urls))
+    #
+    #     lista_ativos = []
+    #     lista_inativos = []
+    #     lista_codigo_erro = []
+    #
+    #     self.tipo = 'verificar_integracoes'
+    #     for url in urls:
+    #         try:
+    #             self.url = url
+    #             self.head()
+    #             if self.status_code == 200:
+    #                 # print(f"URL {url} is active.")
+    #                 lista_ativos.append(url)
+    #             elif util.TratarCampos.is_url_local(url=url):
+    #                 # print(f"URL {url} is private.")
+    #                 lista_ativos.append(url)
+    #             else:
+    #                 # print(f"URL {url} returned a status code: {self.status_code}")
+    #                 lista_codigo_erro.append(url)
+    #         except Exception as e:
+    #             # print(f"Could not connect to URL: {url}")
+    #             lista_inativos.append(url)
+    #
+    #     # print(f'Ativos: {len(lista_ativos)} {lista_ativos}')
+    #     # print(f'Inativos: {len(lista_inativos)} {lista_inativos}')
+    #     # print(f'Codigos_erro: {len(lista_codigo_erro)} {lista_codigo_erro}')
+    #
+    #     #Update
+    #     core.sistema.models.ChavesIntegracao.objects\
+    #         .ativos()\
+    #         .filter(url__in=lista_ativos+lista_codigo_erro)\
+    #         .update(is_ativo=True)
+    #
+    #     core.sistema.models.ChavesIntegracao.objects\
+    #         .ativos()\
+    #         .filter(url__in=lista_inativos)\
+    #         .update(is_ativo=False)
 
     @property
     def url(self):
@@ -410,22 +410,22 @@ class Chave:
         self.objeto = None
         self.carregar()
 
-    def carregar(self):
-        try:
-            if self.nome is not None:
-                self.objeto = core.sistema.models.ChavesIntegracao.objects.ativos().all().filter(nome=self.nome).first()
-                self.url = self.objeto.url
-                self.usuario = self.objeto.usuario
-                self.senha = self.objeto.senha
-                self.porta = self.objeto.porta
-            return self.objeto
-        except:
-            return self.objeto
+    # def carregar(self):
+    #     try:
+    #         if self.nome is not None:
+    #             self.objeto = core.sistema.models.ChavesIntegracao.objects.ativos().all().filter(nome=self.nome).first()
+    #             self.url = self.objeto.url
+    #             self.usuario = self.objeto.usuario
+    #             self.senha = self.objeto.senha
+    #             self.porta = self.objeto.porta
+    #         return self.objeto
+    #     except:
+    #         return self.objeto
 
-    def criar(self, nome=None, descricao=None, url=None, porta=None, usuario=None, senha=None, info_descricao=None, info_1=None, info_2=None, info_3=None, info_4=None, info_5=None):
-        criar = core.sistema.models.ChavesIntegracao(nome=nome, descricao=descricao, url=url, porta=porta, usuario=usuario, senha=senha, info_descricao=info_descricao, info_1=info_1, info_2=info_2, info_3=info_3, info_4=info_4, info_5=info_5)
-        criar.save()
-        return criar
+    # def criar(self, nome=None, descricao=None, url=None, porta=None, usuario=None, senha=None, info_descricao=None, info_1=None, info_2=None, info_3=None, info_4=None, info_5=None):
+    #     criar = core.sistema.models.ChavesIntegracao(nome=nome, descricao=descricao, url=url, porta=porta, usuario=usuario, senha=senha, info_descricao=info_descricao, info_1=info_1, info_2=info_2, info_3=info_3, info_4=info_4, info_5=info_5)
+    #     criar.save()
+    #     return criar
 
     def get(self, attr):
         if self.objeto is not None and hasattr(self.objeto, attr):

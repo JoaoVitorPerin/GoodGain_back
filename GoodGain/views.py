@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 
 import BO.cliente.cliente
+import BO.integracao.sportradar
 from rest_framework.views import APIView
 
 class CadastroCliente(APIView):
@@ -31,3 +32,21 @@ class Login(APIView):
         status, descricao, token_jwt = BO.cliente.cliente.Cliente(username=user, password=password).logar()
 
         return JsonResponse({'status': status,'descricao': descricao,'token': token_jwt})
+
+
+
+
+
+
+
+
+
+
+#classes do Admin
+
+class PegarVersusu(APIView):
+    def get(self, *args, **kwargs):
+
+        status, = BO.integracao.sportradar.Sportradar().pegar_versus()
+
+        return JsonResponse({'status': status})
