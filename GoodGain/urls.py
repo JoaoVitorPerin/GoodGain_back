@@ -23,5 +23,9 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('login', GoodGain.views.Login.as_view(), name='login'),
-    re_path('cadastro', GoodGain.views.CadastroCliente.as_view(), name='login'),
+    re_path('cadastro', GoodGain.views.CadastroCliente.as_view(), name='cadastro'),
+
+
+    #inicio variaveis do admin
+    re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus')
 ]
