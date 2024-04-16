@@ -3,6 +3,9 @@ import uuid
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 
+from core import esporte
+
+
 class Cliente(AbstractBaseUser):
     """
     :Nome da classe/função: Cliente
@@ -18,6 +21,7 @@ class Cliente(AbstractBaseUser):
     data_nascimento = models.IntegerField(null=True)
     imagem = models.CharField(max_length=200, null=True)
     is_email_confirmado = models.BooleanField(null=True, default=False)
+    perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
 
 
     class Meta:
@@ -37,18 +41,18 @@ class Perfis(models.Model):
     class Meta:
         db_table = u'"public\".\"perfis"'
 
-class PerfilCliente(models.Model):
+
+class ClientePreferencias(models.Model):
     """
-    :Nome da classe/função: PerfilCliente
-    :descrição: Classe que relaciona o perfil com os clientes
-    :Criação: Thiago Jungles Caron - 06/04/2024
+    :Nome da classe/função: ClientePreferencias
+    :descrição: Classe de preferencias do cliente
+    :Criação: Thiago Jungles Caron - 16/04/2024
     :Edições:
     """
-    id = models.IntegerField(primary_key=True, default=uuid.uuid4)
+    id = models.IntegerField(primary_key=True)
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
-    perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
+    esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
 
 
     class Meta:
-        db_table = u'"public\".\"perfil_cliente"'
-
+        db_table = u'"public\".\"cliente_preferencias"'

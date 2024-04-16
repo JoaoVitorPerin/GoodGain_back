@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'core',
-    'core.cliente'
+    'core.cliente',
+    "core.esporte.apps.EsporteConfig"
+
 ]
 
 MIDDLEWARE = [
