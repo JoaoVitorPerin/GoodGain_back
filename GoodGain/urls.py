@@ -23,7 +23,9 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('login', GoodGain.views.Login.as_view(), name='login'),
-    re_path('cadastro', GoodGain.views.CadastroCliente.as_view(), name='cadastro'),
+    re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
+    re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
+    re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
 
 
     #inicio variaveis do admin

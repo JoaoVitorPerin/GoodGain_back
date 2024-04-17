@@ -22,6 +22,7 @@ class Cliente(AbstractBaseUser):
     imagem = models.CharField(max_length=200, null=True)
     is_email_confirmado = models.BooleanField(null=True, default=False)
     perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
     class Meta:
@@ -36,6 +37,7 @@ class Perfis(models.Model):
     """
     nome = models.CharField(max_length=100, primary_key=True)
     nm_descritivo = models.CharField(max_length=50, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
     class Meta:
@@ -52,6 +54,7 @@ class ClientePreferencias(models.Model):
     id = models.IntegerField(primary_key=True)
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
     esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
     class Meta:

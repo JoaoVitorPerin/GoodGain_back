@@ -14,6 +14,7 @@ class Esporte(models.Model):
     """
     id = models.CharField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
 
@@ -30,6 +31,7 @@ class Campeonato(models.Model):
     id = models.CharField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
     esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
 
@@ -46,6 +48,7 @@ class Time(models.Model):
     """
     id = models.CharField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
+    status = models.BooleanField(null=True, default=True)
 
 
 
@@ -65,9 +68,10 @@ class Evento(models.Model):
     data = models.IntegerField(null=True)
     time_a = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_a')
     time_b = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_b')
-    resultado_time_a = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='resultado_time_a')
-    resultado_time_b = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='resultado_time_b')
+    resultado_time_a = models.CharField(null=True)
+    resultado_time_b = models.CharField(null=True)
     campeonato = models.ForeignKey('esporte.Campeonato', on_delete=models.DO_NOTHING, null=True)
+    status = models.BooleanField(null=True, default=True)
 
     class Meta:
         db_table = u'"public\".\"evento"'
