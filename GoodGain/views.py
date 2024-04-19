@@ -22,7 +22,7 @@ class ResetSenhaView(APIView):
 
 class Cliente(APIView):
     def get(self, *args, **kwargs):
-        cpf = self.request.data.get('cpf')
+        cpf = self.request.GET.get('cpf')
         status, mensagem, cliente = BO.cliente.cliente.Cliente().get_cliente(cpf=cpf)
         return JsonResponse({'status': status, 'mensagem': mensagem, 'cliente': cliente})
 
@@ -50,7 +50,7 @@ class Cliente(APIView):
         sobrenome = self.request.data.get('sobrenome')
         email = self.request.data.get('email')
         cpf = self.request.data.get('cpf')
-        data_nasc = self.request.data.get('dataNascimento')
+        data_nasc = self.request.data.get('data_nascimento')
 
         status, mensagem = BO.cliente.cliente.Cliente(username=username, password=password).editar_cliente(nome=nome,
                                                                                                            sobrenome=sobrenome,

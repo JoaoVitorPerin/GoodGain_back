@@ -15,11 +15,15 @@ class Cliente():
 
      @staticmethod
      def limpar_cpf(cpf):
+         if cpf is None:
+             return ""
          return cpf.replace(".", "").replace("-", "")
 
      @staticmethod
-     def limpar_data(cpf):
-         return cpf.replace("/", "").replace("-", "")
+     def limpar_data(data):
+         if data is None:
+             return ""
+         return data.replace("/", "").replace("-", "")
 
      def get_cliente(self, cpf=None):
         try:
@@ -88,12 +92,18 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
+     def validar_username(self, username):
+         cliente_exists = core.cliente.models.Cliente.objects.filter(username=username).exists()
+         return cliente_exists
+
      def editar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
          try:
-             cliente_existe = self.get_cliente(cpf=cpf)
+             status_email = False
+             _,_,cliente_existe = self.get_cliente(cpf=cpf)
              if not cliente_existe:
                  return False, 'cpf não encontrado no sistema'
-             status_email = self.validar_email()
+             if email != cliente_existe.get('email'):
+                status_email = self.validar_email()
              if status_email:
                  return False, 'o email só pode estar vinculado a um unico usuário'
              cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
