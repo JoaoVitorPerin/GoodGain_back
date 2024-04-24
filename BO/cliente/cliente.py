@@ -122,7 +122,9 @@ class Cliente():
 
      def cadastrar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
          try:
-             preferencias = core.cliente.models.ClientePreferencias()
+             preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
+             if not preferencias:
+                preferencias = core.cliente.models.ClientePreferencias()
              preferencias.cliente_id = cpf
              preferencias.esporte = esporte
              preferencias.opcoes_apostas = opcoes_apostas
@@ -131,16 +133,16 @@ class Cliente():
          except:
              return False
 
-     def editar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
-         try:
-             preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
-             preferencias.cliente_id = cpf
-             preferencias.esporte = esporte
-             preferencias.opcoes_apostas = opcoes_apostas
-             preferencias.save()
-             return True
-         except:
-             return False
+     # def editar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
+     #     try:
+     #         preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
+     #         preferencias.cliente_id = cpf
+     #         preferencias.esporte = esporte
+     #         preferencias.opcoes_apostas = opcoes_apostas
+     #         preferencias.save()
+     #         return True
+     #     except:
+     #         return False
 
      def cadastrar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
          try:

@@ -95,18 +95,18 @@ class Preferencias(APIView):
 
         return JsonResponse({'status': status})
 
-    def put(self, *args, **kwargs):
-        esporte = self.request.data.getlist('esporte')
-        opcoes_apostas = self.request.data.getlist('opcoes_apostas')
-        cpf = self.request.data.get('cpf')
-
-
-        status= BO.cliente.cliente.Cliente().editar_preferencias(cpf=cpf,
-                                                                 esporte=esporte,
-                                                                 opcoes_apostas=opcoes_apostas
-                                                                 )
-
-        return JsonResponse({'status': status})
+    # def put(self, *args, **kwargs):
+    #     esporte = self.request.data.getlist('esporte')
+    #     opcoes_apostas = self.request.data.getlist('opcoes_apostas')
+    #     cpf = self.request.data.get('cpf')
+    #
+    #
+    #     status= BO.cliente.cliente.Cliente().editar_preferencias(cpf=cpf,
+    #                                                              esporte=esporte,
+    #                                                              opcoes_apostas=opcoes_apostas
+    #                                                              )
+    #
+    #     return JsonResponse({'status': status})
 
 class Login(APIView):
     def get(self, *args, **kwargs):
