@@ -22,6 +22,7 @@ class Cliente(AbstractBaseUser):
     imagem = models.CharField(max_length=200, null=True)
     is_email_confirmado = models.BooleanField(null=True, default=False)
     perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
+    codigo_recuperacao = models.BigIntegerField(null=True)
     status = models.BooleanField(null=True, default=True)
 
 
@@ -53,7 +54,8 @@ class ClientePreferencias(models.Model):
     """
     id = models.IntegerField(primary_key=True)
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
-    esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
+    esporte = models.CharField(max_length=500, null=True)
+    campeonato = models.CharField(max_length=500, null=True)
     status = models.BooleanField(null=True, default=True)
 
 

@@ -26,8 +26,10 @@ urlpatterns = [
     re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
     re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
+    re_path('verificar/codigo', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
 
 
     #inicio variaveis do admin
-    re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus')
+    re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus'),
+    re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados')
 ]

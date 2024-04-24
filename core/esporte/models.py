@@ -70,6 +70,7 @@ class Evento(models.Model):
     time_b = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_b')
     resultado_time_a = models.CharField(null=True)
     resultado_time_b = models.CharField(null=True)
+    resultado_partida = models.CharField(null=True)
     campeonato = models.ForeignKey('esporte.Campeonato', on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
 

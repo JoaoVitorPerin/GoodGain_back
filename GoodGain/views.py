@@ -16,7 +16,19 @@ class AlterarsenhaView(APIView):
 class ResetSenhaView(APIView):
     def post(self,*args, **kwargs):
         email = self.request.data.get('email')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente().alterar_senha(cpf=cpf)
+        status, mensagem, cliente = BO.cliente.cliente.Cliente().resetar_senha(email=email)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+class VerficarCodigo(APIView):
+
+    def get(self, *args, **kwargs):
+        email = self.request.GET.get('email')
+        status, mensagem, cliente = BO.cliente.cliente.Cliente().get_cliente(cpf=cpf)
+        return JsonResponse({'status': status, 'mensagem': mensagem, 'cliente': cliente})
+    def post(self,*args, **kwargs):
+        email = self.request.data.get('email')
+        codigo = self.request.data.get('codigo')
+        status, mensagem, cliente = BO.cliente.cliente.Cliente().resetar_senha(email=email)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
 
@@ -89,6 +101,13 @@ class Login(APIView):
 class PegarVersusu(APIView):
     def get(self, *args, **kwargs):
 
-        status = BO.integracao.sportradar.Sportradar().pegar_versus()
+        status = BO.integracao.sportradar.Sportradar().pegar_versus_futebol()
+
+        return JsonResponse({'status': status})
+
+class AtualizarDados(APIView):
+    def get(self, *args, **kwargs):
+
+        status = BO.integracao.sportradar.Sportradar().atualizar_dados()
 
         return JsonResponse({'status': status})
