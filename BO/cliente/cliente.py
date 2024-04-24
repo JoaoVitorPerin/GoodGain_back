@@ -216,9 +216,9 @@ class Cliente():
              cliente_existe = self.get_cliente(cpf=cpf)
              if not cliente_existe:
                  return False, 'cpf não encontrado no sistema'
+             cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
              status = cliente.check_password(raw_password=old_password)
              if status:
-                 cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
                  cliente.set_password(raw_password=self.password)
                  cliente.cpf = Cliente.limpar_cpf(cpf)
                  cliente.save()
