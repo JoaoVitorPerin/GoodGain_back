@@ -9,8 +9,8 @@ class AlterarsenhaView(APIView):
     def post(self,*args, **kwargs):
         cpf = self.request.data.get('cpf')
         password = self.request.data.get('password')
-        old_password = self.request.data.get('old_password')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente(password=password).alterar_senha(cpf=cpf, old_password=old_password)
+        old_password = self.request.data.get('oldPassword')
+        status, mensagem = BO.cliente.cliente.Cliente(password=password).alterar_senha(cpf=cpf, old_password=old_password)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
 
