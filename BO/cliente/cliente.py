@@ -211,15 +211,19 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
-     def alterar_senha(self, cpf=None):
+     def alterar_senha(self, cpf=None, old_password=old_password):
          try:
              cliente_existe = self.get_cliente(cpf=cpf)
              if not cliente_existe:
                  return False, 'cpf não encontrado no sistema'
-             cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
-             cliente.set_password(raw_password=self.password)
-             cliente.cpf = Cliente.limpar_cpf(cpf)
-             cliente.save()
+             status = cliente.check_password(raw_password=old_password)
+             if status:
+                 cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
+                 cliente.set_password(raw_password=self.password)
+                 cliente.cpf = Cliente.limpar_cpf(cpf)
+                 cliente.save()
+             else:
+                return False, 'senha antiga incorreta'
              return True, ''
          except Exception as e:  # Captura a exceção e armazena na variável e
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
