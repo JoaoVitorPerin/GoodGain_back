@@ -211,7 +211,7 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
-     def alterar_senha(self, cpf=None, old_password=old_password):
+     def alterar_senha(self, cpf=None, old_password=None):
          try:
              cliente_existe = self.get_cliente(cpf=cpf)
              if not cliente_existe:
