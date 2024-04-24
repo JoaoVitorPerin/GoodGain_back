@@ -4,11 +4,12 @@ import core.esporte.models
 import jwt
 import datetime
 import random
-
+import ast
 
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+
 
 
 class Cliente():
@@ -36,8 +37,12 @@ class Cliente():
             return False, '', {}
 
      def get_preferencias_user(self, cpf=None):
-         user_preferencias = list(core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf))
-         return user_preferencias
+         user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf).first()
+         response ={
+             'esporte':ast.literal_eval(user_preferencias.get('esporte')),
+             'opcoes_apostas':ast.literal_eval(user_preferencias.get('opcoes_apostas'))
+         }
+         return response
 
      def get_preferencias(self):
          opcoes_apostas = list(core.esporte.models.Tipo.objects.values().filter(tipo='OPCOES.APOSTA'))
@@ -126,8 +131,9 @@ class Cliente():
              if not preferencias:
                 preferencias = core.cliente.models.ClientePreferencias()
              preferencias.cliente_id = cpf
-             preferencias.esporte = esporte
-             preferencias.opcoes_apostas = opcoes_apostas
+             preferencias.esporte = str(esporte)
+             preferencias.opcoes_apostas = str(opcoes_apostas)
+             preferencias.status = True
              preferencias.save()
              return True
          except:

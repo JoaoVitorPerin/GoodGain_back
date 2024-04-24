@@ -52,7 +52,6 @@ class ClientePreferencias(models.Model):
     :Criação: Thiago Jungles Caron - 16/04/2024
     :Edições:
     """
-    id = models.IntegerField(primary_key=True)
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
     esporte = models.CharField(max_length=500, null=True)
     campeonato = models.CharField(max_length=500, null=True)

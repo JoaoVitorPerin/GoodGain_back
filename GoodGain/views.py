@@ -83,8 +83,8 @@ class Preferencias(APIView):
         return JsonResponse({'preferencia_user': preferencia_user, 'dados': dados})
 
     def post(self, *args, **kwargs):
-        esporte = self.request.data.getlist('esporte')
-        opcoes_apostas = self.request.data.getlist('opcoes_apostas')
+        esporte = self.request.data.get('esporte')
+        opcoes_apostas = self.request.data.get('opcoes_apostas')
         cpf = self.request.data.get('cpf')
 
 

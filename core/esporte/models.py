@@ -29,7 +29,7 @@ class Tipo(models.Model):
     :Criação: Thiago Jungles Caron - 16/04/2024
     :Edições:
     """
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     codigo = models.CharField(max_length=100, null=True)
     informacao = models.CharField(max_length=100, null=True)
     tipo = models.CharField(max_length=100, null=True)
