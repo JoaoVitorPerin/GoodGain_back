@@ -39,8 +39,8 @@ class Cliente():
      def get_preferencias_user(self, cpf=None):
          user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf).first()
          response ={
-             'esporte':ast.literal_eval(user_preferencias.get('esporte')),
-             'opcoes_apostas':ast.literal_eval(user_preferencias.get('opcoes_apostas'))
+             'esporte': ast.literal_eval(user_preferencias.get('esporte')) if user_preferencias.get('esporte') else [],
+             'opcoes_apostas': ast.literal_eval(user_preferencias.get('opcoes_apostas')) if user_preferencias.get('opcoes_apostas') else []
          }
          return response
 
