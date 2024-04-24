@@ -79,7 +79,7 @@ class Preferencias(APIView):
     def get(self, *args, **kwargs):
         cpf = self.request.GET.get('cpf')
         preferencia_user = BO.cliente.cliente.Cliente().get_preferencias_user(cpf=cpf)
-        dados, = BO.cliente.cliente.Cliente().get_preferencias()
+        dados = BO.cliente.cliente.Cliente().get_preferencias()
         return JsonResponse({'preferencia_user': preferencia_user, 'dados': dados})
 
     def post(self, *args, **kwargs):

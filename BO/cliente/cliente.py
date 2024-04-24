@@ -36,11 +36,11 @@ class Cliente():
             return False, '', {}
 
      def get_preferencias_user(self, cpf=None):
-         user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf)
+         user_preferencias = list(core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf))
          return user_preferencias
 
      def get_preferencias(self):
-         opcoes_apostas = core.esporte.models.Tipo.objects.values().filter(tipo='OPCOES.APOSTA')
+         opcoes_apostas = list(core.esporte.models.Tipo.objects.values().filter(tipo='OPCOES.APOSTA'))
          esporte = list(core.esporte.models.Esporte.objects.values())
          retorno = {
              'opcoes_apostas':opcoes_apostas,
