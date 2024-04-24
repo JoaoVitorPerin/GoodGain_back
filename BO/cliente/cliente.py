@@ -1,5 +1,6 @@
 
 import core.cliente.models
+import core.esporte.models
 import jwt
 import datetime
 import random
@@ -8,6 +9,7 @@ import random
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+
 
 class Cliente():
      def __init__(self, username=None, password=None):
@@ -32,6 +34,19 @@ class Cliente():
             return True, '', cliente
         except:
             return False, '', {}
+
+     def get_preferencias_user(self, cpf=None):
+         user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf)
+         return user_preferencias
+
+     def get_preferencias(self):
+         opcoes_apostas = core.esporte.models.Tipo.objects.values().filter(tipo='OPCOES.APOSTA')
+         esporte = list(core.esporte.models.Esporte.objects.values())
+         retorno = {
+             'opcoes_apostas':opcoes_apostas,
+             'esporte': esporte,
+         }
+         return retorno
 
 
      def gerar_codigo(self, email=None):
@@ -104,6 +119,28 @@ class Cliente():
 
          # Retorna True se a idade é 18 ou mais, caso contrário False
          return age >= 18
+
+     def cadastrar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
+         try:
+             preferencias = core.cliente.models.ClientePreferencias()
+             preferencias.cliente_id = cpf
+             preferencias.esporte = esporte
+             preferencias.opcoes_apostas = opcoes_apostas
+             preferencias.save()
+             return True
+         except:
+             return False
+
+     def editar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
+         try:
+             preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
+             preferencias.cliente_id = cpf
+             preferencias.esporte = esporte
+             preferencias.opcoes_apostas = opcoes_apostas
+             preferencias.save()
+             return True
+         except:
+             return False
 
      def cadastrar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
          try:

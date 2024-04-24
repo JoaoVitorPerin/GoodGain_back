@@ -57,6 +57,7 @@ class ClientePreferencias(models.Model):
     esporte = models.CharField(max_length=500, null=True)
     campeonato = models.CharField(max_length=500, null=True)
     status = models.BooleanField(null=True, default=True)
+    opcoes_apostas = models.CharField(max_length=500, null=True)
 
 
     class Meta:

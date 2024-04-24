@@ -75,6 +75,39 @@ class Cliente(APIView):
         status, mensagem = BO.cliente.cliente.Cliente().deletar_cliente(cpf=cpf)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
+class Preferencias(APIView):
+    def get(self, *args, **kwargs):
+        cpf = self.request.GET.get('cpf')
+        preferencia_user = BO.cliente.cliente.Cliente().get_preferencias_user(cpf=cpf)
+        dados, = BO.cliente.cliente.Cliente().get_preferencias()
+        return JsonResponse({'preferencia_user': preferencia_user, 'dados': dados})
+
+    def post(self, *args, **kwargs):
+        esporte = self.request.data.getlist('esporte')
+        opcoes_apostas = self.request.data.getlist('opcoes_apostas')
+        cpf = self.request.data.get('cpf')
+
+
+        status= BO.cliente.cliente.Cliente().cadastrar_preferencias(cpf=cpf,
+                                                                          esporte=esporte,
+                                                                          opcoes_apostas=opcoes_apostas
+                                                                          )
+
+        return JsonResponse({'status': status})
+
+    def put(self, *args, **kwargs):
+        esporte = self.request.data.getlist('esporte')
+        opcoes_apostas = self.request.data.getlist('opcoes_apostas')
+        cpf = self.request.data.get('cpf')
+
+
+        status= BO.cliente.cliente.Cliente().editar_preferencias(cpf=cpf,
+                                                                 esporte=esporte,
+                                                                 opcoes_apostas=opcoes_apostas
+                                                                 )
+
+        return JsonResponse({'status': status})
+
 class Login(APIView):
     def get(self, *args, **kwargs):
         return
