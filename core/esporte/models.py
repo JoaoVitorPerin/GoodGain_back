@@ -21,6 +21,24 @@ class Esporte(models.Model):
     class Meta:
         db_table = u'"public\".\"esporte"'
 
+
+class Tipo(models.Model):
+    """
+    :Nome da classe/função: Esportes
+    :descrição: Classe de esportes
+    :Criação: Thiago Jungles Caron - 16/04/2024
+    :Edições:
+    """
+    codigo = models.CharField(max_length=100, null=True)
+    informacao = models.CharField(max_length=100, null=True)
+    tipo = models.CharField(primary_key=True)
+    status = models.BooleanField(null=True, default=True)
+
+
+
+    class Meta:
+        db_table = u'"public\".\"tipo"'
+
 class Campeonato(models.Model):
     """
     :Nome da classe/função: Campeonato
