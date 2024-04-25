@@ -242,7 +242,7 @@ class Cliente():
      def verificar_codigo(self, email=None, codigo=None):
          try:
              cliente = core.cliente.models.Cliente.objects.filter(email=email).first()
-             if cliente.codigo_recuperacao == codigo:
+             if cliente.codigo_recuperacao == int(codigo):
                 cliente.set_password(raw_password=self.password)
              cliente.save()
              return True, ''

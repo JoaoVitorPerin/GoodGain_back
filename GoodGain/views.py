@@ -30,7 +30,7 @@ class VerficarCodigo(APIView):
         email = self.request.data.get('email')
         codigo = self.request.data.get('codigo')
         password = self.request.data.get('password')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente(password=password).verificar_codigo(email=email, codigo=codigo)
+        status, mensagem = BO.cliente.cliente.Cliente(password=password).verificar_codigo(email=email, codigo=codigo)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
 
