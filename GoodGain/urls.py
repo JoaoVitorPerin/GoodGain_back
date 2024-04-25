@@ -27,7 +27,7 @@ urlpatterns = [
     re_path('preferencias', GoodGain.views.Preferencias.as_view(), name='preferencias'),
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
     re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
-    re_path('verificar/codigo', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
+    re_path('verificar/codigo', GoodGain.views.VerficarCodigo.as_view(), name='reset_senha'),
 
 
     #inicio variaveis do admin

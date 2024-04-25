@@ -24,12 +24,13 @@ class VerficarCodigo(APIView):
 
     def get(self, *args, **kwargs):
         email = self.request.GET.get('email')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente().gerar_codigo(email=email)
-        return JsonResponse({'status': status, 'mensagem': mensagem, 'cliente': cliente})
+        status, mensagem, codigo = BO.cliente.cliente.Cliente().gerar_codigo(email=email)
+        return JsonResponse({'status': status, 'mensagem': mensagem, 'codigo': codigo})
     def post(self,*args, **kwargs):
         email = self.request.data.get('email')
         codigo = self.request.data.get('codigo')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente().resetar_senha(email=email)
+        password = self.request.data.get('password')
+        status, mensagem, cliente = BO.cliente.cliente.Cliente(password=password).verificar_codigo(email=email, codigo=codigo)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
 

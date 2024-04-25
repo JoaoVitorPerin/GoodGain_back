@@ -239,10 +239,11 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
-     def verificar_codigo(self, email=None):
+     def verificar_codigo(self, email=None, codigo=None):
          try:
              cliente = core.cliente.models.Cliente.objects.filter(email=email).first()
-             cliente.set_password(raw_password=self.password)
+             if cliente.codigo_recuperacao == codigo:
+                cliente.set_password(raw_password=self.password)
              cliente.save()
              return True, ''
          except Exception as e:  # Captura a exceção e armazena na variável e
