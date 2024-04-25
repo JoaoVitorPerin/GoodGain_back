@@ -25,9 +25,25 @@ class Cliente():
 
      @staticmethod
      def limpar_data(data):
-         if data is None:
-             return ""
-         return data.replace("/", "").replace("-", "")
+         if '/' in data:
+             partes = data.split('/')
+
+             # Verifica se a data já está no formato 'yyyy/mm/dd'
+             if len(partes) == 3 and len(partes[0]) == 4 and len(partes[1]) == 2 and len(partes[2]) == 2:
+                 # Retorna a data como está se já estiver no formato correto
+                 pass
+             # Caso contrário, assume que a data está em 'dd/mm/yyyy' e rearranja para 'yyyy/mm/dd'
+             elif len(partes) == 3 and len(partes[0]) == 2 and len(partes[1]) == 2 and len(partes[2]) == 4:
+                 data = f'{partes[2]}/{partes[1]}/{partes[0]}'
+
+             # Retorna uma mensagem de erro se o formato não for reconhecido
+             else:
+                 return "Formato de data inválido"
+             if data is None:
+                 return ""
+             return data.replace("/", "").replace("-", "")
+         else:
+             return data
 
      def get_cliente(self, cpf=None):
         try:
@@ -160,15 +176,15 @@ class Cliente():
              _, _, cliente_existe = self.get_cliente(cpf=Cliente.limpar_cpf(cpf))
              status_email = self.validar_email(email=email)
              status_username = self.validar_username(username=self.username)
-             status_validar_maioridade = self.validar_maioridade(birthdate_str=Cliente.limpar_data(data_nasc))
+             # status_validar_maioridade = self.validar_maioridade(birthdate_str=Cliente.limpar_data(data_nasc))
              if status_email:
                  return False, 'email já cadastrado no sistema'
              if cliente_existe:
                  return False, 'cpf já cadastrado no sistema'
              if status_username:
-                 return False, 'cpf já cadastrado no sistema'
-             if status_validar_maioridade:
-                 return False, 'cpf já cadastrado no sistema'
+                 return False, 'username já está em uso no sistema'
+             # if status_validar_maioridade:
+             #     return False, 'cpf já cadastrado no sistema'
              cliente = core.cliente.models.Cliente()
              cliente.username = self.username
              cliente.set_password(raw_password=self.password)
@@ -190,14 +206,14 @@ class Cliente():
      def editar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
          try:
              status_email = False
-             _,_,cliente_existe = self.get_cliente(cpf=cpf)
+             _,_,cliente_existe = self.get_cliente(cpf=Cliente.limpar_cpf(cpf))
              if not cliente_existe:
                  return False, 'cpf não encontrado no sistema'
              if email != cliente_existe.get('email'):
                 status_email = self.validar_email()
              if status_email:
                  return False, 'o email só pode estar vinculado a um unico usuário'
-             cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
+             cliente = core.cliente.models.Cliente.objects.filter(cpf=Cliente.limpar_cpf(cpf)).first()
              cliente.username = self.username
              cliente.set_password(raw_password=self.password)
              cliente.email = email
