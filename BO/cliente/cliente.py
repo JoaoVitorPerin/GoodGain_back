@@ -65,7 +65,7 @@ class Cliente():
             cliente.codigo_recuperacao = random.randint(100000, 999999)
             cliente.save()
 
-            self.enviar_email(email=email, codigo=cliente.codigo_recuperacao)
+            self.send_html_email(email=email, codigo=cliente.codigo_recuperacao)
 
             return True, '', cliente.codigo_recuperacao
         except:
@@ -229,7 +229,7 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
-     def resetar_senha(self, email=None):
+     def resetar_senha(self, codigo=None, email=None):
          try:
              cliente = core.cliente.models.Cliente.objects.filter(email=email).first()
              cliente.set_password(raw_password=self.password)
@@ -297,15 +297,15 @@ class Cliente():
              fail_silently=False,
          )
 
-     def send_html_email(self):
-         context = {'purchase': 'Livro de Django'}
-         html_content = render_to_string('emails/template_email.html', context)
+     def send_html_email(self, email=None, codigo=None):
+         context = {'token': codigo}
+         html_content = render_to_string('templates_html/email_rest_senha.html', context)
 
          email = EmailMessage(
-             'Seu pedido foi realizado com sucesso!',
+             'Código de reset de senha goodgain!',
              html_content,
-             'seu_email@gmail.com',
-             ['destinatario@example.com']
+             'goodgainoficcial@gmail.com',
+             [email]
          )
          email.content_subtype = 'html'
          email.send()

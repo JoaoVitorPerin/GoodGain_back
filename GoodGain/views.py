@@ -24,7 +24,7 @@ class VerficarCodigo(APIView):
 
     def get(self, *args, **kwargs):
         email = self.request.GET.get('email')
-        status, mensagem, cliente = BO.cliente.cliente.Cliente().get_cliente(cpf=cpf)
+        status, mensagem, cliente = BO.cliente.cliente.Cliente().gerar_codigo(email=email)
         return JsonResponse({'status': status, 'mensagem': mensagem, 'cliente': cliente})
     def post(self,*args, **kwargs):
         email = self.request.data.get('email')
