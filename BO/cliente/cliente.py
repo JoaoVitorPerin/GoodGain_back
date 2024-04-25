@@ -61,15 +61,15 @@ class Cliente():
 
      def gerar_codigo(self, email=None):
         try:
-            cliente = core.cliente.models.Cliente.objects.values().filter(email=email).first()
+            cliente = core.cliente.models.Cliente.objects.filter(email=email).first()
             cliente.codigo_recuperacao = random.randint(100000, 999999)
             cliente.save()
 
             self.send_html_email(email=email, codigo=cliente.codigo_recuperacao)
 
-            return True, '', cliente.codigo_recuperacao
+            return True, ''
         except:
-            return False, '', 111111
+            return False, ''
 
      def logar(self):
          descricao = 'Não foi possivel logar o cliente, senha ou usuario incorretos'
@@ -300,7 +300,7 @@ class Cliente():
 
      def send_html_email(self, email=None, codigo=None):
          context = {'token': codigo}
-         html_content = render_to_string('templates_html/email_rest_senha.html', context)
+         html_content = render_to_string('email_rest_senha.html', context)
 
          email = EmailMessage(
              'Código de reset de senha goodgain!',
