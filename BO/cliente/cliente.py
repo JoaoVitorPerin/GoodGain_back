@@ -90,7 +90,7 @@ class Cliente():
      def logar(self):
          descricao = 'Não foi possivel logar o cliente, senha ou usuario incorretos'
          token_jwt = {}
-         cliente = core.cliente.models.Cliente.objects.filter(username=self.username).first()
+         cliente = core.cliente.models.Cliente.objects.filter(username=self.username, status=True).first()
          if cliente is not None:
              status = cliente.check_password(raw_password=self.password)
              if status:

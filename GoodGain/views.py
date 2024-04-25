@@ -73,7 +73,7 @@ class Cliente(APIView):
                                                                                                            data_nasc=data_nasc)
         return JsonResponse({'status': status, 'mensagem': mensagem})
     def delete(self, *args, **kwargs):
-        cpf = self.request.data.get('cpf')
+        cpf = self.request.GET.get('cpf')
         status, mensagem = BO.cliente.cliente.Cliente().deletar_cliente(cpf=cpf)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
