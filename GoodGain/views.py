@@ -2,6 +2,7 @@ from django.http import JsonResponse
 
 import BO.cliente.cliente
 import BO.integracao.sportradar
+import BO.esporte.esporte
 from rest_framework.views import APIView
 
 
@@ -19,6 +20,26 @@ class ResetSenhaView(APIView):
         email = self.request.data.get('email')
         status, mensagem, cliente = BO.cliente.cliente.Cliente().resetar_senha(email=email)
         return JsonResponse({'status': status, 'mensagem': mensagem})
+
+
+class Campeonato(APIView):
+
+    def get(self, *args, **kwargs):
+        status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
+        return JsonResponse({'status': status, 'campeonatos': dados})
+
+class SimularAposta(APIView):
+
+    def get(self, *args, **kwargs):
+        status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
+        return JsonResponse({'status': status, 'campeonatos': dados})
+
+class GetCampeonatosTImes(APIView):
+
+    def get(self, *args, **kwargs):
+        campeonato_id = self.request.GET.get('campeonato_id')
+        status, dados = BO.esporte.esporte.Esporte().get_times_campeonato(campeonato_id=campeonato_id)
+        return JsonResponse({'status': status, 'times': dados})
 
 class VerficarCodigo(APIView):
 
@@ -143,6 +164,6 @@ class PegarVersusu(APIView):
 class AtualizarDados(APIView):
     def get(self, *args, **kwargs):
 
-        status = BO.integracao.sportradar.Sportradar().atualizar_dados()
+        status = BO.integracao.sportradar.Sportradar().atualizar_tudo()
 
         return JsonResponse({'status': status})
