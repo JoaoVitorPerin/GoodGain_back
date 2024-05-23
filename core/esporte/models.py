@@ -126,6 +126,7 @@ class Evento(models.Model):
     resultado_time_b = models.CharField(max_length=500,null=True)
     resultado_partida = models.CharField(null=True)
     campeonato = models.ForeignKey('esporte.Campeonato', on_delete=models.DO_NOTHING, null=True)
+    season = models.ForeignKey('esporte.Season', on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
 
     class Meta:

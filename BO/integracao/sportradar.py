@@ -22,7 +22,7 @@ class Sportradar(Integracao):
          # dados = json.loads(self.response)
          # if dados:
          #   info_coletadas.append(dados)
-       info_coletadas = {"generated_at": "2024-05-22T22:50:21+00:00","schedules": [
+       info_coletadas = [{"generated_at": "2024-05-22T22:50:21+00:00","schedules": [
     {
       "sport_event": {
         "id": "sr:sport_event:41762837",
@@ -47901,7 +47901,7 @@ class Sportradar(Integracao):
         ]
       }
     }
-  ]}
+  ]}]
 
        return info_coletadas
     def get_seasons(self):
@@ -70671,13 +70671,31 @@ class Sportradar(Integracao):
                             performance_time.info = json.dumps(times)
                             performance_time.save()
 
+            for dado in dados_schedule:
+                for encontro in dado.get('schedules'):
+                        # salvar/editar os eventos
+                    evento = core.esporte.models.Evento.objects.filter(
+                        id=encontro.get('sport_event').get('id')).first()
+                    if not evento:
+                        evento = core.esporte.models.Evento()
+
+                    evento.id = encontro.get('sport_event').get('id')
+                    evento.nome = encontro.get('sport_event').get('id')
+                    evento.season_id = encontro.get('sport_event').get('sport_event_context').get('season').get('id')
+                    evento.data = encontro.get('sport_event').get('start_time')
+                    evento.resultado_partida = str(encontro.get('sport_event_status'))
+                    evento.campeonato_id = encontro.get('sport_event').get('sport_event_context').get(
+                        'competition').get('id')
+                    evento.save()
+
+
             return True
         except:
             return False
     def atualizar_tudo(self):
         status_response = False
         status_season = self.atualizar_season()
-        # status =  self.atualizar_dados()
+        status =  self.atualizar_dados()
 
 
         if status and status_season:
@@ -70705,6 +70723,9 @@ class Sportradar(Integracao):
             esporte.id = encontros_passados.get('sport_event').get('sport_event_context').get('sport').get('id')
             esporte.save()
 
+            season_id = core.esporte.models.Season.objects.values_list('id', flat=True).filter(
+                id=encontros_passados.get('sport_event').get('sport_event_context').get('season').get('id')).first()
+
             # salvar/editar os campeonatos
             campeonato = core.esporte.models.Campeonato.objects.filter(id=encontros_passados.get('sport_event').get('sport_event_context').get('competition').get('id')).first()
             if not campeonato:
@@ -70721,6 +70742,7 @@ class Sportradar(Integracao):
 
             evento.id = encontros_passados.get('sport_event').get('id')
             evento.nome = encontros_passados.get('sport_event').get('id')
+            evento.season_id = season_id if season_id else None
             evento.data = encontros_passados.get('sport_event').get('start_time')
             evento.time_a_id = encontros_passados.get('statistics').get('totals').get('competitors')[0].get('id')
             evento.time_b_id = encontros_passados.get('statistics').get('totals').get('competitors')[1].get('id')
@@ -70748,6 +70770,9 @@ class Sportradar(Integracao):
 
         for encontros_futuros in dados.get('next_meetings'):
 
+            season_id = core.esporte.models.Season.objects.values_list('id', flat=True).filter(
+                id=encontros_futuros.get('sport_event').get('sport_event_context').get('season').get('id')).first()
+
             # salvar/editar os esportes
 
             esporte = core.esporte.models.Esporte.objects.filter(id=encontros_futuros.get('sport_event').get('sport_event_context').get('sport').get('id')).first()
@@ -70773,6 +70798,7 @@ class Sportradar(Integracao):
 
             evento.id = encontros_futuros.get('sport_event').get('id')
             evento.nome = encontros_futuros.get('sport_event').get('id')
+            evento.season_id = season_id if season_id else None
             evento.data = encontros_futuros.get('sport_event').get('start_time')
             evento.resultado_partida = str(encontros_futuros.get('sport_event_status'))
             evento.campeonato_id = encontros_futuros.get('sport_event').get('sport_event_context').get('competition').get('id')
