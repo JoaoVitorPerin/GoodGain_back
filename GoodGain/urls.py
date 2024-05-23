@@ -31,7 +31,7 @@ urlpatterns = [
 
     re_path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 
-    re_path('campeonato/times', GoodGain.views.GetCampeonatosTImes.as_view(), name='campeonato_time'),
+    re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
     re_path('simular/aposta', GoodGain.views.VerficarCodigo.as_view(), name='simular_aposta'),
 
 

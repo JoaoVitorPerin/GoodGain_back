@@ -1,3 +1,5 @@
+import json
+
 import core.esporte.models
 
 
@@ -13,7 +15,7 @@ class Esporte():
          eventos = core.esporte.models
      def get_campeonatos(self):
          try:
-             campeonatos = list(core.esporte.models.Campeonato.objects.all())
+             campeonatos = list(core.esporte.models.Campeonato.objects.values())
              return True, campeonatos
          except:
             return False, []
@@ -28,7 +30,11 @@ class Esporte():
                  if evento.get('time_b_id') not in lista_times_ids:
                      lista_times_ids.append(evento.get('time_b_id'))
 
-             times = list(core.esporte.models.Time.objects.values().filter(id__in=lista_times_ids))
-             return True, times
+             # times = list(core.esporte.models.Time.objects.values().filter(id__in=lista_times_ids))
+             performance_times = list(core.esporte.models.PerformaceTime.objects.values().filter(time_id__in=lista_times_ids))
+             lista_performace_times = []
+             for performace in performance_times:
+                 performace['info'] = json.loads(performace['info'])
+             return True, performance_times
          except:
              return False, []

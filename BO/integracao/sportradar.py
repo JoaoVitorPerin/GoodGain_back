@@ -70668,7 +70668,7 @@ class Sportradar(Integracao):
                                 performance_time = core.esporte.models.PerformaceTime()
                                 performance_time.season_id = 'sr:season:105353'
                                 performance_time.time_id = times.get('competitor').get('id')
-                            performance_time.info = str(times)
+                            performance_time.info = json.dumps(times)
                             performance_time.save()
 
             return True
