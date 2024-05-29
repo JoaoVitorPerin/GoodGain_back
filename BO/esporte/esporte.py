@@ -2,9 +2,6 @@ import json
 
 import core.esporte.models
 
-
-
-
 class Esporte():
      def __init__(self, esporte = None):
          self.esporte = esporte

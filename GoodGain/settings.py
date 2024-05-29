@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'core',
     'core.cliente',
     "core.esporte.apps.EsporteConfig"
-
 ]
 
 MIDDLEWARE = [

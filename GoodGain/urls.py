@@ -32,7 +32,7 @@ urlpatterns = [
     re_path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 
     re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
-    re_path('simular/aposta', GoodGain.views.VerficarCodigo.as_view(), name='simular_aposta'),
+    re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
 
 
     #inicio variaveis do admin

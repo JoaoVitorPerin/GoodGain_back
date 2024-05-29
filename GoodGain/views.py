@@ -3,6 +3,7 @@ from django.http import JsonResponse
 import BO.cliente.cliente
 import BO.integracao.sportradar
 import BO.esporte.esporte
+import BO.aposta.aposta
 from rest_framework.views import APIView
 
 
@@ -54,6 +55,43 @@ class VerficarCodigo(APIView):
         status, mensagem = BO.cliente.cliente.Cliente(password=password).verificar_codigo(email=email, codigo=codigo)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
+
+class SimularAposta(APIView):
+    def post(self, *args, **kwargs):
+        try:
+            # Obtém os dados da requisição
+            cpf = self.request.data.get('cpf')
+            campeonato_id = self.request.data.get('campeonato_id')
+            timeA = self.request.data.get('timeA')
+            timeB = self.request.data.get('timeB')
+            valorApostado = self.request.data.get('valorApostado')
+            oddApostada = self.request.data.get('oddApostada')
+
+            # Verifica se o cliente existe
+            status_cliente, mensagem_cliente, cliente = BO.cliente.cliente.Cliente().get_cliente(cpf=cpf)
+            if status_cliente != 'success':
+                return JsonResponse({'status': status_cliente, 'mensagem': mensagem_cliente})
+
+            # Verifica se o campeonato existe
+            status_campeonato, dados_campeonato = BO.esporte.esporte.Esporte().get_campeonato(
+                campeonato_id=campeonato_id)
+            if status_campeonato != 'success':
+                return JsonResponse({'status': status_campeonato, 'mensagem': 'Campeonato não encontrado'})
+
+            # Simula a aposta
+            status, mensagem = BO.aposta.aposta.Aposta().enviarAposta(
+                cliente=cliente,
+                campeonato=dados_campeonato,
+                timeA=timeA,
+                timeB=timeB,
+                valorApostado=valorApostado,
+                oddApostada=oddApostada
+            )
+
+            return JsonResponse({'status': status, 'mensagem': mensagem})
+
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'mensagem': str(e)})
 
 class Cliente(APIView):
     def get(self, *args, **kwargs):

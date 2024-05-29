@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
+from core.esporte.models import Campeonato
 
 from core import esporte
 
@@ -62,19 +63,20 @@ class ClientePreferencias(models.Model):
     class Meta:
         db_table = u'"public\".\"cliente_preferencias"'
 
-
 class Aposta(models.Model):
     """
        :Nome da classe/função: Aposta
        :descrição: Classe de apostas dos clientes
-       :Criação: Thiago Jungles Caron - 16/04/2024
+       :Criação: João Vitor Perin - 29/05/2024
        :Edições:
-       """
-    cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
+    """
+    cliente = models.ForeignKey(Cliente, on_delete=models.DO_NOTHING, null=True)
+    campeonato = models.ForeignKey(Campeonato, on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
-    evento = models.ForeignKey('esporte.Evento', on_delete=models.DO_NOTHING, null=True)
-    palpite = models.CharField(max_length=500, null=True)
-
+    timeA = models.CharField(max_length=100, null=True)
+    timeB = models.CharField(max_length=100, null=True)
+    valor = models.FloatField(null=True)
+    odd = models.FloatField(null=True)
 
     class Meta:
-        db_table = u'"public\".\"aposta"'
+        db_table = 'aposta'
