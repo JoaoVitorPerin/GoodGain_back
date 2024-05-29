@@ -11,6 +11,15930 @@ class Sportradar(Integracao):
     def get_schedule_season(self, lista_season=[]):
        info_coletadas = []
        dados = []
+       schedule4 = {
+  "generated_at": "2024-05-29T21:18:28+00:00",
+  "standings": [
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "total",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "DWDWW"
+              },
+              "points": 11,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.2
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 1,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male",
+                "form": "WDDL"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 1,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male",
+                "form": "LDLD"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male",
+                "form": "DLDDD"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 0.8
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 10,
+              "goals_against": 4,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male",
+                "form": "WDWWW"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 8,
+              "goals_against": 3,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "LWWWD"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 0,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 8,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male",
+                "form": "DDLLD"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.6
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 9,
+              "goals_diff": -7,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male",
+                "form": "DLLLL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.2
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 8,
+              "goals_against": 2,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male",
+                "form": "LDWW"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male",
+                "form": "DWDL"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male",
+                "form": "DWLL"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "LW"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 2,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 7,
+              "goals_against": 4,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male",
+                "form": "DDDWD"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 6,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "LWWWD"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 6,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male",
+                "form": "WDLLW"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 1,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 9,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male",
+                "form": "DLDLL"
+              },
+              "points": 5,
+              "change": -1,
+              "points_per_game": 0.83
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 4,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 13,
+              "goals_against": 9,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male",
+                "form": "WWDLW"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.17
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 11,
+              "goals_against": 4,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "WLLWW"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 11,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "LWWDL"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 0,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 6,
+              "goals_against": 12,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male",
+                "form": "LLDDL"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 14,
+              "goals_against": 5,
+              "goals_diff": 9,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "DWWWW"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 2,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 6,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male",
+                "form": "DLLWW"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 8,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male",
+                "form": "DWLLL"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 12,
+              "goals_diff": -7,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male",
+                "form": "DLWLL"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 0.8
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 5,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 14,
+              "goals_against": 6,
+              "goals_diff": 8,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "WWWLW"
+              },
+              "points": 15,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.5
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 4,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 12,
+              "goals_against": 5,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male",
+                "form": "WLWWW"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 8,
+              "goals_against": 7,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male",
+                "form": "LDLWL"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 0,
+              "loss": 5,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 19,
+              "goals_diff": -16,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male",
+                "form": "LDLLL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.17
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 10,
+              "goals_against": 3,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male",
+                "form": "WWWDW"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 5,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male",
+                "form": "WLWDW"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 7,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male",
+                "form": "LWLDL"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 9,
+              "goals_diff": -7,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male",
+                "form": "LLLDL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.2
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "home",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male",
+                "form": "WD"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male",
+                "form": "DL"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male",
+                "form": "DDD"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 2,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "WD"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male",
+                "form": "DL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 0,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male",
+                "form": "WL"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male",
+                "form": "DD"
+              },
+              "points": 2,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 1,
+              "win": 0,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "L"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male",
+                "form": "WLW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": 2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 5,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "LWW"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male",
+                "form": "WDL"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male",
+                "form": "DDD"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 9,
+              "goals_against": 0,
+              "goals_diff": 9,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 8,
+              "goals_against": 4,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 5,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "LWW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male",
+                "form": "DDD"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male",
+                "form": "DWW"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male",
+                "form": "DWL"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male",
+                "form": "WL"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 9,
+              "goals_against": 1,
+              "goals_diff": 8,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 9,
+              "goals_against": 3,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male",
+                "form": "WLW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male",
+                "form": "WWD"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male",
+                "form": "WL"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "away",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "DDW"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male",
+                "form": "LD"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 2,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male",
+                "form": "LD"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male",
+                "form": "DL"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": -2,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "LWW"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male",
+                "form": "DW"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male",
+                "form": "DLD"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "W"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male",
+                "form": "WL"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male",
+                "form": "LD"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male",
+                "form": "DL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male",
+                "form": "WDW"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "LWD"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 5,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male",
+                "form": "WDL"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 9,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 9,
+              "goals_against": 3,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "DWW"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 6,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "change": 0
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "current_outcome": "Playoffs",
+              "change": 0
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "WWL"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male",
+                "form": "LLW"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 13,
+              "goals_diff": -12,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": True,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male",
+                "form": "WWD"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male",
+                "form": "LW"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "first_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 2,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.6
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 1,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 0,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 0.8
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 1,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.2
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 1,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.2
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 0,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 0.6
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 2,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 7,
+              "goals_against": 4,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 0,
+              "loss": 2,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 0,
+              "loss": 2,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 3,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 8,
+              "goals_against": 1,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 6,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 8,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 1,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 3,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 5,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.8
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 2,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.4
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 4,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 8,
+              "goals_against": 0,
+              "goals_diff": 8,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 14,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 1,
+              "loss": 5,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 12,
+              "goals_diff": -11,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.2
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 2,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 0.8
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "first_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 1,
+              "win": 0,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 0,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 1.33
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 0,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 0,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 3,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 2
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "first_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 8,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 8,
+              "goals_diff": -8,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": -1
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "second_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 13,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 2,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 0.8
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 3,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 1,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.2
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 1,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 0,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.8
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 6,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.4
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 2,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.6
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 1.33
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 3,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 0,
+              "loss": 0,
+              "draw": 6,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 1,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 1,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -1,
+              "points_per_game": 0.83
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 4,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 5,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 1,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": 0,
+              "points_per_game": 0.83
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 9,
+              "goals_against": 1,
+              "goals_diff": 8,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.4
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 2,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 7,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 1,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": -1,
+              "points_per_game": 0.6
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 3,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 6,
+              "goals_against": 2,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 6,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 0,
+              "loss": 4,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 7,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.4
+            },
+            {
+              "rank": 2,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 5,
+              "win": 2,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.2
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 5,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.2
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "second_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 4,
+              "played": 1,
+              "win": 0,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 0.67
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\r\n\r\n1. Goal difference\r\n2. Goals scored\r\n3. Goals scored away\r\n4. Number of wins\r\n5. Number of away wins",
+      "type": "second_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3155",
+                "name": "Colo-Colo",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "CC",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2311",
+                "name": "Alianza Lima",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "ALI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5991",
+                "name": "Cerro Porteno",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "CPO",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "A"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5250",
+                "name": "Barcelona SC",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "BSC",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3210",
+                "name": "CA Talleres de Cordoba",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "CAT",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3167",
+                "name": "Cobresal",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "COB",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "B"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-06-08",
+            "year": "2024"
+          },
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3206",
+                "name": "Estudiantes de La Plata",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ELP",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:32529",
+                "name": "The Strongest",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "STR",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:3164",
+                "name": "Huachipato",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "HUA",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": -2,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "C"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6105",
+                "name": "CD Junior FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "JUN",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:2305",
+                "name": "Universitario de Deportes",
+                "country": "Peru",
+                "country_code": "PER",
+                "abbreviation": "UNI",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5257",
+                "name": "LDU Quito",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "LDU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "D"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-29",
+            "year": "2024"
+          },
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:7059",
+                "name": "Club Bolivar",
+                "country": "Bolivia",
+                "country_code": "BOL",
+                "abbreviation": "BOL",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:6117",
+                "name": "Millonarios FC",
+                "country": "Colombia",
+                "country_code": "COL",
+                "abbreviation": "MIL",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3157",
+                "name": "CD Palestino",
+                "country": "Chile",
+                "country_code": "CHL",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ],
+          "group_name": "E"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-02",
+            "end_date": "2024-05-30",
+            "year": "2024"
+          },
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 0,
+              "goals_diff": 7,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:39723",
+                "name": "CSD Independiente del Valle",
+                "country": "Ecuador",
+                "country_code": "ECU",
+                "abbreviation": "IND",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:3201",
+                "name": "CA San Lorenzo de Almagro",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "SLO",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": -1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:6879",
+                "name": "Liverpool Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "LIV",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "F"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-04",
+            "end_date": "2024-05-28",
+            "year": "2024"
+          },
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3217",
+                "name": "CA Rosario Central",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "ROS",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": 1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3227",
+                "name": "CA Penarol Montevideo",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "PEN",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Playoffs",
+              "change": -1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:6230",
+                "name": "Caracas FC",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "CAR",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            }
+          ],
+          "group_name": "G"
+        },
+        {
+          "stage": {
+            "order": 2,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-03",
+            "end_date": "2024-05-31",
+            "year": "2024"
+          },
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:3211",
+                "name": "CA River Plate (ARG)",
+                "country": "Argentina",
+                "country_code": "ARG",
+                "abbreviation": "RIV",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Playoffs",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:3230",
+                "name": "Club Nacional de Football",
+                "country": "Uruguay",
+                "country_code": "URY",
+                "abbreviation": "NAC",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Playoffs",
+              "change": 2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5996",
+                "name": "Libertad Asuncion",
+                "country": "Paraguay",
+                "country_code": "PRY",
+                "abbreviation": "LIB",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:6231",
+                "name": "Deportivo Tachira",
+                "country": "Venezuela",
+                "country_code": "VEN",
+                "abbreviation": "TAC",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": -1,
+              "points_per_game": 0.5
+            }
+          ],
+          "group_name": "H"
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 5
+    }
+  ]
+}
+       schedule3 = {
+  "generated_at": "2024-05-29T21:18:07+00:00",
+  "standings": []
+}
+       schedule2 = {
+  "generated_at": "2024-05-29T21:17:16+00:00",
+  "standings": [
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 7,
+              "win": 5,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 15,
+              "goals_against": 5,
+              "goals_diff": 10,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male",
+                "form": "WLWWL"
+              },
+              "points": 15,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2.14
+            },
+            {
+              "rank": 2,
+              "played": 7,
+              "win": 4,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 12,
+              "goals_against": 6,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male",
+                "form": "DWDWW"
+              },
+              "points": 15,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 2.14
+            },
+            {
+              "rank": 3,
+              "played": 7,
+              "win": 4,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 13,
+              "goals_against": 4,
+              "goals_diff": 9,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male",
+                "form": "WWDWL"
+              },
+              "points": 14,
+              "current_outcome": "Promotion",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 7,
+              "win": 4,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 5,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male",
+                "form": "DWWWW"
+              },
+              "points": 13,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 1.86
+            },
+            {
+              "rank": 5,
+              "played": 6,
+              "win": 4,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 11,
+              "goals_against": 6,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male",
+                "form": "WWWLL"
+              },
+              "points": 12,
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 6,
+              "played": 7,
+              "win": 3,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 12,
+              "goals_against": 8,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male",
+                "form": "DWWDW"
+              },
+              "points": 12,
+              "change": 2,
+              "points_per_game": 1.71
+            },
+            {
+              "rank": 7,
+              "played": 7,
+              "win": 3,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "LLWDW"
+              },
+              "points": 11,
+              "change": 5,
+              "points_per_game": 1.57
+            },
+            {
+              "rank": 8,
+              "played": 7,
+              "win": 3,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 8,
+              "goals_against": 7,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male",
+                "form": "DWDWL"
+              },
+              "points": 11,
+              "change": -3,
+              "points_per_game": 1.57
+            },
+            {
+              "rank": 9,
+              "played": 7,
+              "win": 3,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 8,
+              "goals_against": 9,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male",
+                "form": "WLWLD"
+              },
+              "points": 10,
+              "change": -2,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 10,
+              "played": 7,
+              "win": 3,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 9,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male",
+                "form": "WLLDW"
+              },
+              "points": 10,
+              "change": 3,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 11,
+              "played": 7,
+              "win": 2,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 7,
+              "goals_against": 7,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male",
+                "form": "DLDDL"
+              },
+              "points": 9,
+              "change": -1,
+              "points_per_game": 1.29
+            },
+            {
+              "rank": 12,
+              "played": 7,
+              "win": 2,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 5,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male",
+                "form": "LDDDL"
+              },
+              "points": 9,
+              "change": -3,
+              "points_per_game": 1.29
+            },
+            {
+              "rank": 13,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 7,
+              "goals_against": 6,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "DDWLW"
+              },
+              "points": 8,
+              "change": -2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 14,
+              "played": 7,
+              "win": 2,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 9,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male",
+                "form": "LWLDW"
+              },
+              "points": 8,
+              "change": 1,
+              "points_per_game": 1.14
+            },
+            {
+              "rank": 15,
+              "played": 7,
+              "win": 2,
+              "loss": 5,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 12,
+              "goals_diff": -7,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male",
+                "form": "LLWLW"
+              },
+              "points": 6,
+              "change": 5,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 16,
+              "played": 7,
+              "win": 1,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 6,
+              "goals_against": 9,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male",
+                "form": "WDLDL"
+              },
+              "points": 6,
+              "change": -2,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 17,
+              "played": 7,
+              "win": 1,
+              "loss": 4,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 14,
+              "goals_diff": -8,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male",
+                "form": "LLDLD"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 18,
+              "played": 7,
+              "win": 0,
+              "loss": 2,
+              "draw": 5,
+              "goals_for": 4,
+              "goals_against": 7,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male",
+                "form": "DLDDD"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 19,
+              "played": 7,
+              "win": 1,
+              "loss": 5,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 10,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male",
+                "form": "LWLLD"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.57
+            },
+            {
+              "rank": 20,
+              "played": 7,
+              "win": 0,
+              "loss": 3,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 9,
+              "goals_diff": -7,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "DLDLL"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.57
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 4,
+              "win": 3,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 2,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male",
+                "form": "WWDW"
+              },
+              "points": 10,
+              "current_outcome": "Promotion",
+              "change": 4,
+              "points_per_game": 2.5
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 3,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male",
+                "form": "WWWD"
+              },
+              "points": 10,
+              "change": 2,
+              "points_per_game": 2.5
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 10,
+              "goals_against": 1,
+              "goals_diff": 9,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 9,
+              "goals_against": 0,
+              "goals_diff": 9,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 5,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 6,
+              "played": 4,
+              "win": 3,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "WLWW"
+              },
+              "points": 9,
+              "change": 2,
+              "points_per_game": 2.25
+            },
+            {
+              "rank": 7,
+              "played": 4,
+              "win": 3,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male",
+                "form": "LWWW"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 2.25
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 2,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 7,
+              "goals_against": 5,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male",
+                "form": "DDWW"
+              },
+              "points": 8,
+              "change": 3,
+              "points_per_game": 2
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "DWW"
+              },
+              "points": 7,
+              "change": -3,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 10,
+              "played": 4,
+              "win": 2,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male",
+                "form": "LWDW"
+              },
+              "points": 7,
+              "change": 4,
+              "points_per_game": 1.75
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male",
+                "form": "WWL"
+              },
+              "points": 6,
+              "change": -4,
+              "points_per_game": 2
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 5,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male",
+                "form": "LLWW"
+              },
+              "points": 6,
+              "change": 6,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male",
+                "form": "WDD"
+              },
+              "points": 5,
+              "change": -3,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male",
+                "form": "WDD"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 15,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male",
+                "form": "DWL"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male",
+                "form": "WLD"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 16,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male",
+                "form": "LWLD"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male",
+                "form": "WLD"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male",
+                "form": "DDD"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 20,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "DDDL"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.75
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male",
+                "form": "WLWL"
+              },
+              "points": 6,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male",
+                "form": "WWL"
+              },
+              "points": 6,
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 5,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male",
+                "form": "LWLW"
+              },
+              "points": 6,
+              "change": 6,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male",
+                "form": "DDW"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 5,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 4,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male",
+                "form": "DWDL"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": -2,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male",
+                "form": "LWD"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male",
+                "form": "LDW"
+              },
+              "points": 4,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male",
+                "form": "WLDL"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male",
+                "form": "WLDL"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 1
+            },
+            {
+              "rank": 10,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "DLD"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 11,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male",
+                "form": "LLDD"
+              },
+              "points": 2,
+              "current_outcome": "Relegation",
+              "change": 3,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male",
+                "form": "LDDL"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 13,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 6,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male",
+                "form": "LDDL"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 6,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "change": -1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 15,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 7,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "DLL"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 17,
+              "played": 4,
+              "win": 0,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 11,
+              "goals_diff": -8,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male",
+                "form": "LLLD"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 3,
+              "points_per_game": 0.25
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 6,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": -1
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 7,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": -1
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 7,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 5,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 0,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 16,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2.67
+            },
+            {
+              "rank": 2,
+              "played": 7,
+              "win": 4,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 2,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 14,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 7,
+              "win": 3,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 8,
+              "goals_against": 2,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.71
+            },
+            {
+              "rank": 4,
+              "played": 7,
+              "win": 3,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Promotion",
+              "change": 1,
+              "points_per_game": 1.71
+            },
+            {
+              "rank": 5,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 11,
+              "change": -1,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 6,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 1,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 7,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 6,
+              "goals_against": 5,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 1,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 8,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 1,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 9,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": -3,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 10,
+              "played": 7,
+              "win": 2,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 9,
+              "change": 3,
+              "points_per_game": 1.29
+            },
+            {
+              "rank": 11,
+              "played": 7,
+              "win": 2,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 8,
+              "change": -1,
+              "points_per_game": 1.14
+            },
+            {
+              "rank": 12,
+              "played": 7,
+              "win": 1,
+              "loss": 1,
+              "draw": 5,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 8,
+              "change": -1,
+              "points_per_game": 1.14
+            },
+            {
+              "rank": 13,
+              "played": 7,
+              "win": 1,
+              "loss": 1,
+              "draw": 5,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 8,
+              "change": -1,
+              "points_per_game": 1.14
+            },
+            {
+              "rank": 14,
+              "played": 7,
+              "win": 1,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 0,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 15,
+              "played": 7,
+              "win": 1,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 0,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 15,
+              "played": 7,
+              "win": 1,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 1,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 17,
+              "played": 7,
+              "win": 1,
+              "loss": 4,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 18,
+              "played": 7,
+              "win": 0,
+              "loss": 2,
+              "draw": 5,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 19,
+              "played": 7,
+              "win": 0,
+              "loss": 3,
+              "draw": 4,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.57
+            },
+            {
+              "rank": 19,
+              "played": 7,
+              "win": 0,
+              "loss": 3,
+              "draw": 4,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.57
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 2,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 8,
+              "change": 3,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 0,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": -1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 5,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": -1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 6,
+              "played": 4,
+              "win": 2,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": 10,
+              "points_per_game": 1.75
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": -2,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": -1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 10,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 11,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 15,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 15,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 18,
+              "played": 4,
+              "win": 0,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 19,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 20,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.33
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": 1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": 1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 4,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 5,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -3,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 9,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 1,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 10,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 3,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -3,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -2,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -2,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 14,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 15,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 2,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": -1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": 0
+            },
+            {
+              "rank": 20,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 7,
+              "win": 5,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 7,
+              "goals_against": 2,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 17,
+              "current_outcome": "Promotion",
+              "change": 1,
+              "points_per_game": 2.43
+            },
+            {
+              "rank": 2,
+              "played": 7,
+              "win": 5,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 2,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 16,
+              "current_outcome": "Promotion",
+              "change": -1,
+              "points_per_game": 2.29
+            },
+            {
+              "rank": 3,
+              "played": 7,
+              "win": 4,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 13,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.86
+            },
+            {
+              "rank": 4,
+              "played": 7,
+              "win": 3,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 12,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 1.71
+            },
+            {
+              "rank": 5,
+              "played": 7,
+              "win": 3,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 11,
+              "change": -1,
+              "points_per_game": 1.57
+            },
+            {
+              "rank": 6,
+              "played": 7,
+              "win": 3,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 6,
+              "goals_against": 5,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 4,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 7,
+              "played": 7,
+              "win": 3,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 4,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 8,
+              "played": 7,
+              "win": 3,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": -3,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 9,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 3,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 10,
+              "played": 7,
+              "win": 2,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": -3,
+              "points_per_game": 1.43
+            },
+            {
+              "rank": 11,
+              "played": 7,
+              "win": 2,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 9,
+              "change": -2,
+              "points_per_game": 1.29
+            },
+            {
+              "rank": 12,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 6,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 8,
+              "change": -4,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 13,
+              "played": 7,
+              "win": 1,
+              "loss": 2,
+              "draw": 4,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 14,
+              "played": 6,
+              "win": 1,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": 0,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 15,
+              "played": 7,
+              "win": 1,
+              "loss": 2,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 7,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 7,
+              "win": 2,
+              "loss": 5,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 8,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 4,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 17,
+              "played": 7,
+              "win": 1,
+              "loss": 3,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.86
+            },
+            {
+              "rank": 18,
+              "played": 7,
+              "win": 1,
+              "loss": 4,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 6,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 19,
+              "played": 7,
+              "win": 1,
+              "loss": 4,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 8,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.71
+            },
+            {
+              "rank": 20,
+              "played": 7,
+              "win": 0,
+              "loss": 3,
+              "draw": 4,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.57
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 4,
+              "win": 3,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 10,
+              "change": 2,
+              "points_per_game": 2.5
+            },
+            {
+              "rank": 2,
+              "played": 4,
+              "win": 3,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Promotion",
+              "change": 2,
+              "points_per_game": 2.5
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 0,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Promotion",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 5,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 7,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 7,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 7,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 7,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 9,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 7,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 10,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -3,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 11,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Promotion",
+              "change": 8,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -5,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -5,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -5,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -5,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": -4,
+              "points_per_game": 1
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 19,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 20,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 0.67
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-19",
+            "end_date": "2024-11-27",
+            "year": "2024"
+          },
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:2001",
+                "name": "Ceara SC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CEA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1973",
+                "name": "America FC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMG",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 3,
+              "played": 4,
+              "win": 2,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1960",
+                "name": "Goias EC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GGO",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Promotion",
+              "change": 0,
+              "points_per_game": 1.75
+            },
+            {
+              "rank": 4,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:135514",
+                "name": "Gremio Novorizontino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GRN",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 8,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 5,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:39634",
+                "name": "Operario Ferroviario EC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FER",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": 1,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 6,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1997",
+                "name": "Paysandu SC PA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAY",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": 4,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:7315",
+                "name": "Avai FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AVA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1968",
+                "name": "Santos FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SAN",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Promotion",
+              "change": -4,
+              "points_per_game": 1
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:663997",
+                "name": "Amazonas FC AM",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "AMA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1982",
+                "name": "Coritiba FC PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:22032",
+                "name": "CR Brasil AL",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1969",
+                "name": "AA Ponte Preta SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PON",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 1
+            },
+            {
+              "rank": 13,
+              "played": 4,
+              "win": 0,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:21845",
+                "name": "Chapecoense SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CHA",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 0.75
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1959",
+                "name": "SC Recife PE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "REC",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 15,
+              "played": 4,
+              "win": 0,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:21982",
+                "name": "Mirassol FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "MIR",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1972",
+                "name": "Guarani FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GUA",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:2021",
+                "name": "Vila Nova FC GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIN",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1979",
+                "name": "Botafogo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 19,
+              "played": 4,
+              "win": 0,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:21884",
+                "name": "Brusque FC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.25
+            },
+            {
+              "rank": 20,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:2025",
+                "name": "Ituano FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ITU",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": -1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 7
+    }
+  ]
+}
+       schedule1 = {
+  "generated_at": "2024-05-29T21:16:23+00:00",
+  "standings": [
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 4,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 9,
+              "goals_against": 3,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male",
+                "form": "LWDWW"
+              },
+              "points": 13,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.17
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 4,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 9,
+              "goals_against": 6,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male",
+                "form": "WDWWW"
+              },
+              "points": 13,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.17
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 7,
+              "goals_against": 5,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "WDLDW"
+              },
+              "points": 11,
+              "current_outcome": "Copa Libertadores",
+              "change": 4,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 12,
+              "goals_against": 7,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "WWWLD"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores",
+              "change": -1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 5,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 10,
+              "goals_against": 6,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "LWDWW"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 3,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 6,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 8,
+              "goals_against": 7,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male",
+                "form": "WDLWW"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 4,
+              "points_per_game": 2
+            },
+            {
+              "rank": 7,
+              "played": 5,
+              "win": 2,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 9,
+              "goals_against": 3,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "DDWWD"
+              },
+              "points": 9,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.8
+            },
+            {
+              "rank": 8,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 7,
+              "goals_against": 6,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "WWDDL"
+              },
+              "points": 9,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 9,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "LDDWL"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 10,
+              "played": 4,
+              "win": 2,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male",
+                "form": "WWLD"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1.75
+            },
+            {
+              "rank": 11,
+              "played": 5,
+              "win": 1,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male",
+                "form": "WDDDD"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "LWWL"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 13,
+              "played": 6,
+              "win": 2,
+              "loss": 4,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 11,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male",
+                "form": "LLLLW"
+              },
+              "points": 6,
+              "change": 4,
+              "points_per_game": 1
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 2,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male",
+                "form": "DDW"
+              },
+              "points": 5,
+              "change": -1,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 15,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 7,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male",
+                "form": "DWLD"
+              },
+              "points": 5,
+              "change": 0,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 16,
+              "played": 6,
+              "win": 1,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "LLWDL"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 0.83
+            },
+            {
+              "rank": 17,
+              "played": 6,
+              "win": 1,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 8,
+              "goals_against": 12,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "LWLDL"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.83
+            },
+            {
+              "rank": 18,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 11,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male",
+                "form": "LDLLL"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.2
+            },
+            {
+              "rank": 19,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 8,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male",
+                "form": "LLLDL"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.2
+            },
+            {
+              "rank": 20,
+              "played": 4,
+              "win": 0,
+              "loss": 4,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 10,
+              "goals_diff": -10,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male",
+                "form": "LLLL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 0,
+              "goals_diff": 6,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male",
+                "form": "WWW"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores",
+              "change": 4,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "WWD"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "WWL"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 5,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 6,
+              "goals_against": 3,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": -1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 6,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "WW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "WLW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores",
+              "change": 5,
+              "points_per_game": 2
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 6,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male",
+                "form": "WLW"
+              },
+              "points": 6,
+              "change": 5,
+              "points_per_game": 2
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "DWD"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 10,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 6,
+              "goals_against": 5,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "DWD"
+              },
+              "points": 5,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 11,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "DW"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 12,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male",
+                "form": "WD"
+              },
+              "points": 4,
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 13,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male",
+                "form": "WD"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "LDW"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 15,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male",
+                "form": "DDD"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 1,
+              "win": 0,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male",
+                "form": "D"
+              },
+              "points": 1,
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 6,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "LDL"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 6,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            },
+            {
+              "rank": 20,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 5,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male",
+                "form": "WDW"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 7,
+              "goals_against": 3,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male",
+                "form": "LWW"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male",
+                "form": "DWD"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male",
+                "form": "WDD"
+              },
+              "points": 5,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 5,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male",
+                "form": "DW"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male",
+                "form": "LWD"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 7,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male",
+                "form": "WD"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 5,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male",
+                "form": "LDW"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": -1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male",
+                "form": "LDW"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 10,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male",
+                "form": "DLW"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 11,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male",
+                "form": "WL"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 4,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male",
+                "form": "DDL"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 13,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male",
+                "form": "LD"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 14,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 6,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male",
+                "form": "DL"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 15,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": 1
+            },
+            {
+              "rank": 16,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 7,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 1
+            },
+            {
+              "rank": 19,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 5,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male",
+                "form": "LLL"
+              },
+              "points": 0,
+              "change": -1
+            },
+            {
+              "rank": 19,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 5,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male",
+                "form": "LL"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Copa Libertadores",
+              "change": 4,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Copa Libertadores",
+              "change": 4,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 4,
+              "played": 5,
+              "win": 3,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 1,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores",
+              "change": -3,
+              "points_per_game": 2
+            },
+            {
+              "rank": 5,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 4,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 6,
+              "played": 6,
+              "win": 3,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 3,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 10,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": -4,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 7,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 5,
+              "goals_against": 3,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 8,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 9,
+              "played": 6,
+              "win": 2,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 10,
+              "played": 5,
+              "win": 1,
+              "loss": 0,
+              "draw": 4,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 2,
+              "points_per_game": 1.4
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 13,
+              "played": 4,
+              "win": 1,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 14,
+              "played": 6,
+              "win": 1,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -2,
+              "points_per_game": 1
+            },
+            {
+              "rank": 15,
+              "played": 5,
+              "win": 1,
+              "loss": 2,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 6,
+              "win": 1,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 1,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 17,
+              "played": 4,
+              "win": 1,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 18,
+              "played": 5,
+              "win": 0,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 5,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.6
+            },
+            {
+              "rank": 19,
+              "played": 5,
+              "win": 0,
+              "loss": 3,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.4
+            },
+            {
+              "rank": 20,
+              "played": 4,
+              "win": 0,
+              "loss": 4,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 6,
+              "goals_diff": -6,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 3,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 0,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores",
+              "change": 4,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 5,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores",
+              "change": 5,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 6,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 7,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 3,
+              "goals_against": 1,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 8,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 3
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 10,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 1,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 12,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 13,
+              "played": 1,
+              "win": 1,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 15,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 17,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 1,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 20,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "first_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 3,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": 0,
+              "points_per_game": 2
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 7,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 7,
+              "points_per_game": 1
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 10,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 10,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 0,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Libertadores",
+              "change": 2,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 13,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": -3,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 15,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 2,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": -3,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 3,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 17,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 0,
+              "change": -1
+            },
+            {
+              "rank": 17,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            },
+            {
+              "rank": 20,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_total",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 5,
+              "win": 4,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 7,
+              "goals_against": 2,
+              "goals_diff": 5,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 13,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.6
+            },
+            {
+              "rank": 2,
+              "played": 6,
+              "win": 4,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 13,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.17
+            },
+            {
+              "rank": 3,
+              "played": 6,
+              "win": 3,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 7,
+              "goals_against": 4,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 11,
+              "current_outcome": "Copa Libertadores",
+              "change": 1,
+              "points_per_game": 1.83
+            },
+            {
+              "rank": 4,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 7,
+              "goals_against": 4,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores",
+              "change": -1,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 5,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 5,
+              "goals_against": 4,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 6,
+              "played": 6,
+              "win": 2,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 4,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 9,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 6,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 7,
+              "played": 5,
+              "win": 2,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.6
+            },
+            {
+              "rank": 8,
+              "played": 4,
+              "win": 2,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 8,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 9,
+              "played": 6,
+              "win": 1,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 2,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 10,
+              "played": 6,
+              "win": 1,
+              "loss": 1,
+              "draw": 4,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.17
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 2
+            },
+            {
+              "rank": 12,
+              "played": 4,
+              "win": 2,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 4,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 13,
+              "played": 5,
+              "win": 1,
+              "loss": 1,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 2,
+              "points_per_game": 1.2
+            },
+            {
+              "rank": 14,
+              "played": 6,
+              "win": 1,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 1,
+              "goals_against": 3,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": -1,
+              "points_per_game": 1
+            },
+            {
+              "rank": 15,
+              "played": 6,
+              "win": 1,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 4,
+              "goals_against": 7,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 6,
+              "change": 2,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 4,
+              "win": 1,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 3,
+              "goals_against": 3,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": -2,
+              "points_per_game": 1.25
+            },
+            {
+              "rank": 17,
+              "played": 5,
+              "win": 0,
+              "loss": 2,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.6
+            },
+            {
+              "rank": 18,
+              "played": 4,
+              "win": 0,
+              "loss": 3,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 4,
+              "goals_diff": -4,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 2,
+              "points_per_game": 0.25
+            },
+            {
+              "rank": 19,
+              "played": 5,
+              "win": 0,
+              "loss": 4,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 9,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -1,
+              "points_per_game": 0.2
+            },
+            {
+              "rank": 20,
+              "played": 6,
+              "win": 0,
+              "loss": 5,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 8,
+              "goals_diff": -5,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.17
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_home",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 3
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 4,
+              "goals_against": 2,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 4,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 5,
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 6,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 7,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 2
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 3,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": 7,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 10,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 11,
+              "played": 3,
+              "win": 1,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 9,
+              "points_per_game": 1
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 2,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": -2,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Copa Sudamericana",
+              "change": -4,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 13,
+              "played": 3,
+              "win": 0,
+              "loss": 1,
+              "draw": 2,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 2,
+              "change": -1,
+              "points_per_game": 0.67
+            },
+            {
+              "rank": 15,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 16,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 5,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 17,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 4,
+              "goals_diff": -2,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 4,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": -2,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 19,
+              "played": 1,
+              "win": 0,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1
+            },
+            {
+              "rank": 20,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": -1
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    },
+    {
+      "tie_break_rule": "In the event that two (or more) teams have an equal number of points, the following rules break the tie:\n\n1. Number of victories\n2. Goal difference\n3. Goals scored",
+      "type": "second_half_away",
+      "groups": [
+        {
+          "stage": {
+            "order": 1,
+            "type": "league",
+            "phase": "regular season",
+            "start_date": "2024-04-13",
+            "end_date": "2024-12-09",
+            "year": "2024"
+          },
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "live": False,
+          "standings": [
+            {
+              "rank": 1,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 5,
+              "goals_against": 2,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1981",
+                "name": "Sao Paulo FC SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "SPA",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 2,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 1,
+              "goals_diff": 3,
+              "competitor": {
+                "id": "sr:competitor:1977",
+                "name": "Atletico Mineiro MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "ATL",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 3,
+              "played": 3,
+              "win": 2,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 0,
+              "goals_diff": 2,
+              "competitor": {
+                "id": "sr:competitor:1954",
+                "name": "Cruzeiro EC MG",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRU",
+                "gender": "male"
+              },
+              "points": 7,
+              "current_outcome": "Copa Libertadores",
+              "change": 5,
+              "points_per_game": 2.33
+            },
+            {
+              "rank": 4,
+              "played": 2,
+              "win": 2,
+              "loss": 0,
+              "draw": 0,
+              "goals_for": 4,
+              "goals_against": 0,
+              "goals_diff": 4,
+              "competitor": {
+                "id": "sr:competitor:1984",
+                "name": "Criciuma EC SC",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CRI",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Sudamericana",
+              "change": -1,
+              "points_per_game": 3
+            },
+            {
+              "rank": 5,
+              "played": 3,
+              "win": 2,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1967",
+                "name": "CA Paranaense PR",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CAP",
+                "gender": "male"
+              },
+              "points": 6,
+              "current_outcome": "Copa Libertadores",
+              "change": 7,
+              "points_per_game": 2
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5981",
+                "name": "CR Flamengo RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": -2,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 6,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1999",
+                "name": "Red Bull Bragantino SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BRA",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 8,
+              "played": 3,
+              "win": 1,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1963",
+                "name": "SE Palmeiras SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "PAL",
+                "gender": "male"
+              },
+              "points": 5,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 1.67
+            },
+            {
+              "rank": 9,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 3,
+              "goals_against": 2,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:1958",
+                "name": "Botafogo FR RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BOT",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores",
+              "change": 2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 10,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 2,
+              "goals_against": 1,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:2020",
+                "name": "Fortaleza EC CE",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FOR",
+                "gender": "male"
+              },
+              "points": 4,
+              "change": -4,
+              "points_per_game": 2
+            },
+            {
+              "rank": 11,
+              "played": 2,
+              "win": 1,
+              "loss": 0,
+              "draw": 1,
+              "goals_for": 1,
+              "goals_against": 0,
+              "goals_diff": 1,
+              "competitor": {
+                "id": "sr:competitor:5926",
+                "name": "Gremio FB Porto Alegrense RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GPA",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Sudamericana",
+              "change": -3,
+              "points_per_game": 2
+            },
+            {
+              "rank": 12,
+              "played": 3,
+              "win": 1,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 4,
+              "goals_against": 4,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1955",
+                "name": "EC Bahia BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "BAH",
+                "gender": "male"
+              },
+              "points": 4,
+              "current_outcome": "Copa Libertadores Qualification",
+              "change": -2,
+              "points_per_game": 1.33
+            },
+            {
+              "rank": 13,
+              "played": 2,
+              "win": 1,
+              "loss": 1,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 3,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1980",
+                "name": "EC Juventude RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "JUV",
+                "gender": "male"
+              },
+              "points": 3,
+              "current_outcome": "Copa Sudamericana",
+              "change": 0,
+              "points_per_game": 1.5
+            },
+            {
+              "rank": 14,
+              "played": 3,
+              "win": 0,
+              "loss": 0,
+              "draw": 3,
+              "goals_for": 2,
+              "goals_against": 2,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:1974",
+                "name": "CR Vasco da Gama RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VDG",
+                "gender": "male"
+              },
+              "points": 3,
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 15,
+              "played": 2,
+              "win": 0,
+              "loss": 0,
+              "draw": 2,
+              "goals_for": 1,
+              "goals_against": 1,
+              "goals_diff": 0,
+              "competitor": {
+                "id": "sr:competitor:7314",
+                "name": "AC Goianiense GO",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "GOI",
+                "gender": "male"
+              },
+              "points": 2,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 1
+            },
+            {
+              "rank": 16,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:1966",
+                "name": "SC Internacional RS",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "INT",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 16,
+              "played": 2,
+              "win": 0,
+              "loss": 1,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 1,
+              "goals_diff": -1,
+              "competitor": {
+                "id": "sr:competitor:49202",
+                "name": "Cuiaba Esporte Clube MT",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "CUI",
+                "gender": "male"
+              },
+              "points": 1,
+              "current_outcome": "Relegation",
+              "change": 0,
+              "points_per_game": 0.5
+            },
+            {
+              "rank": 18,
+              "played": 3,
+              "win": 0,
+              "loss": 2,
+              "draw": 1,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1957",
+                "name": "SC Corinthians SP",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "COR",
+                "gender": "male"
+              },
+              "points": 1,
+              "change": 0,
+              "points_per_game": 0.33
+            },
+            {
+              "rank": 19,
+              "played": 2,
+              "win": 0,
+              "loss": 2,
+              "draw": 0,
+              "goals_for": 2,
+              "goals_against": 5,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1962",
+                "name": "EC Vitoria BA",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "VIT",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            },
+            {
+              "rank": 20,
+              "played": 3,
+              "win": 0,
+              "loss": 3,
+              "draw": 0,
+              "goals_for": 0,
+              "goals_against": 3,
+              "goals_diff": -3,
+              "competitor": {
+                "id": "sr:competitor:1961",
+                "name": "Fluminense FC RJ",
+                "country": "Brazil",
+                "country_code": "BRA",
+                "abbreviation": "FLU",
+                "gender": "male"
+              },
+              "points": 0,
+              "current_outcome": "Relegation",
+              "change": 0
+            }
+          ]
+        }
+      ],
+      "points_win": 3,
+      "points_draw": 1,
+      "points_loss": 0,
+      "round": 6
+    }
+  ]
+}
        for season in lista_season:
          self.url = (
            "https://api.sportradar.com/soccer/trial/v4/en/seasons/SEASON/standings.json?api_key=CHAVE").replace(
@@ -18,7 +15942,7 @@ class Sportradar(Integracao):
 
          self.headers = {"accept": "application/json"}
          self.body = {}
-         # self.get(dumps=False)
+         self.get(dumps=False)
          # dados = json.loads(self.response)
          # if dados:
          #   info_coletadas.append(dados)
@@ -47902,6 +63826,10 @@ class Sportradar(Integracao):
       }
     }
   ]}]
+       info_coletadas.append(schedule4)
+       info_coletadas.append(schedule3)
+       info_coletadas.append(schedule2)
+       info_coletadas.append(schedule1)
 
        return info_coletadas
     def get_seasons(self):
@@ -70611,8 +86539,2409 @@ class Sportradar(Integracao):
 
         return retorno
     def get_info_season(self, lista_season=[]):
-        info_coletadas = []
+        info_coletadas = {}
         dados = []
+        season1 = {
+  "generated_at": "2024-05-29T21:03:22+00:00",
+  "coverage": {
+    "type": "competition",
+    "competition_properties": {
+      "brackets": False,
+      "missing_players": False,
+      "player_transfer_history": False,
+      "schedules": True,
+      "season_player_statistics": True,
+      "season_stats_leaders": True,
+      "season_team_statistics": True,
+      "standings": "live",
+      "team_squads": True
+    },
+    "sport_event_properties": {
+      "basic_play_by_play": True,
+      "basic_player_stats": True,
+      "basic_team_stats": True,
+      "extended_player_stats": False,
+      "extended_team_stats": False,
+      "deeper_play_by_play": True,
+      "deeper_team_stats": True,
+      "deeper_player_stats": True,
+      "lineups": True,
+      "goal_scorers": True,
+      "scores": "live",
+      "assists": True
+    }
+  },
+  "season": {
+    "id": "sr:season:113943",
+    "name": "Brasileiro Serie A 2024",
+    "start_date": "2024-04-13",
+    "end_date": "2024-12-09",
+    "year": "2024",
+    "competition_id": "sr:competition:325",
+    "sport": {
+      "id": "sr:sport:1",
+      "name": "Soccer"
+    },
+    "category": {
+      "id": "sr:category:13",
+      "name": "Brazil",
+      "country_code": "BRA"
+    },
+    "competition": {
+      "id": "sr:competition:325",
+      "name": "Brasileiro Serie A",
+      "gender": "men"
+    }
+  },
+  "stages": [
+    {
+      "order": 1,
+      "type": "league",
+      "phase": "regular season",
+      "start_date": "2024-04-13",
+      "end_date": "2024-12-09",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:league:82105",
+          "name": "Brasileiro Serie A",
+          "competitors": [
+            {
+              "id": "sr:competitor:1974",
+              "name": "CR Vasco da Gama RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VDG",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1954",
+              "name": "Cruzeiro EC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CRU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1966",
+              "name": "SC Internacional RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "INT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1980",
+              "name": "EC Juventude RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "JUV",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1977",
+              "name": "Atletico Mineiro MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ATL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1957",
+              "name": "SC Corinthians SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "COR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1962",
+              "name": "EC Vitoria BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VIT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5926",
+              "name": "Gremio FB Porto Alegrense RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1958",
+              "name": "Botafogo FR RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1967",
+              "name": "CA Paranaense PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CAP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1963",
+              "name": "SE Palmeiras SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5981",
+              "name": "CR Flamengo RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1955",
+              "name": "EC Bahia BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BAH",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1961",
+              "name": "Fluminense FC RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2020",
+              "name": "Fortaleza EC CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FOR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1981",
+              "name": "Sao Paulo FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1984",
+              "name": "Criciuma EC SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CRI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1999",
+              "name": "Red Bull Bragantino SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:7314",
+              "name": "AC Goianiense GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GOI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:49202",
+              "name": "Cuiaba Esporte Clube MT",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CUI",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 38,
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": False
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+        season4 = {
+  "generated_at": "2024-05-29T21:08:07+00:00",
+  "coverage": {
+    "type": "competition",
+    "competition_properties": {
+      "brackets": True,
+      "missing_players": False,
+      "player_transfer_history": False,
+      "schedules": True,
+      "season_player_statistics": True,
+      "season_stats_leaders": True,
+      "season_team_statistics": True,
+      "standings": "post",
+      "team_squads": True
+    },
+    "sport_event_properties": {
+      "basic_play_by_play": True,
+      "basic_player_stats": True,
+      "basic_team_stats": True,
+      "extended_player_stats": False,
+      "extended_team_stats": False,
+      "deeper_play_by_play": True,
+      "deeper_team_stats": True,
+      "deeper_player_stats": True,
+      "lineups": True,
+      "goal_scorers": True,
+      "scores": "live",
+      "assists": False
+    }
+  },
+  "season": {
+    "id": "sr:season:114037",
+    "name": "Copa Libertadores 2024",
+    "start_date": "2024-02-06",
+    "end_date": "2024-12-01",
+    "year": "2024",
+    "competition_id": "sr:competition:384",
+    "sport": {
+      "id": "sr:sport:1",
+      "name": "Soccer"
+    },
+    "category": {
+      "id": "sr:category:393",
+      "name": "International Clubs"
+    },
+    "competition": {
+      "id": "sr:competition:384",
+      "name": "Copa Libertadores",
+      "gender": "men"
+    }
+  },
+  "stages": [
+    {
+      "order": 1,
+      "type": "cup",
+      "phase": "qualification",
+      "start_date": "2024-02-06",
+      "end_date": "2024-03-16",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:cup:158529",
+          "name": "Copa Libertadores 2024, Qualification",
+          "competitors": [
+            {
+              "id": "sr:competitor:1958",
+              "name": "Botafogo FR RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1999",
+              "name": "Red Bull Bragantino SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2302",
+              "name": "Sporting Cristal",
+              "country": "Peru",
+              "country_code": "PER",
+              "abbreviation": "CRI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2308",
+              "name": "FBC Melgar",
+              "country": "Peru",
+              "country_code": "PER",
+              "abbreviation": "MEL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3155",
+              "name": "Colo-Colo",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "CC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3157",
+              "name": "CD Palestino",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "PAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3229",
+              "name": "Defensor Sporting",
+              "country": "Uruguay",
+              "country_code": "URY",
+              "abbreviation": "DEF",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3230",
+              "name": "Club Nacional de Football",
+              "country": "Uruguay",
+              "country_code": "URY",
+              "abbreviation": "NAC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5249",
+              "name": "SD Aucas",
+              "country": "Ecuador",
+              "country_code": "ECU",
+              "abbreviation": "SDA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5254",
+              "name": "CD El Nacional",
+              "country": "Ecuador",
+              "country_code": "ECU",
+              "abbreviation": "ELN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6074",
+              "name": "CD Godoy Cruz",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "GOD",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6106",
+              "name": "Atletico Nacional Medellin",
+              "country": "Colombia",
+              "country_code": "COL",
+              "abbreviation": "CAN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6234",
+              "name": "Portuguesa FC",
+              "country": "Venezuela",
+              "country_code": "VEN",
+              "abbreviation": "POR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:33001",
+              "name": "Nacional Asuncion",
+              "country": "Paraguay",
+              "country_code": "PRY",
+              "abbreviation": "NAC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:33714",
+              "name": "Club Aurora",
+              "country": "Bolivia",
+              "country_code": "BOL",
+              "abbreviation": "AUR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:39722",
+              "name": "Sportivo Trinidense",
+              "country": "Paraguay",
+              "country_code": "PRY",
+              "abbreviation": "TRI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:48244",
+              "name": "Aguilas Doradas Rionegro",
+              "country": "Colombia",
+              "country_code": "COL",
+              "abbreviation": "ADR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:266595",
+              "name": "Academia Puerto Cabello",
+              "country": "Venezuela",
+              "country_code": "VEN",
+              "abbreviation": "APC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:378096",
+              "name": "Always Ready",
+              "country": "Bolivia",
+              "country_code": "BOL",
+              "abbreviation": "ARE",
+              "gender": "male"
+            }
+          ],
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": True,
+              "cup": True,
+              "league": False,
+              "missing_players": False,
+              "qualification": True,
+              "schedules": True,
+              "results": True,
+              "standings": "False",
+              "group_stage": False
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "type": "league",
+      "phase": "regular season",
+      "start_date": "2024-04-02",
+      "end_date": "2024-05-30",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:league:80637",
+          "name": "Group B",
+          "competitors": [
+            {
+              "id": "sr:competitor:3210",
+              "name": "CA Talleres de Cordoba",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "CAT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5250",
+              "name": "Barcelona SC",
+              "country": "Ecuador",
+              "country_code": "ECU",
+              "abbreviation": "BSC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1981",
+              "name": "Sao Paulo FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3167",
+              "name": "Cobresal",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "COB",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "B",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80643",
+          "name": "Group E",
+          "competitors": [
+            {
+              "id": "sr:competitor:7059",
+              "name": "Club Bolivar",
+              "country": "Bolivia",
+              "country_code": "BOL",
+              "abbreviation": "BOL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5981",
+              "name": "CR Flamengo RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6117",
+              "name": "Millonarios FC",
+              "country": "Colombia",
+              "country_code": "COL",
+              "abbreviation": "MIL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3157",
+              "name": "CD Palestino",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "PAL",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "E",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80645",
+          "name": "Group F",
+          "competitors": [
+            {
+              "id": "sr:competitor:3201",
+              "name": "CA San Lorenzo de Almagro",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "SLO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1963",
+              "name": "SE Palmeiras SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6879",
+              "name": "Liverpool Montevideo",
+              "country": "Uruguay",
+              "country_code": "URY",
+              "abbreviation": "LIV",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:39723",
+              "name": "CSD Independiente del Valle",
+              "country": "Ecuador",
+              "country_code": "ECU",
+              "abbreviation": "IND",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "F",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80639",
+          "name": "Group C",
+          "competitors": [
+            {
+              "id": "sr:competitor:5926",
+              "name": "Gremio FB Porto Alegrense RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:32529",
+              "name": "The Strongest",
+              "country": "Bolivia",
+              "country_code": "BOL",
+              "abbreviation": "STR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3206",
+              "name": "Estudiantes de La Plata",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "ELP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3164",
+              "name": "Huachipato",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "HUA",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "C",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80641",
+          "name": "Group D",
+          "competitors": [
+            {
+              "id": "sr:competitor:2305",
+              "name": "Universitario de Deportes",
+              "country": "Peru",
+              "country_code": "PER",
+              "abbreviation": "UNI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5257",
+              "name": "LDU Quito",
+              "country": "Ecuador",
+              "country_code": "ECU",
+              "abbreviation": "LDU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6105",
+              "name": "CD Junior FC",
+              "country": "Colombia",
+              "country_code": "COL",
+              "abbreviation": "JUN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1958",
+              "name": "Botafogo FR RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "D",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80649",
+          "name": "Group H",
+          "competitors": [
+            {
+              "id": "sr:competitor:3230",
+              "name": "Club Nacional de Football",
+              "country": "Uruguay",
+              "country_code": "URY",
+              "abbreviation": "NAC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3211",
+              "name": "CA River Plate (ARG)",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "RIV",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5996",
+              "name": "Libertad Asuncion",
+              "country": "Paraguay",
+              "country_code": "PRY",
+              "abbreviation": "LIB",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6231",
+              "name": "Deportivo Tachira",
+              "country": "Venezuela",
+              "country_code": "VEN",
+              "abbreviation": "TAC",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "H",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80635",
+          "name": "Group A",
+          "competitors": [
+            {
+              "id": "sr:competitor:2311",
+              "name": "Alianza Lima",
+              "country": "Peru",
+              "country_code": "PER",
+              "abbreviation": "ALI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5991",
+              "name": "Cerro Porteno",
+              "country": "Paraguay",
+              "country_code": "PRY",
+              "abbreviation": "CPO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3155",
+              "name": "Colo-Colo",
+              "country": "Chile",
+              "country_code": "CHL",
+              "abbreviation": "CC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1961",
+              "name": "Fluminense FC RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLU",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "A",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        },
+        {
+          "id": "sr:league:80647",
+          "name": "Group G",
+          "competitors": [
+            {
+              "id": "sr:competitor:3227",
+              "name": "CA Penarol Montevideo",
+              "country": "Uruguay",
+              "country_code": "URY",
+              "abbreviation": "PEN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6230",
+              "name": "Caracas FC",
+              "country": "Venezuela",
+              "country_code": "VEN",
+              "abbreviation": "CAR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:3217",
+              "name": "CA Rosario Central",
+              "country": "Argentina",
+              "country_code": "ARG",
+              "abbreviation": "ROS",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1977",
+              "name": "Atletico Mineiro MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ATL",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 6,
+          "group_name": "G",
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": True
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "type": "cup",
+      "phase": "playoffs",
+      "start_date": "2024-08-14",
+      "end_date": "2024-12-01",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:cup:158527",
+          "name": "Copa Libertadores 2024, Knockout stage",
+          "competitors": [
+            {
+              "id": "sr:competitor:1139251",
+              "name": "A1",
+              "abbreviation": "A1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139253",
+              "name": "A2",
+              "abbreviation": "A2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139255",
+              "name": "B!",
+              "abbreviation": "B",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139257",
+              "name": "B2",
+              "abbreviation": "B2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139259",
+              "name": "C1",
+              "abbreviation": "C1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139261",
+              "name": "C2",
+              "abbreviation": "C2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139263",
+              "name": "D1",
+              "abbreviation": "D1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139265",
+              "name": "D2",
+              "abbreviation": "D2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139267",
+              "name": "E1",
+              "abbreviation": "E1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139269",
+              "name": "E2",
+              "abbreviation": "E2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139271",
+              "name": "F1",
+              "abbreviation": "F1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139273",
+              "name": "F2",
+              "abbreviation": "F2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139275",
+              "name": "G1",
+              "abbreviation": "G1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139277",
+              "name": "G2",
+              "abbreviation": "G2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139279",
+              "name": "H1",
+              "abbreviation": "H1",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139281",
+              "name": "H2",
+              "abbreviation": "H2",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139283",
+              "name": "Winner A",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139285",
+              "name": "Winner B",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139289",
+              "name": "Winner C",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139291",
+              "name": "Winner D",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139293",
+              "name": "Winner E",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139295",
+              "name": "Winner F",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139297",
+              "name": "Winner G",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139299",
+              "name": "Winner H",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139301",
+              "name": "Winner S1",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139303",
+              "name": "Winner S2",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139305",
+              "name": "Winner S3",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139307",
+              "name": "Winner S4",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139309",
+              "name": "Winner F1",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1139311",
+              "name": "Winner F2",
+              "abbreviation": "WIN",
+              "virtual": True,
+              "gender": "male"
+            }
+          ],
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": True,
+              "cup": True,
+              "league": False,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "False",
+              "group_stage": False
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+        season3 = {
+  "generated_at": "2024-05-29T21:07:20+00:00",
+  "coverage": {
+    "type": "competition",
+    "competition_properties": {
+      "brackets": True,
+      "missing_players": False,
+      "player_transfer_history": False,
+      "schedules": True,
+      "season_player_statistics": False,
+      "season_stats_leaders": False,
+      "season_team_statistics": False,
+      "standings": "False",
+      "team_squads": False
+    },
+    "sport_event_properties": {
+      "basic_play_by_play": False,
+      "basic_player_stats": False,
+      "basic_team_stats": False,
+      "extended_player_stats": False,
+      "extended_team_stats": False,
+      "deeper_play_by_play": False,
+      "deeper_team_stats": False,
+      "deeper_player_stats": False,
+      "lineups": False,
+      "goal_scorers": True,
+      "scores": "live",
+      "assists": False
+    }
+  },
+  "season": {
+    "id": "sr:season:114441",
+    "name": "Copa do Brasil 2024",
+    "start_date": "2024-02-20",
+    "end_date": "2024-11-11",
+    "year": "2024",
+    "competition_id": "sr:competition:373",
+    "sport": {
+      "id": "sr:sport:1",
+      "name": "Soccer"
+    },
+    "category": {
+      "id": "sr:category:13",
+      "name": "Brazil",
+      "country_code": "BRA"
+    },
+    "competition": {
+      "id": "sr:competition:373",
+      "name": "Copa do Brasil",
+      "gender": "men"
+    }
+  },
+  "stages": [
+    {
+      "order": 1,
+      "type": "cup",
+      "phase": "playoffs",
+      "start_date": "2024-02-20",
+      "end_date": "2024-11-11",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:cup:160401",
+          "name": "Copa do Brasil 2024",
+          "competitors": [
+            {
+              "id": "sr:competitor:1954",
+              "name": "Cruzeiro EC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CRU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1955",
+              "name": "EC Bahia BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BAH",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1957",
+              "name": "SC Corinthians SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "COR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1958",
+              "name": "Botafogo FR RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1959",
+              "name": "SC Recife PE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "REC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1960",
+              "name": "Goias EC GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GGO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1961",
+              "name": "Fluminense FC RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1962",
+              "name": "EC Vitoria BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VIT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1963",
+              "name": "SE Palmeiras SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1966",
+              "name": "SC Internacional RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "INT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1967",
+              "name": "CA Paranaense PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CAP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1971",
+              "name": "Portuguesa Santista",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PSA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1973",
+              "name": "America FC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AMG",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1974",
+              "name": "CR Vasco da Gama RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VDG",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1977",
+              "name": "Atletico Mineiro MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ATL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1979",
+              "name": "Botafogo FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1980",
+              "name": "EC Juventude RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "JUV",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1981",
+              "name": "Sao Paulo FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1982",
+              "name": "Coritiba FC PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "COR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1984",
+              "name": "Criciuma EC SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CRI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1997",
+              "name": "Paysandu SC PA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PAY",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1999",
+              "name": "Red Bull Bragantino SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2000",
+              "name": "SER Caxias do Sul",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CAX",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2001",
+              "name": "Ceara SC CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CEA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2005",
+              "name": "Sampaio Correa FC MA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SCO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2006",
+              "name": "Ji-Parana FC RO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "JIP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2009",
+              "name": "Moto Club MA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2012",
+              "name": "Clube do Remo PA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CDR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2014",
+              "name": "River PI",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "RIV",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2017",
+              "name": "AD Confianca SE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CON",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2018",
+              "name": "Treze FC PB",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "TRE",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2019",
+              "name": "AS Arapiraquense AL",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ARA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2020",
+              "name": "Fortaleza EC CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FOR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2023",
+              "name": "America FC RN",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ARN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2024",
+              "name": "Brasiliense FC DF",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BDF",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2025",
+              "name": "Ituano FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ITU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5926",
+              "name": "Gremio FB Porto Alegrense RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GPA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:5981",
+              "name": "CR Flamengo RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6981",
+              "name": "Nova Iguacu RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "NRJ",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:6982",
+              "name": "Volta Redonda FC RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VOR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:7314",
+              "name": "AC Goianiense GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GOI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:7316",
+              "name": "Villa Nova AC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VIN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21838",
+              "name": "ABC FC RN",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ABC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21853",
+              "name": "AO Itabaiana SE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ITA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21858",
+              "name": "Maranhao AC MA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MAR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21862",
+              "name": "Rio Branco FC AC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "RBR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21864",
+              "name": "Sousa EC PB",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SOU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21865",
+              "name": "Trem AP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "TAP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21872",
+              "name": "Anapolis FC GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ANA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21884",
+              "name": "Brusque FC SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21891",
+              "name": "Cascavel PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CAS",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21892",
+              "name": "Cianorte FC PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CIA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21973",
+              "name": "Itabuna EC BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ITA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21978",
+              "name": "CN Marcilio Dias SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MDI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21985",
+              "name": "Petrolina SFC PE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PPE",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:22032",
+              "name": "CR Brasil AL",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:32672",
+              "name": "Ferroviario AC CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FER",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:32766",
+              "name": "Ypiranga FC RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "YRS",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:32768",
+              "name": "EC Sao Luiz RS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:32794",
+              "name": "AA Aparecidense GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "APA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:33998",
+              "name": "Aguia de Maraba PA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AMA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:35276",
+              "name": "CE Operario Varzea-Grandense MT",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "OPE",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:39616",
+              "name": "Olaria RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "OLA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:39634",
+              "name": "Operario Ferroviario EC PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FER",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:47504",
+              "name": "Sao Bernardo FC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SBE",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:49195",
+              "name": "Murici AL",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MUR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:49202",
+              "name": "Cuiaba Esporte Clube MT",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CUI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:65494",
+              "name": "Real Noroeste ES",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "RNO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:85341",
+              "name": "Audax Rio EC RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ADX",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:87166",
+              "name": "EC Jacuipense BA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "JAC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:87202",
+              "name": "Tombense FC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "TOM",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:90278",
+              "name": "Sao Raimundo EC RR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SAO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:135324",
+              "name": "Maringa FC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:135510",
+              "name": "EC Agua Santa SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AGU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:225938",
+              "name": "AA Portuguesa RJ",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "POR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:245545",
+              "name": "Tocantinopolis EC TO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "TOC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:248569",
+              "name": "Costa Rica EC MS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CRI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:317965",
+              "name": "Operario FC MS",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "OPE",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:336163",
+              "name": "Uniao EC MT",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "UNI",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:401927",
+              "name": "Iguatu CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "IGU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:426351",
+              "name": "Gremio Atletico Sampaio RR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GAS",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:463359",
+              "name": "EC Humaita AC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "HUM",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:529979",
+              "name": "Real Brasilia FC DF",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "REAL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:547561",
+              "name": "Athletic Club Sjdr MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ATH",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:614088",
+              "name": "Retro FC PE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "RET",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:663997",
+              "name": "Amazonas FC AM",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AMA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:674989",
+              "name": "Capital FC TO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CAP",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:675171",
+              "name": "Porto Velho Ec/Ro",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VEL",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:773398",
+              "name": "Fluminense EC PI",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FLU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:792888",
+              "name": "Independente EC AP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "IND",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:837176",
+              "name": "Manauara EC AM",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MAN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:838666",
+              "name": "Nova Venecia ES",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "NOV",
+              "gender": "male"
+            }
+          ],
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": True,
+              "cup": True,
+              "league": False,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "False",
+              "group_stage": False
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": False,
+              "basic_player_stats": False,
+              "basic_team_stats": False,
+              "lineups": False,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": False,
+              "deeper_player_stats": False,
+              "deeper_play_by_play": False,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+        season2 = {
+  "generated_at": "2024-05-29T21:06:43+00:00",
+  "coverage": {
+    "type": "competition",
+    "competition_properties": {
+      "brackets": False,
+      "missing_players": False,
+      "player_transfer_history": False,
+      "schedules": True,
+      "season_player_statistics": True,
+      "season_stats_leaders": True,
+      "season_team_statistics": True,
+      "standings": "live",
+      "team_squads": True
+    },
+    "sport_event_properties": {
+      "basic_play_by_play": True,
+      "basic_player_stats": True,
+      "basic_team_stats": True,
+      "extended_player_stats": False,
+      "extended_team_stats": False,
+      "deeper_play_by_play": True,
+      "deeper_team_stats": True,
+      "deeper_player_stats": True,
+      "lineups": False,
+      "goal_scorers": True,
+      "scores": "live",
+      "assists": False
+    }
+  },
+  "season": {
+    "id": "sr:season:114439",
+    "name": "Brasileiro Serie B 2024",
+    "start_date": "2024-04-19",
+    "end_date": "2024-11-27",
+    "year": "2024",
+    "competition_id": "sr:competition:390",
+    "sport": {
+      "id": "sr:sport:1",
+      "name": "Soccer"
+    },
+    "category": {
+      "id": "sr:category:13",
+      "name": "Brazil",
+      "country_code": "BRA"
+    },
+    "competition": {
+      "id": "sr:competition:390",
+      "name": "Brasileiro Serie B",
+      "gender": "men"
+    }
+  },
+  "stages": [
+    {
+      "order": 1,
+      "type": "league",
+      "phase": "regular season",
+      "start_date": "2024-04-19",
+      "end_date": "2024-11-27",
+      "year": "2024",
+      "groups": [
+        {
+          "id": "sr:league:82265",
+          "name": "Brasileiro Serie B",
+          "competitors": [
+            {
+              "id": "sr:competitor:7315",
+              "name": "Avai FC SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AVA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:22032",
+              "name": "CR Brasil AL",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2001",
+              "name": "Ceara SC CE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CEA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1959",
+              "name": "SC Recife PE",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "REC",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1973",
+              "name": "America FC MG",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AMG",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2021",
+              "name": "Vila Nova FC GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "VIN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1972",
+              "name": "Guarani FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GUA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1997",
+              "name": "Paysandu SC PA",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PAY",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1982",
+              "name": "Coritiba FC PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "COR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1969",
+              "name": "AA Ponte Preta SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "PON",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1960",
+              "name": "Goias EC GO",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GGO",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21845",
+              "name": "Chapecoense SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "CHA",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:39634",
+              "name": "Operario Ferroviario EC PR",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "FER",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1979",
+              "name": "Botafogo FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BOT",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:2025",
+              "name": "Ituano FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "ITU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:1968",
+              "name": "Santos FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "SAN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21884",
+              "name": "Brusque FC SC",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "BRU",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:135514",
+              "name": "Gremio Novorizontino SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "GRN",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:21982",
+              "name": "Mirassol FC SP",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "MIR",
+              "gender": "male"
+            },
+            {
+              "id": "sr:competitor:663997",
+              "name": "Amazonas FC AM",
+              "country": "Brazil",
+              "country_code": "BRA",
+              "abbreviation": "AMA",
+              "gender": "male"
+            }
+          ],
+          "max_rounds": 38,
+          "coverage": {
+            "type": "group",
+            "group_properties": {
+              "brackets": False,
+              "cup": False,
+              "league": True,
+              "missing_players": False,
+              "qualification": False,
+              "schedules": True,
+              "results": True,
+              "standings": "live",
+              "group_stage": False
+            },
+            "sport_event_properties": {
+              "basic_play_by_play": True,
+              "basic_player_stats": True,
+              "basic_team_stats": True,
+              "lineups": True,
+              "extended_player_stats": False,
+              "extended_team_stats": False,
+              "deeper_team_stats": True,
+              "deeper_player_stats": True,
+              "deeper_play_by_play": True,
+              "goal_scorers": True,
+              "scores": "live"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
         for season in lista_season:
             self.url = ("https://api.sportradar.com/soccer/trial/v4/en/seasons/SEASON/standings.json?api_key=CHAVE").replace('SEASON',season.get('id')).replace('CHAVE',self.key)
 
@@ -70621,8 +88950,11 @@ class Sportradar(Integracao):
             # self.get(dumps=False)
             # dados = json.loads(self.response)
             # if dados:
-            #   info_coletadas.append(dados)
-        info_coletadas = self.mock_retorno_info_season()
+            #   info_coletadas[season.get('id')] = dados
+        info_coletadas['sr:season:113943'] = season1
+        info_coletadas['sr:season:114439'] = season2
+        info_coletadas['sr:season:114441'] = season3
+        info_coletadas['sr:season:114037'] = season4
 
         return info_coletadas
     def pegar_versus_futebol(self):
@@ -70652,7 +88984,7 @@ class Sportradar(Integracao):
             #   season.save()
 
             for dado_geral in dados_gerais:
-                for standing in dado_geral.get('standings'):
+                for standing in dados_gerais[dado_geral].get('standings'):
                     for grupo in standing.get('groups'):
                         for times in grupo.get('standings'):
                             # salvar/editar os times
@@ -70666,7 +88998,7 @@ class Sportradar(Integracao):
                             performance_time = core.esporte.models.PerformaceTime.objects.filter(season_id='sr:season:105353',time=times.get('competitor').get('id')).first()
                             if not performance_time:
                                 performance_time = core.esporte.models.PerformaceTime()
-                                performance_time.season_id = 'sr:season:105353'
+                                performance_time.season_id = dado_geral
                                 performance_time.time_id = times.get('competitor').get('id')
                             performance_time.info = json.dumps(times)
                             performance_time.save()
