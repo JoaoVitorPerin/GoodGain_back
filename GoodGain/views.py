@@ -30,9 +30,35 @@ class Campeonato(APIView):
 
 class SimularAposta(APIView):
 
-    def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
+    def post(self, *args, **kwargs):
+        cpf_user = self.request.GET.get('cpf_user')
+        campeonato = self.request.GET.get('campeonato')
+        time_1 = self.request.GET.get('time_1')
+        time_2 = self.request.GET.get('time_2')
+        odd = self.request.GET.get('odd')
+        tipo_aposta = self.request.GET.get('tipo_aposta')
+        status, dados = BO.cliente.cliente.Cliente().simular_aposta(cpf_user=cpf_user,
+                                                                    campeonato=campeonato,
+                                                                    time_1=time_1,
+                                                                    time_2=time_2,
+                                                                    odd=odd,
+                                                                    tipo_aposta=tipo_aposta)
         return JsonResponse({'status': status, 'campeonatos': dados})
+
+class EventoSimulado(APIView):
+
+    def post(self, *args, **kwargs):
+        cpf_user = self.request.GET.get('cpf_user')
+        evento = self.request.GET.get('evento')
+        status, dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
+        return JsonResponse({'status': status, 'campeonatos': dados})
+class Dashboard(APIView):
+
+    def get(self, *args, **kwargs):
+        cpf_user = self.request.GET.get('cpf_user')
+        status, dados = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
+        return JsonResponse({'status': status, 'campeonatos': dados})
+
 
 class GetCampeonatosTImes(APIView):
 

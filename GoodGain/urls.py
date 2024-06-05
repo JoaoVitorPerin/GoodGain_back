@@ -32,10 +32,12 @@ urlpatterns = [
     re_path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 
     re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
-    re_path('simular/aposta', GoodGain.views.VerficarCodigo.as_view(), name='simular_aposta'),
+    re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
+    re_path('evento/simulado', GoodGain.views.EventoSimulado.as_view(), name='evento_simulado'),
 
 
     #inicio variaveis do admin
     re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus'),
-    re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados')
+    re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados'),
+    re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard')
 ]

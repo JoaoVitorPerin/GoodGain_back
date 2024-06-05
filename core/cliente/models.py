@@ -73,7 +73,12 @@ class Aposta(models.Model):
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
     evento = models.ForeignKey('esporte.Evento', on_delete=models.DO_NOTHING, null=True)
-    palpite = models.CharField(max_length=500, null=True)
+    campeonato = models.ForeignKey('esporte.Campeonato',on_delete=models.DO_NOTHING, null=True)
+    time_1 = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_1')
+    time_2 = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_2')
+    odd = models.CharField(max_length=500, null=True)
+    valor = models.FloatField(null=True)
+    tipo_aposta = models.CharField(max_length=500, null=True)
 
 
     class Meta:

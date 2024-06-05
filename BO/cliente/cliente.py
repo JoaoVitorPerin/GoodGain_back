@@ -5,6 +5,7 @@ import jwt
 import datetime
 import random
 import ast
+import json
 
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -52,6 +53,159 @@ class Cliente():
         except:
             return False, '', {}
 
+     def get_dahsboard_cliente(self, cliente_id=None):
+        try:
+
+            apostas_cliente = list(core.cliente.models.Aposta.objects.filter(cliente_id=cliente_id))
+            dict_campeonatos = {}
+            dict_tipo_apostas = {}
+            todas_odds = 0
+            valor_apostado = 0.0
+            valor_anterior = 0
+            tipo_aposta_mais_escolhida = 'nenhuma'
+            for aposta in apostas_cliente:
+                dict_campeonatos[aposta.get('campeonato_id')] += 1
+                dict_tipo_apostas[aposta.get('tipo_aposta')] += 1
+                todas_odds+= float(aposta.get('odd'))
+                valor_apostado += aposta.get('valor')
+            if todas_odds:
+                media_odds = todas_odds/len(apostas_cliente)
+            else:
+                media_odds = 0.0
+            for tipo_aposta in dict_tipo_apostas:
+                valor_atual = dict_tipo_apostas[tipo_aposta]
+                if valor_atual > valor_anterior:
+                   valor_anterior = valor_atual
+                   tipo_aposta_mais_escolhida = tipo_aposta
+            dados = {'status': True,
+                     'qtd_apostas':len(apostas_cliente),
+                     'media_odds':media_odds,
+                     'valor_apostado':valor_apostado,
+                     'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
+                     'grafico_campeonatos':dict_campeonatos,
+                     'grafico_tipo_aposta':dict_tipo_apostas}
+
+            return dados
+        except:
+            return {'status': False}
+
+     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None):
+         if tipo_aposta == 1:
+             dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
+             if dados.get('status'):
+                 aposta = core.cliente.models.Aposta()
+                 aposta.cliente_id = cpf_user
+                 aposta.status = True
+                 aposta.campeonato_id = campeonato
+                 aposta.time_1_id = time_1
+                 aposta.time_2_id = time_2
+                 aposta.odd = odd
+                 aposta.tipo_aposta = tipo_aposta
+                 aposta.save()
+
+         return dados
+
+     def evento_simulado(self, cpf_user=None, evento=None, odd=None):
+         try:
+             dados = {'status':True}
+             evento = core.esporte.models.Evento.objects.filter(id=evento).first()
+             dados_25_gols = self.calcular_tipo_1(odd=odd, campeonato=evento.get('campeonato_id'), time_1=evento.get('time_a_id'), time_2=evento.get('time_b_id'))
+             if dados_25_gols.get('status'):
+                 dados['dados_25_gols'] = dados_25_gols
+                 aposta = core.cliente.models.Aposta()
+                 aposta.cliente_id = cpf_user
+                 aposta.status = True
+                 aposta.evento_id = evento.get('id')
+                 aposta.campeonato_id = evento.get('campeonato_id')
+                 aposta.time_1_id = evento.get('time_a_id')
+                 aposta.time_2_id = evento.get('time_b_id')
+                 aposta.odd = odd
+                 aposta.tipo_aposta = 0
+                 aposta.save()
+
+             return dados
+         except:
+            dados['status'] = False
+            return dados
+
+     def calcular_tipo_1(self, odd=None, campeonato=None, time_1=None, time_2=None):
+         try:
+             jogos_com25gols_casa_time1 = 0
+             jogos_com25gols_fora_time1  = 0
+             jogos_com25gols_casa_time2 = 0
+             jogos_com25gols_fora_time2 = 0
+             sem_dados_time1 = False
+             sem_dados_time2 = False
+             dict_info = {
+                 'status': True,
+                 'descricao': '',
+                 'resultado_time_1':0,
+                 'resultado_time_2':0
+             }
+
+             eventos_casa = list(core.esporte.models.Evento.objects.filter(time_a_id=time_1, resultado_partida__isnull=False))
+             if eventos_casa:
+                 for evento_interno in eventos_casa:
+                     if json.loads(evento_interno.get('resultado_partida')).get('home_score'):
+                        jogos_com25gols_casa_time1 +=1
+             else:
+                 sem_dados_time1 = True
+
+
+             eventos_fora = list(
+                 core.esporte.models.Evento.objects.filter(time_b_id=time_1, resultado_partida__isnull=False))
+             if eventos_fora:
+                 for evento_externos in eventos_fora:
+                     if json.loads(evento_externos.get('resultado_partida')).get('away_score'):
+                         jogos_com25gols_fora_time1 += 1
+             else:
+                 sem_dados_time1 = True
+
+             eventos_casa_2 = list(
+                 core.esporte.models.Evento.objects.filter(time_a_id=time_1, resultado_partida__isnull=False))
+             if eventos_casa_2:
+                 for evento_interno in eventos_casa_2:
+                     if json.loads(evento_interno.get('resultado_partida')).get('home_score'):
+                         jogos_com25gols_casa_time2 += 1
+
+             else:
+                 sem_dados_time2 = True
+
+             eventos_fora_time2 = list(
+                 core.esporte.models.Evento.objects.filter(time_b_id=time_1, resultado_partida__isnull=False))
+             if eventos_fora_time2:
+                 for evento_externos in eventos_fora_time2:
+                     if json.loads(evento_externos.get('resultado_partida')).get('away_score'):
+                         jogos_com25gols_fora_time2 += 1
+
+             else:
+                 sem_dados_time1 = True
+             # (%de over 2.5 gols casa + %de over 2.5 gols fora) / 2 = X
+             # (X / (100 / odd)) - 1 = valor da         odd
+             if not sem_dados_time1:
+                if jogos_com25gols_casa_time1 != 0:
+                    perc_over25_casa_time1 = jogos_com25gols_casa_time1/len(eventos_casa)
+                if jogos_com25gols_fora_time1 != 0:
+                    perc_over25_fora_time1 = jogos_com25gols_fora_time1/len(eventos_fora)
+                x_time1 = (perc_over25_casa_time1 + perc_over25_fora_time1) / 2
+                resultado_time_1 = (x_time1 / (100 / odd)) - 1
+                dict_info['resultado_time_1'] = resultado_time_1
+
+             if not sem_dados_time2:
+                 if jogos_com25gols_casa_time2 != 0:
+                     perc_over25_casa_time2 = jogos_com25gols_casa_time2 / len(eventos_casa_2)
+                 if jogos_com25gols_fora_time2 != 0:
+                     perc_over25_fora_time2 = jogos_com25gols_fora_time2 / len(eventos_fora_time2)
+                 x_time2 = (perc_over25_casa_time2 + perc_over25_fora_time2) / 2
+                 resultado_time_2 = (x_time2 / (100 / odd)) - 1
+                 dict_info['resultado_time_2'] = resultado_time_2
+
+
+             return dict_info
+         except:
+             dict_info['status'] = False
+             dict_info['descricao'] = 'não foi possivel gerar a simulação'
+             return dict_info
      def get_preferencias_user(self, cpf=None):
          response = {
              'esporte': [],
