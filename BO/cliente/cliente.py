@@ -55,7 +55,17 @@ class Cliente():
 
      def get_apostas_cliente(self,cpf_user=None):
         try:
-            lista_apostas_cliente = list(core.cliente.models.Aposta.objects.values().filter(cliente_id=cpf_user).order_by('-id'))
+            lista_apostas_cliente = list(core.cliente.models.Aposta.objects.values(
+'cliente_id',
+'status',
+'evento',
+'campeonato__nome',
+'time_1__nome',
+'time_2__nome',
+'odd',
+'valor',
+'tipo_aposta',
+'is_aposta').filter(cliente_id=cpf_user).order_by('-id'))
             return True, lista_apostas_cliente
         except:
             return False, []
@@ -190,7 +200,7 @@ class Cliente():
              elif dados.get('resultado') == dados_a.get('resultado'):
                  dados['descricao_resultado'] = 'Não recomendado'
              else:
-                 ados['descricao_resultado'] = 'Não recomendado'
+                 dados['descricao_resultado'] = 'Não recomendado'
          if dados.get('status'):
              aposta = core.cliente.models.Aposta()
              aposta.cliente_id = cpf_user

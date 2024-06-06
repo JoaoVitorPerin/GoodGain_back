@@ -18,7 +18,16 @@ class Esporte():
      def get_eventos(self):
         try:
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
-            lista_eventos = list(core.esporte.models.Evento.objects.values().filter(data__gte=data_hoje))
+            lista_eventos = list(core.esporte.models.Evento.objects.values('id',
+                                                            'nome',
+                                                            'data',
+                                                            'time_a',
+                                                            'time_b',
+                                                            'resultado_time_a',
+                                                            'resultado_time_b',
+                                                            'resultado_partida',
+                                                            'campeonato',
+                                                            'season','status','time_a__nome','time_b__nome','campeonato__nome').filter(data__gte=data_hoje))
             return True, lista_eventos
         except:
             return False, []
