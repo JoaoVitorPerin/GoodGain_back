@@ -70,7 +70,7 @@ class EventosFuturos(APIView):
         return JsonResponse({'status':status,'dados': dados})
 
 
-class ApostasCliente(APIView):
+class Historico(APIView):
 
     def get(self, *args, **kwargs):
         cpf_user = self.request.GET.get('cpf_user')
