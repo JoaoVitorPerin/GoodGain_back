@@ -64,10 +64,16 @@ class Cliente():
             valor_anterior = 0
             tipo_aposta_mais_escolhida = 'nenhuma'
             for aposta in apostas_cliente:
-                dict_campeonatos[aposta.get('campeonato_id')] += 1
-                dict_tipo_apostas[aposta.get('tipo_aposta')] += 1
-                todas_odds+= float(aposta.get('odd'))
-                valor_apostado += aposta.get('valor')
+                if aposta.campeonato_id not in dict_campeonatos:
+                    dict_campeonatos[aposta.campeonato_id] = 1
+                else:
+                    dict_campeonatos[aposta.campeonato_id] = dict_campeonatos[aposta.campeonato_id] + 1
+                if aposta.tipo_aposta not in dict_tipo_apostas:
+                    dict_tipo_apostas[aposta.tipo_aposta] = 1
+                else:
+                    dict_tipo_apostas[aposta.tipo_aposta] = dict_tipo_apostas[aposta.tipo_aposta] + 1
+                todas_odds+= float(aposta.odd)
+                valor_apostado += aposta.valor if aposta.valor is not None else 0
             if todas_odds:
                 media_odds = todas_odds/len(apostas_cliente)
             else:
@@ -84,13 +90,15 @@ class Cliente():
                      'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
                      'grafico_campeonatos':dict_campeonatos,
                      'grafico_tipo_aposta':dict_tipo_apostas}
+            lista_tipos = list(core.esporte.models.Tipo.objects.values('id', 'informacao'))
+            lista_campeonatos = list(core.esporte.models.Campeonato.objects.values('id', 'nome'))
 
-            return dados
+            return dados, lista_tipos, lista_campeonatos
         except:
-            return {'status': False}
+            return {'status': False}, [], []
 
-     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None):
-         if tipo_aposta == 1:
+     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None):
+         if tipo_aposta == '1':
              dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
              if dados.get('status'):
                  aposta = core.cliente.models.Aposta()
@@ -100,6 +108,7 @@ class Cliente():
                  aposta.time_1_id = time_1
                  aposta.time_2_id = time_2
                  aposta.odd = odd
+                 aposta.valor = valor
                  aposta.tipo_aposta = tipo_aposta
                  aposta.save()
 
@@ -146,7 +155,7 @@ class Cliente():
              eventos_casa = list(core.esporte.models.Evento.objects.filter(time_a_id=time_1, resultado_partida__isnull=False))
              if eventos_casa:
                  for evento_interno in eventos_casa:
-                     if json.loads(evento_interno.get('resultado_partida')).get('home_score'):
+                     if json.loads(evento_interno.resultado_partida.replace("'",'"').replace('True','true').replace('False','false')).get('home_score') >=3:
                         jogos_com25gols_casa_time1 +=1
              else:
                  sem_dados_time1 = True
@@ -156,26 +165,26 @@ class Cliente():
                  core.esporte.models.Evento.objects.filter(time_b_id=time_1, resultado_partida__isnull=False))
              if eventos_fora:
                  for evento_externos in eventos_fora:
-                     if json.loads(evento_externos.get('resultado_partida')).get('away_score'):
+                     if json.loads(evento_externos.resultado_partida.replace("'",'"').replace('True','true').replace('False','false')).get('away_score') >=3:
                          jogos_com25gols_fora_time1 += 1
              else:
                  sem_dados_time1 = True
 
              eventos_casa_2 = list(
-                 core.esporte.models.Evento.objects.filter(time_a_id=time_1, resultado_partida__isnull=False))
+                 core.esporte.models.Evento.objects.filter(time_a_id=time_2, resultado_partida__isnull=False))
              if eventos_casa_2:
                  for evento_interno in eventos_casa_2:
-                     if json.loads(evento_interno.get('resultado_partida')).get('home_score'):
+                     if json.loads(evento_interno.resultado_partida.replace("'",'"').replace('True','true').replace('False','false')).get('home_score') >=3:
                          jogos_com25gols_casa_time2 += 1
 
              else:
                  sem_dados_time2 = True
 
              eventos_fora_time2 = list(
-                 core.esporte.models.Evento.objects.filter(time_b_id=time_1, resultado_partida__isnull=False))
+                 core.esporte.models.Evento.objects.filter(time_b_id=time_2, resultado_partida__isnull=False))
              if eventos_fora_time2:
                  for evento_externos in eventos_fora_time2:
-                     if json.loads(evento_externos.get('resultado_partida')).get('away_score'):
+                     if json.loads(evento_externos.resultado_partida.replace("'",'"').replace('True','true').replace('False','false')).get('away_score') >=3:
                          jogos_com25gols_fora_time2 += 1
 
              else:
@@ -185,19 +194,27 @@ class Cliente():
              if not sem_dados_time1:
                 if jogos_com25gols_casa_time1 != 0:
                     perc_over25_casa_time1 = jogos_com25gols_casa_time1/len(eventos_casa)
+                else:
+                    perc_over25_casa_time1 = 0
                 if jogos_com25gols_fora_time1 != 0:
                     perc_over25_fora_time1 = jogos_com25gols_fora_time1/len(eventos_fora)
+                else:
+                    perc_over25_fora_time1 = 0
                 x_time1 = (perc_over25_casa_time1 + perc_over25_fora_time1) / 2
-                resultado_time_1 = (x_time1 / (100 / odd)) - 1
+                resultado_time_1 = (x_time1 / (100 / float(odd))) - 1
                 dict_info['resultado_time_1'] = resultado_time_1
 
              if not sem_dados_time2:
                  if jogos_com25gols_casa_time2 != 0:
                      perc_over25_casa_time2 = jogos_com25gols_casa_time2 / len(eventos_casa_2)
+                 else:
+                     perc_over25_casa_time2 = 0
                  if jogos_com25gols_fora_time2 != 0:
                      perc_over25_fora_time2 = jogos_com25gols_fora_time2 / len(eventos_fora_time2)
+                 else:
+                    perc_over25_fora_time2 = 0
                  x_time2 = (perc_over25_casa_time2 + perc_over25_fora_time2) / 2
-                 resultado_time_2 = (x_time2 / (100 / odd)) - 1
+                 resultado_time_2 = (x_time2 / (100 / float(odd))) - 1
                  dict_info['resultado_time_2'] = resultado_time_2
 
 
