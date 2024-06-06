@@ -83,13 +83,21 @@ class Cliente():
                 if valor_atual > valor_anterior:
                    valor_anterior = valor_atual
                    tipo_aposta_mais_escolhida = tipo_aposta
+            lista_grafico_campeonato = []
+            lista_grafico_tipo = []
+            for campeonato in dict_campeonatos:
+                lista_grafico_campeonato.append({'campeonato': campeonato, 'valor':dict_campeonatos[campeonato]})
+            for tipo_aposta in dict_tipo_apostas:
+                lista_grafico_tipo.append({'tipo_aposta': tipo_aposta, 'valor': dict_tipo_apostas[tipo_aposta]})
+
+
             dados = {'status': True,
                      'qtd_apostas':len(apostas_cliente),
                      'media_odds':media_odds,
                      'valor_apostado':valor_apostado,
                      'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
-                     'grafico_campeonatos':dict_campeonatos,
-                     'grafico_tipo_aposta':dict_tipo_apostas}
+                     'grafico_campeonatos':lista_grafico_campeonato,
+                     'grafico_tipo_aposta':lista_grafico_tipo}
             lista_tipos = list(core.esporte.models.Tipo.objects.values('id', 'informacao'))
             lista_campeonatos = list(core.esporte.models.Campeonato.objects.values('id', 'nome'))
 
