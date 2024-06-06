@@ -170,13 +170,27 @@ class Cliente():
          except:
              return {'status': True, 'resultado': 0}
 
-     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None):
+     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
          if tipo_aposta == '1':
              dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
          if tipo_aposta == '2':
              dados = self.vitoria_time_a(time_a=time_1, campeonato=campeonato)
+             dados_b = self.vitoria_time_b(time_b=time_2, campeonato=campeonato)
+             if dados.get('resultado') > dados_b.get('resultado'):
+                 dados['descricao_resultado'] = 'Recomendado'
+             elif dados.get('resultado') == dados_b.get('resultado'):
+                 dados['descricao_resultado'] = 'Não recomendado'
+             else:
+                 ados['descricao_resultado'] = 'Não recomendado'
          if tipo_aposta == '3':
              dados = self.vitoria_time_b(time_b=time_2, campeonato=campeonato)
+             dados_a = self.vitoria_time_a(time_a=time_1, campeonato=campeonato)
+             if dados.get('resultado') > dados_a.get('resultado'):
+                 dados['descricao_resultado'] = 'Recomendado'
+             elif dados.get('resultado') == dados_a.get('resultado'):
+                 dados['descricao_resultado'] = 'Não recomendado'
+             else:
+                 ados['descricao_resultado'] = 'Não recomendado'
          if dados.get('status'):
              aposta = core.cliente.models.Aposta()
              aposta.cliente_id = cpf_user
@@ -187,6 +201,7 @@ class Cliente():
              aposta.odd = odd
              aposta.valor = valor
              aposta.tipo_aposta = tipo_aposta
+             aposta.is_aposta = True if is_aposta == 'true' else False
              aposta.save()
 
 

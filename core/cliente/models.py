@@ -79,6 +79,7 @@ class Aposta(models.Model):
     odd = models.CharField(max_length=500, null=True)
     valor = models.FloatField(null=True)
     tipo_aposta = models.CharField(max_length=500, null=True)
+    is_aposta = models.BooleanField(null=True, default=False)
 
 
     class Meta:

@@ -38,13 +38,15 @@ class SimularAposta(APIView):
         odd = self.request.POST.get('odd')
         tipo_aposta = self.request.POST.get('tipoAposta')
         valor = self.request.POST.get('valor')
+        is_aposta = self.request.POST.get('is_aposta')
         dados = BO.cliente.cliente.Cliente().simular_aposta(cpf_user=cpf_user,
                                                                     campeonato=campeonato,
                                                                     time_1=time_1,
                                                                     time_2=time_2,
                                                                     odd=odd,
                                                                     tipo_aposta=tipo_aposta,
-                                                                    valor=valor)
+                                                                    valor=valor,
+                                                                    is_aposta=is_aposta)
         return JsonResponse(dados)
 
 class EventoSimulado(APIView):
