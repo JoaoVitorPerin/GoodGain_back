@@ -85,6 +85,12 @@ class Cliente():
                 media_odds = todas_odds/len(apostas_cliente)
             else:
                 media_odds = 0.0
+
+            if valor_apostado:
+                media_valor_apostado = valor_apostado/len(apostas_cliente)
+            else:
+                media_valor_apostado = 0.0
+
             for tipo_aposta in dict_tipo_apostas:
                 valor_atual = dict_tipo_apostas[tipo_aposta]
                 if valor_atual > valor_anterior:
@@ -99,12 +105,12 @@ class Cliente():
 
 
             dados = {'status': True,
-                     'qtd_apostas':len(apostas_cliente),
-                     'media_odds':media_odds,
-                     'valor_apostado':valor_apostado,
+                     'qtd_apostas': len(apostas_cliente),
+                     'media_odds': media_odds,
+                     'valor_apostado': media_valor_apostado,
                      'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
-                     'grafico_campeonatos':lista_grafico_campeonato,
-                     'grafico_tipo_aposta':lista_grafico_tipo}
+                     'grafico_campeonatos': lista_grafico_campeonato,
+                     'grafico_tipo_aposta': lista_grafico_tipo}
             lista_tipos = list(core.esporte.models.Tipo.objects.values('id', 'informacao'))
             lista_campeonatos = list(core.esporte.models.Campeonato.objects.values('id', 'nome'))
 
@@ -112,20 +118,77 @@ class Cliente():
         except:
             return {'status': False}, [], []
 
+     def vitoria_time_a(self, time_a=None, campeonato=None, evento_id=None):
+         try:
+            if not evento_id:
+                eventos_campeonato = list(core.esporte.models.Evento.objects.filter(time_a_id=time_a,campeonato=campeonato,resultado_partida__isnull=False))
+            else:
+                eventos_campeonato = list(core.esporte.models.Evento.objects.filter(time_a_id=time_a, campeonato=campeonato, evento_id=evento_id,resultado_partida__isnull=False))
+
+            vitorias = 0
+            empates = 0
+            if eventos_campeonato is not None:
+                for evento in  eventos_campeonato:
+                    resultado_partida = json.loads(evento.resultado_partida.replace("'",'"').replace('True','true').replace('False','false'))
+                    if resultado_partida['home_score'] > resultado_partida['away_score']:
+                        vitorias += 3
+                    elif resultado_partida['home_score'] == resultado_partida['away_score']:
+                        empates += 1
+                    else:
+                        pass
+
+
+            return {'status':True,'resultado':vitorias + empates + 2}
+         except:
+            return {'status':True, 'resultado': 0}
+
+     def vitoria_time_b(self, time_b=None, campeonato=None, evento_id=None):
+         try:
+             if not evento_id:
+                 eventos_campeonato = list(
+                     core.esporte.models.Evento.objects.filter(time_b_id=time_b, campeonato=campeonato,
+                                                               resultado_partida__isnull=False))
+             else:
+                 eventos_campeonato = list(
+                     core.esporte.models.Evento.objects.filter(time_b_id=time_b, campeonato=campeonato,
+                                                               evento_id=evento_id, resultado_partida__isnull=False))
+
+             vitorias = 0
+             empates = 0
+             if eventos_campeonato is not None:
+                 for evento in eventos_campeonato:
+                     resultado_partida = json.loads(
+                         evento.resultado_partida.replace("'", '"').replace('True', 'true').replace('False', 'false'))
+                     if resultado_partida['home_score'] > resultado_partida['away_score']:
+                         vitorias += 3
+                     elif resultado_partida['home_score'] == resultado_partida['away_score']:
+                         empates += 1
+                     else:
+                         pass
+
+             return {'status': True, 'resultado': vitorias + empates}
+         except:
+             return {'status': True, 'resultado': 0}
+
      def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None):
          if tipo_aposta == '1':
              dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
-             if dados.get('status'):
-                 aposta = core.cliente.models.Aposta()
-                 aposta.cliente_id = cpf_user
-                 aposta.status = True
-                 aposta.campeonato_id = campeonato
-                 aposta.time_1_id = time_1
-                 aposta.time_2_id = time_2
-                 aposta.odd = odd
-                 aposta.valor = valor
-                 aposta.tipo_aposta = tipo_aposta
-                 aposta.save()
+         if tipo_aposta == '2':
+             dados = self.vitoria_time_a(time_a=time_1, campeonato=campeonato)
+         if tipo_aposta == '3':
+             dados = self.vitoria_time_b(time_b=time_2, campeonato=campeonato)
+         if dados.get('status'):
+             aposta = core.cliente.models.Aposta()
+             aposta.cliente_id = cpf_user
+             aposta.status = True
+             aposta.campeonato_id = campeonato
+             aposta.time_1_id = time_1
+             aposta.time_2_id = time_2
+             aposta.odd = odd
+             aposta.valor = valor
+             aposta.tipo_aposta = tipo_aposta
+             aposta.save()
+
 
          return dados
 
@@ -133,19 +196,27 @@ class Cliente():
          try:
              dados = {'status':True}
              evento = core.esporte.models.Evento.objects.filter(id=evento).first()
-             dados_25_gols = self.calcular_tipo_1(odd=odd, campeonato=evento.get('campeonato_id'), time_1=evento.get('time_a_id'), time_2=evento.get('time_b_id'))
+             time_a = self.calcular_tipo_1(odd=odd, campeonato=evento.get('campeonato_id'), time_1=evento.get('time_a_id'), time_2=evento.get('time_b_id'))
+             time_b = self.vitoria_time_a(campeonato=evento.get('campeonato_id'),
+                                                  time_a=evento.get('time_a_id'))
+             dados_25_gols = self.vitoria_time_b(campeonato=evento.get('campeonato_id'), time_b=evento.get('time_b_id'))
              if dados_25_gols.get('status'):
                  dados['dados_25_gols'] = dados_25_gols
-                 aposta = core.cliente.models.Aposta()
-                 aposta.cliente_id = cpf_user
-                 aposta.status = True
-                 aposta.evento_id = evento.get('id')
-                 aposta.campeonato_id = evento.get('campeonato_id')
-                 aposta.time_1_id = evento.get('time_a_id')
-                 aposta.time_2_id = evento.get('time_b_id')
-                 aposta.odd = odd
-                 aposta.tipo_aposta = 0
-                 aposta.save()
+             if time_a.get('status'):
+                 dados['time_a'] = time_a
+             if time_b.get('status'):
+                 dados['time_b'] = time_b
+
+             aposta = core.cliente.models.Aposta()
+             aposta.cliente_id = cpf_user
+             aposta.status = True
+             aposta.evento_id = evento.get('id')
+             aposta.campeonato_id = evento.get('campeonato_id')
+             aposta.time_1_id = evento.get('time_a_id')
+             aposta.time_2_id = evento.get('time_b_id')
+             aposta.odd = odd
+             aposta.tipo_aposta = 0
+             aposta.save()
 
              return dados
          except:
