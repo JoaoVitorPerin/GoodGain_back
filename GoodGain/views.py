@@ -39,6 +39,7 @@ class SimularAposta(APIView):
         tipo_aposta = self.request.POST.get('tipoAposta')
         valor = self.request.POST.get('valor')
         is_aposta = self.request.POST.get('is_aposta')
+        casa_aposta = self.request.POST.get('casa_aposta')
         dados = BO.cliente.cliente.Cliente().simular_aposta(cpf_user=cpf_user,
                                                                     campeonato=campeonato,
                                                                     time_1=time_1,
@@ -46,7 +47,8 @@ class SimularAposta(APIView):
                                                                     odd=odd,
                                                                     tipo_aposta=tipo_aposta,
                                                                     valor=valor,
-                                                                    is_aposta=is_aposta)
+                                                                    is_aposta=is_aposta,
+                                                                    casa_aposta=casa_aposta)
         return JsonResponse(dados)
 
 class EventoSimulado(APIView):
@@ -155,11 +157,13 @@ class Preferencias(APIView):
         esporte = self.request.data.get('esporte')
         opcoes_apostas = self.request.data.get('opcoes_apostas')
         cpf = self.request.data.get('cpf')
+        valor = self.request.data.get('stack_aposta')
 
 
         status= BO.cliente.cliente.Cliente().cadastrar_preferencias(cpf=cpf,
                                                                           esporte=esporte,
-                                                                          opcoes_apostas=opcoes_apostas
+                                                                          opcoes_apostas=opcoes_apostas,
+                                                                          valor=valor
                                                                           )
 
         return JsonResponse({'status': status})

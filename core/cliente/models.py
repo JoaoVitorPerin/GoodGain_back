@@ -57,6 +57,7 @@ class ClientePreferencias(models.Model):
     campeonato = models.CharField(max_length=500, null=True)
     status = models.BooleanField(null=True, default=True)
     opcoes_apostas = models.CharField(max_length=500, null=True)
+    stack_aposta = models.FloatField(null=True)
 
 
     class Meta:
@@ -79,6 +80,7 @@ class Aposta(models.Model):
     odd = models.CharField(max_length=500, null=True)
     valor = models.FloatField(null=True)
     tipo_aposta = models.CharField(max_length=500, null=True)
+    casa_aposta = models.CharField(max_length=500, null=True)
     is_aposta = models.BooleanField(null=True, default=False)
 
 

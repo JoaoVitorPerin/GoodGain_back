@@ -180,7 +180,7 @@ class Cliente():
          except:
              return {'status': True, 'resultado': 0}
 
-     def simular_aposta(self, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
+     def simular_aposta(self, casa_aposta=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
          if tipo_aposta == '1':
              dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
          if tipo_aposta == '2':
@@ -191,7 +191,7 @@ class Cliente():
              elif dados.get('resultado') == dados_b.get('resultado'):
                  dados['descricao_resultado'] = 'Não recomendado'
              else:
-                 ados['descricao_resultado'] = 'Não recomendado'
+                 dados['descricao_resultado'] = 'Não recomendado'
          if tipo_aposta == '3':
              dados = self.vitoria_time_b(time_b=time_2, campeonato=campeonato)
              dados_a = self.vitoria_time_a(time_a=time_1, campeonato=campeonato)
@@ -212,6 +212,7 @@ class Cliente():
              aposta.valor = valor
              aposta.tipo_aposta = tipo_aposta
              aposta.is_aposta = True if is_aposta == 'true' else False
+             aposta.casa_aposta = casa_aposta
              aposta.save()
 
 
@@ -337,13 +338,15 @@ class Cliente():
      def get_preferencias_user(self, cpf=None):
          response = {
              'esporte': [],
-             'opcoes_apostas': []
+             'opcoes_apostas': [],
+             'stack_aposta':0.0
          }
          user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf).first()
          if user_preferencias:
              response ={
                  'esporte': ast.literal_eval(user_preferencias.get('esporte')) if user_preferencias.get('esporte') else [],
-                 'opcoes_apostas': ast.literal_eval(user_preferencias.get('opcoes_apostas')) if user_preferencias.get('opcoes_apostas') else []
+                 'opcoes_apostas': ast.literal_eval(user_preferencias.get('opcoes_apostas')) if user_preferencias.get('opcoes_apostas') else [],
+                 'stack_aposta': user_preferencias.get('stack_aposta')
              }
          return response
 
@@ -352,7 +355,7 @@ class Cliente():
          esporte = list(core.esporte.models.Esporte.objects.values())
          retorno = {
              'opcoes_apostas':opcoes_apostas,
-             'esporte': esporte,
+             'esporte': esporte
          }
          return retorno
 
@@ -428,7 +431,7 @@ class Cliente():
          # Retorna True se a idade é 18 ou mais, caso contrário False
          return age >= 18
 
-     def cadastrar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None):
+     def cadastrar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None, valor=None):
          try:
              preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
              if not preferencias:
@@ -437,6 +440,7 @@ class Cliente():
              preferencias.esporte = str(esporte)
              preferencias.opcoes_apostas = str(opcoes_apostas)
              preferencias.status = True
+             preferencias.stack_aposta = valor
              preferencias.save()
              return True
          except:
