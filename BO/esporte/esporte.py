@@ -1,3 +1,4 @@
+import datetime
 import json
 
 import core.esporte.models
@@ -11,8 +12,16 @@ class Esporte():
 
 
 
-     def simular_aposta(self, campeonato_id=None, time_a=None, time_b=None, num_gols=None):
-         eventos = core.esporte.models
+     # def simular_aposta(self, campeonato_id=None, time_a=None, time_b=None, num_gols=None):
+     #     eventos = core.esporte.models
+
+     def get_eventos(self):
+        try:
+            data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
+            lista_eventos = list(core.esporte.models.Evento.objects.values().filter(data__gte=data_hoje))
+            return True, lista_eventos
+        except:
+            return False, []
      def get_campeonatos(self):
          try:
              campeonatos = list(core.esporte.models.Campeonato.objects.values())

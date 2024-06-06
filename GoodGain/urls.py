@@ -35,6 +35,9 @@ urlpatterns = [
     re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
     re_path('evento/simulado', GoodGain.views.EventoSimulado.as_view(), name='evento_simulado'),
 
+    re_path('historico/apostas/cliente', GoodGain.views.ApostasCliente.as_view(), name='apostas_cliente'),
+    re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),
+
 
     #inicio variaveis do admin
     re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus'),

@@ -61,6 +61,22 @@ class Dashboard(APIView):
         dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
         return JsonResponse({'dados': dados, 'tipos':lista_tipos, 'campeonatos': lista_campeonatos})
 
+class EventosFuturos(APIView):
+
+    def get(self, *args, **kwargs):
+        status, dados = BO.esporte.esporte.Esporte().get_eventos()
+        return JsonResponse({'status':status,'dados': dados})
+
+
+class ApostasCliente(APIView):
+
+    def get(self, *args, **kwargs):
+        cpf_user = self.request.GET.get('cpf_user')
+        status, lista_apostas_cliente = BO.cliente.cliente.Cliente().get_apostas_cliente(cpf_user=cpf_user)
+        return JsonResponse({'status': status, 'lista_apostas_cliente': lista_apostas_cliente})
+
+
+
 
 class GetCampeonatosTImes(APIView):
 

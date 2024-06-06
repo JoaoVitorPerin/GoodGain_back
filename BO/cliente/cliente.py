@@ -53,6 +53,13 @@ class Cliente():
         except:
             return False, '', {}
 
+     def get_apostas_cliente(self,cpf_user=None):
+        try:
+            lista_apostas_cliente = list(core.cliente.models.Aposta.objects.values().filter(cliente_id=cpf_user).order_by('-id'))
+            return True, lista_apostas_cliente
+        except:
+            return False, []
+
      def get_dahsboard_cliente(self, cliente_id=None):
         try:
 
