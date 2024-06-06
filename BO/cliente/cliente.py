@@ -65,7 +65,7 @@ class Cliente():
 'odd',
 'valor',
 'tipo_aposta',
-'is_aposta').filter(cliente_id=cpf_user).order_by('-id'), is_aposta=True)
+'is_aposta').filter(cliente_id=cpf_user, is_aposta=True).order_by('-id'))
             return True, lista_apostas_cliente
         except:
             return False, []
