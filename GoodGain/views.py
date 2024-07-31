@@ -69,9 +69,9 @@ class Dashboard(APIView):
 class EventosFuturos(APIView):
 
     def get(self, *args, **kwargs):
-        # status, dados = BO.esporte.esporte.Esporte().get_eventos()
-        # dados = BO.integracao.apifootball.Apifootball().jogos_dia_liga()
-        dados = BO.integracao.apifootball.Apifootball().atualizar_base()
+        status, dados = BO.esporte.esporte.Esporte().get_eventos()
+        # TODO AQUI BICHO BURRO
+        # dados = BO.integracao.apifootball.Apifootball().atualizar_base()
         return JsonResponse({'status':True,'dados': dados})
 
 

@@ -19,7 +19,6 @@ class Esporte():
         try:
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
             lista_eventos = list(core.esporte.models.Evento.objects.values('id',
-                                                            'nome',
                                                             'data',
                                                             'time_a',
                                                             'time_b',

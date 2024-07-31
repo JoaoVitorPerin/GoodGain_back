@@ -40,7 +40,7 @@ urlpatterns = [
 
 
     #inicio variaveis do admin
-    re_path('pegar_versus', GoodGain.views.PegarVersusu.as_view(), name='pegar_versus'),
+    re_path('endpoint_diario', GoodGain.views.PegarVersusu.as_view(), name='endpoint_diario'),
     re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados'),
     re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard'),
 
