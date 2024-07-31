@@ -26,7 +26,7 @@ class Esporte():
                                                             'resultado_time_b',
                                                             'resultado_partida',
                                                             'campeonato',
-                                                            'season','status','time_a__nome','time_b__nome','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
+                                                            'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
             return True, lista_eventos
         except:
             return False, []
