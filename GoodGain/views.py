@@ -2,6 +2,7 @@ from django.http import JsonResponse
 
 import BO.cliente.cliente
 import BO.integracao.sportradar
+import BO.integracao.apifootball
 import BO.esporte.esporte
 from rest_framework.views import APIView
 
@@ -68,8 +69,10 @@ class Dashboard(APIView):
 class EventosFuturos(APIView):
 
     def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_eventos()
-        return JsonResponse({'status':status,'dados': dados})
+        # status, dados = BO.esporte.esporte.Esporte().get_eventos()
+        # dados = BO.integracao.apifootball.Apifootball().jogos_dia_liga()
+        dados = BO.integracao.apifootball.Apifootball().atualizar_base()
+        return JsonResponse({'status':True,'dados': dados})
 
 
 class Historico(APIView):

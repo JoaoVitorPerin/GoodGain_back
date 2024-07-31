@@ -39,23 +39,23 @@ class Tipo(models.Model):
     class Meta:
         db_table = u'"public\".\"tipo"'
 
-class Season(models.Model):
-    """
-    :Nome da classe/função: Season
-    :descrição: Classe de seasons
-    :Criação: Thiago Jungles Caron - 16/04/2024
-    :Edições:
-    """
-    id = models.CharField(primary_key=True)
-    nome = models.CharField(max_length=100, null=True)
-    dat_inicio = models.CharField(max_length=100, null=True)
-    dat_fim = models.CharField(max_length=100, null=True)
-    status = models.BooleanField(null=True, default=True)
-
-
-
-    class Meta:
-        db_table = u'"public\".\"season"'
+# class Season(models.Model):
+#     """
+#     :Nome da classe/função: Season
+#     :descrição: Classe de seasons
+#     :Criação: Thiago Jungles Caron - 16/04/2024
+#     :Edições:
+#     """
+#     id = models.CharField(primary_key=True)
+#     nome = models.CharField(max_length=100, null=True)
+#     dat_inicio = models.CharField(max_length=100, null=True)
+#     dat_fim = models.CharField(max_length=100, null=True)
+#     status = models.BooleanField(null=True, default=True)
+#
+#
+#
+#     class Meta:
+#         db_table = u'"public\".\"season"'
 
 
 class PerformaceTime(models.Model):
@@ -65,7 +65,7 @@ class PerformaceTime(models.Model):
     :Criação: Thiago Jungles Caron - 16/04/2024
     :Edições:
     """
-    season = models.ForeignKey('esporte.Season', on_delete=models.DO_NOTHING, null=True)
+    season = models.CharField(max_length=100, null=True)
     time = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True)
     info = models.CharField(max_length=500,null=True)
     status = models.BooleanField(null=True, default=True)
@@ -86,6 +86,7 @@ class Campeonato(models.Model):
     nome = models.CharField(max_length=100, null=True)
     esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
+    season_atual = models.CharField(max_length=100, null=True)
 
 
 
@@ -102,6 +103,7 @@ class Time(models.Model):
     """
     id = models.CharField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
+    logo = models.CharField(max_length=200, null=True)
     status = models.BooleanField(null=True, default=True)
 
 
@@ -118,7 +120,6 @@ class Evento(models.Model):
     :Edições:
     """
     id = models.CharField(primary_key=True)
-    nome = models.CharField(max_length=100, null=True)
     data = models.CharField(null=True)
     time_a = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_a')
     time_b = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True, related_name='time_b')
@@ -126,7 +127,7 @@ class Evento(models.Model):
     resultado_time_b = models.CharField(max_length=500,null=True)
     resultado_partida = models.CharField(null=True)
     campeonato = models.ForeignKey('esporte.Campeonato', on_delete=models.DO_NOTHING, null=True)
-    season = models.ForeignKey('esporte.Season', on_delete=models.DO_NOTHING, null=True)
+    season = models.CharField(max_length=100, null=True)
     status = models.BooleanField(null=True, default=True)
 
     class Meta:
