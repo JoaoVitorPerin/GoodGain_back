@@ -24,6 +24,15 @@ class Apifootball(Integracao):
 
         return self.response
 
+    def performace_time(self, liga="72",season="2024", time="147"):
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/teams/statistics"
+        params = {"team":time,
+                  "league":liga,
+                  "season":season}
+        self.response = requests.get(self.url, headers=self.headers, params=params).json()
+
+        return self.response
+
 
     def todas_ligas(self, liga="71",season="2024", date="2024-08-03"):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/leagues"
@@ -56,7 +65,29 @@ class Apifootball(Integracao):
                         novo_time.logo = response.get('teams').get('away').get('logo')
                         novo_time.nome = response.get('teams').get('away').get('name')
                         novo_time.save()
-                    evento = core.esporte.models.Evento.objects.values().filter(id=response.get('fixture').get('id'))
+                    performace_time_casa = self.performace_time(liga=campeonato.get('id'), time=response.get('teams').get('home').get('id'),season=campeonato.get('season_atual'))
+                    performace_time_fora = self.performace_time(liga=campeonato.get('id'),
+                                                                time=response.get('teams').get('away').get('id'),
+                                                                season=campeonato.get('season_atual'))
+                    performace_time_casa_dados = core.esporte.models.PerformaceTime.objects.filter(time_id=response.get('teams').get('home').get('id'),season=response.get('league').get('season')).first()
+                    if not performace_time_casa_dados:
+                        performace_time_casa_dados = core.esporte.models.PerformaceTime()
+                        performace_time_casa_dados.season = response.get('league').get('season')
+                        performace_time_casa_dados.time_id = response.get('teams').get('home').get('id')
+                    performace_time_casa_dados.info = json.dumps(performace_time_casa['response'])
+                    performace_time_casa_dados.save()
+
+                    performace_time_fora_dados = core.esporte.models.PerformaceTime.objects.filter(
+                        time_id=response.get('teams').get('away').get('id'),
+                        season=response.get('league').get('season')).first()
+                    if not performace_time_fora_dados:
+                        performace_time_fora_dados = core.esporte.models.PerformaceTime()
+                        performace_time_fora_dados.season = response.get('league').get('season')
+                        performace_time_fora_dados.time_id = response.get('teams').get('away').get('id')
+                    performace_time_fora_dados.info =  json.dumps(performace_time_fora['response'])
+                    performace_time_fora_dados.save()
+
+                    evento = core.esporte.models.Evento.objects.filter(id=response.get('fixture').get('id')).first()
                     if not evento:
                         evento = core.esporte.models.Evento()
                         evento.id = response.get('fixture').get('id')

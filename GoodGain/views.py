@@ -70,8 +70,7 @@ class EventosFuturos(APIView):
 
     def get(self, *args, **kwargs):
         status, dados = BO.esporte.esporte.Esporte().get_eventos()
-        # TODO AQUI BICHO BURRO
-        # dados = BO.integracao.apifootball.Apifootball().atualizar_base()
+
         return JsonResponse({'status':True,'dados': dados})
 
 
@@ -217,6 +216,6 @@ class PegarVersusu(APIView):
 class AtualizarDados(APIView):
     def get(self, *args, **kwargs):
 
-        status = BO.integracao.sportradar.Sportradar().atualizar_tudo()
+        dados = BO.integracao.apifootball.Apifootball().atualizar_base()
 
-        return JsonResponse({'status': status})
+        return JsonResponse({'status': dados})

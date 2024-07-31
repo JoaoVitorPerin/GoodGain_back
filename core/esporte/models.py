@@ -67,7 +67,7 @@ class PerformaceTime(models.Model):
     """
     season = models.CharField(max_length=100, null=True)
     time = models.ForeignKey('esporte.Time', on_delete=models.DO_NOTHING, null=True)
-    info = models.CharField(max_length=500,null=True)
+    info = models.CharField(max_length=20000,null=True)
     status = models.BooleanField(null=True, default=True)
 
 
