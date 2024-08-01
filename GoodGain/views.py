@@ -246,3 +246,32 @@ class ListaOperacoes(APIView):
         dados = BO.esporte.esporte.Esporte().get_operacoes()
 
         return JsonResponse({'dados': dados})
+
+class ListaPerfis(APIView):
+    def get(self, *args, **kwargs):
+        dados = BO.cliente.cliente.Cliente().get_perfis()
+
+        return JsonResponse({'dados': dados})
+
+
+class EditarUsuarioAdmin(APIView):
+    def put(self, *args, **kwargs):
+        if self.request.user.perfil.nivel == 0:
+            username = self.request.data.get('username')
+            password = self.request.data.get('password')
+            nome = self.request.data.get('nome')
+            sobrenome = self.request.data.get('sobrenome')
+            email = self.request.data.get('email')
+            cpf = self.request.data.get('cpf')
+            data_nasc = self.request.data.get('data_nascimento')
+            perfil = self.request.data.get('perfil')
+
+            status, mensagem = BO.cliente.cliente.Cliente(username=username, password=password).editar_cliente(nome=nome,
+                                                                                                               sobrenome=sobrenome,
+                                                                                                               email=email,
+                                                                                                               cpf=cpf,
+                                                                                                               data_nasc=data_nasc,
+                                                                                                               perfil=perfil)
+        else:
+            status, mensagem = False, 'essa conta não tem nivel de acesso o suficiente para editar'
+        return JsonResponse({'status': status, 'mensagem': mensagem})

@@ -17,9 +17,9 @@ class Esporte():
      def get_log(self,operacao=None):
          try:
              if operacao:
-                logs = list(core.esporte.models.Log.objects.values().filter(tipo_operacao=operacao))
+                logs = list(core.esporte.models.Log.objects.values().filter(tipo_operacao=operacao).order_by('id'))
              else:
-                logs =list(core.esporte.models.Log.objects.values())
+                logs =list(core.esporte.models.Log.objects.values().order_by('id'))
              return logs
          except:
              return []

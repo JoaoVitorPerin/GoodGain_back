@@ -12,6 +12,7 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework.exceptions import AuthenticationFailed
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -40,6 +41,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
 
+        if not self.user.status:
+            raise AuthenticationFailed('Conta inativa ou bloqueada')
         # Você pode adicionar informações adicionais ao response aqui, se necessário
         data['username'] = self.user.username
 
@@ -84,6 +87,9 @@ class Cliente():
             return True, '', cliente
         except:
             return False, '', {}
+
+     def get_perfis(self):
+        return list(core.cliente.models.Perfis.objects.values().filter(status=True))
 
      def get_apostas_cliente(self,cpf_user=None):
         try:
@@ -526,7 +532,7 @@ class Cliente():
          cliente_exists = core.cliente.models.Cliente.objects.filter(username=username).exists()
          return cliente_exists
 
-     def editar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None):
+     def editar_cliente(self,nome=None,sobrenome=None,email=None,cpf=None,data_nasc=None,perfil=None):
          try:
              status_email = False
              _,_,cliente_existe = self.get_cliente(cpf=Cliente.limpar_cpf(cpf))
@@ -544,6 +550,7 @@ class Cliente():
              cliente.nome = nome
              cliente.sobrenome = sobrenome
              cliente.data_nascimento = Cliente.limpar_data(data_nasc)
+             cliente.perfil_id = perfil
              cliente.save()
              return True, ''
          except Exception as e:  # Captura a exceção e armazena na variável e
