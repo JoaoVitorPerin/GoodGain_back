@@ -12,7 +12,7 @@ from django.db import models
 class ClienteManager(BaseUserManager):
     def create_user(self, username, password=None, **extra_fields):
         if not username:
-            raise ValueError('O campo Email é obrigatório')
+            raise ValueError('O campo User é obrigatório')
         username = self.normalize_email(username)
         user = self.model(username=username, **extra_fields)
         user.set_password(password)
@@ -55,8 +55,6 @@ class Cliente(AbstractBaseUser):
         db_table = '"public"."cliente"'
 
 
-    class Meta:
-        db_table = u'"public\".\"cliente"'
 
 class Perfis(models.Model):
     """
