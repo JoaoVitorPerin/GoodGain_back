@@ -399,7 +399,11 @@ class Cliente():
              'cli_info': {'cpf':cliente.cpf,
                           'nome':cliente.nome,
                           'sobrenome':cliente.sobrenome,
-                          'email':cliente.email},
+                          'email':cliente.email,
+                          'perfil':{'perfil_id':cliente.perfil.pk,
+                                    'perfil_nm_descritivo':cliente.perfil.nm_descritivo,
+                                    'perfil_nivel':cliente.perfil.nivel}
+                          },
          }
 
          token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
@@ -479,6 +483,7 @@ class Cliente():
              cliente.nome = nome
              cliente.sobrenome = sobrenome
              cliente.data_nascimento = Cliente.limpar_data(data_nasc)
+             cliente.perfil_id = 'gratuito'
              cliente.save()
              return True, ''
          except Exception as e:  # Captura a exceção e armazena na variável e
@@ -612,3 +617,11 @@ class Cliente():
          )
          email.content_subtype = 'html'
          email.send()
+
+     #abaixo informações de admin
+     def get_todos_usuarios(self, cpf_cliente=None):
+         try:
+             todos_usuarios = list(core.cliente.models.Cliente.objects.all().filter(cpf=cpf_cliente,username=self.username))
+             return True, todos_usuarios
+         except:
+             return False, []

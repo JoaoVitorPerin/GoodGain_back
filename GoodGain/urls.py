@@ -1,7 +1,7 @@
 """
 URL configuration for GoodGain project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from django.views.decorators.csrf import csrf_exempt
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView
+)
 import GoodGain.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path('login', GoodGain.views.Login.as_view(), name='login'),
+    # re_path('login', GoodGain.views.Login.as_view(), name='login'),
+    re_path(r'^login$', TokenObtainPairView.as_view()),
     re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
     re_path('preferencias', GoodGain.views.Preferencias.as_view(), name='preferencias'),
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
@@ -37,12 +40,12 @@ urlpatterns = [
 
 
     re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),
+    re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard'),
+    re_path('historico', GoodGain.views.Historico.as_view(), name='historico'),
 
 
     #inicio variaveis do admin
-    re_path('endpoint_diario', GoodGain.views.PegarVersusu.as_view(), name='endpoint_diario'),
     re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados'),
-    re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard'),
+    re_path('listar_usuarios', GoodGain.views.ListarUsarios.as_view(), name='listar_usuarios'),
 
-    re_path('historico', GoodGain.views.Historico.as_view(), name='historico')
 ]

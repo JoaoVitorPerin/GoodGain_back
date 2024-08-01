@@ -13,7 +13,8 @@ class Cliente(AbstractBaseUser):
     :Criação: Thiago Jungles Caron - 05/04/2024
     :Edições:
     """
-    username = models.CharField(max_length=100, null=True)
+    username = models.CharField(max_length=100, null=True,unique=True)
+    USERNAME_FIELD = 'username'
     email = models.CharField(max_length=100, null=True)
     cpf = models.BigIntegerField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
@@ -39,6 +40,7 @@ class Perfis(models.Model):
     nome = models.CharField(max_length=100, primary_key=True)
     nm_descritivo = models.CharField(max_length=50, null=True)
     status = models.BooleanField(null=True, default=True)
+    nivel = models.IntegerField(null=True)
 
 
     class Meta:

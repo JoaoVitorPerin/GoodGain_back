@@ -219,3 +219,11 @@ class AtualizarDados(APIView):
         dados = BO.integracao.apifootball.Apifootball().atualizar_base()
 
         return JsonResponse({'status': dados})
+
+class ListarUsarios(APIView):
+    def get(self, *args, **kwargs):
+        cpf = self.request.GET.get('cpf')
+        username = self.request.GET.get('username')
+        dados = BO.cliente.cliente.Cliente(username=username).get_todos_usuarios(cpf_cliente=cpf)
+
+        return JsonResponse({'status': dados})
