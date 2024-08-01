@@ -16,7 +16,10 @@ class Esporte():
      #     eventos = core.esporte.models
      def get_log(self,operacao=None):
          try:
-             logs = list(core.esporte.models.Log.objects.values().filter(tipo_operacao=operacao))
+             if operacao:
+                logs = list(core.esporte.models.Log.objects.values().filter(tipo_operacao=operacao))
+             else:
+                logs =list(core.esporte.models.Log.objects.values())
              return logs
          except:
              return []
