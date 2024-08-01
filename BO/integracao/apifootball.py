@@ -41,10 +41,13 @@ class Apifootball(Integracao):
 
         return self.response
 
-    def atualizar_base(self):
+    def atualizar_base(self, data=None):
         try:
             operacao = 'coleta campeonatos'
-            datetime_hoje = datetime.datetime.now().strftime('%Y-%m-%d')
+            if not data:
+                datetime_hoje = datetime.datetime.now().strftime('%Y-%m-%d')
+            else:
+                datetime_hoje = data
             campeonatos = list(core.esporte.models.Campeonato.objects.values().filter(status=True))
 
             for campeonato in campeonatos:

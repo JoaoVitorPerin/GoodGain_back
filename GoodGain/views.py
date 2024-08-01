@@ -215,8 +215,8 @@ class PegarVersusu(APIView):
 
 class AtualizarDados(APIView):
     def get(self, *args, **kwargs):
-
-        dados = BO.integracao.apifootball.Apifootball().atualizar_base()
+        data = self.request.GET.get('data')
+        dados = BO.integracao.apifootball.Apifootball().atualizar_base(data=data)
 
         return JsonResponse({'status': dados})
 
