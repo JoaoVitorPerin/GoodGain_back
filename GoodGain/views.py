@@ -5,7 +5,13 @@ import BO.integracao.sportradar
 import BO.integracao.apifootball
 import BO.esporte.esporte
 from rest_framework.views import APIView
+import datetime
 
+from rest_framework_simplejwt.views import TokenObtainPairView
+from BO.cliente.cliente import MyTokenObtainPairSerializer  # Certifique-se de importar corretamente seu serializer
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 
 class AlterarsenhaView(APIView):
     def post(self,*args, **kwargs):

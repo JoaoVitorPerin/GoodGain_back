@@ -25,7 +25,7 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path('login', GoodGain.views.Login.as_view(), name='login'),
-    re_path(r'^login$', TokenObtainPairView.as_view()),
+    re_path(r'^login$', GoodGain.views.MyTokenObtainPairView.as_view()),
     re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
     re_path('preferencias', GoodGain.views.Preferencias.as_view(), name='preferencias'),
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),

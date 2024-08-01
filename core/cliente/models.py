@@ -4,10 +4,11 @@ from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 
 from core import esporte
-
+import datetime
 
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.db import models
+
 
 class ClienteManager(BaseUserManager):
     def create_user(self, username, password=None, **extra_fields):

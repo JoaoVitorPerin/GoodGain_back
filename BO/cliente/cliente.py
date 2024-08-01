@@ -11,7 +11,39 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Adicione campos personalizados ao token
+        token['username'] = user.username
+        token['cli_info'] = {
+             'usuario_id': 123,
+             'exp': (datetime.datetime.utcnow() + datetime.timedelta(minutes=30)).isoformat(),  # Expira em 30 minutos
+             'iat': (datetime.datetime.utcnow()).isoformat(),
+             'cli_info': {'cpf':user.cpf,
+                          'nome':user.nome,
+                          'sobrenome':user.sobrenome,
+                          'email':user.email,
+                          'perfil':{'perfil_id':user.perfil.pk,
+                                    'perfil_nm_descritivo':user.perfil.nm_descritivo,
+                                    'perfil_nivel':user.perfil.nivel}
+                          },
+         }
+
+        return token
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+
+        # Você pode adicionar informações adicionais ao response aqui, se necessário
+        data['username'] = self.user.username
+
+        return data
 
 class Cliente():
      def __init__(self, username=None, password=None):
