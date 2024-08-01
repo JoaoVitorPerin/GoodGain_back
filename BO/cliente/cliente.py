@@ -550,7 +550,8 @@ class Cliente():
              cliente.nome = nome
              cliente.sobrenome = sobrenome
              cliente.data_nascimento = Cliente.limpar_data(data_nasc)
-             cliente.perfil_id = perfil
+             if perfil:
+                cliente.perfil_id = perfil
              cliente.save()
              return True, ''
          except Exception as e:  # Captura a exceção e armazena na variável e
