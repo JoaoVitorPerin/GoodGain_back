@@ -133,3 +133,17 @@ class Evento(models.Model):
     class Meta:
         db_table = u'"public\".\"evento"'
 
+
+class Log(models.Model):
+    """
+        :Nome da classe/função: Log
+        :descrição: Classe de logs do sistema será utilizada para armazenar retorno da API após fazer o cron
+        :Criação: Thiago Jungles Caron - 01/08/2024
+        :Edições:
+        """
+    data = models.CharField(null=True)
+    status = models.BooleanField(null=True, default=True)
+    informacao = models.CharField(max_length=200,null=True)
+    tipo_operacao = models.CharField(max_length=100,null=True)
+    class Meta:
+        db_table = u'"public\".\"log"'

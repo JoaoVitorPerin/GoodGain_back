@@ -43,11 +43,15 @@ class Apifootball(Integracao):
 
     def atualizar_base(self):
         try:
-            campeonatos = list(core.esporte.models.Campeonato.objects.values().filter(status=True))
+            operacao = 'coleta campeonatos'
             datetime_hoje = datetime.datetime.now().strftime('%Y-%m-%d')
+            campeonatos = list(core.esporte.models.Campeonato.objects.values().filter(status=True))
+
             for campeonato in campeonatos:
+                operacao = 'coleta campeonatos_apifootball'
                 resposta_atual = self.jogos_dia_liga(liga=campeonato.get('id'), date='2024-08-03', season=campeonato.get('season_atual'))
 
+                operacao = 'cadastro_times_apifootball'
                 for response in resposta_atual.get('response'):
                     response.get('teams').get('home').get('id')
                     response.get('teams').get('away').get('id')
@@ -65,6 +69,7 @@ class Apifootball(Integracao):
                         novo_time.logo = response.get('teams').get('away').get('logo')
                         novo_time.nome = response.get('teams').get('away').get('name')
                         novo_time.save()
+                    operacao = 'cadastro_performace_times_apifootball'
                     performace_time_casa = self.performace_time(liga=campeonato.get('id'), time=response.get('teams').get('home').get('id'),season=campeonato.get('season_atual'))
                     performace_time_fora = self.performace_time(liga=campeonato.get('id'),
                                                                 time=response.get('teams').get('away').get('id'),
@@ -87,6 +92,7 @@ class Apifootball(Integracao):
                     performace_time_fora_dados.info =  json.dumps(performace_time_fora['response'])
                     performace_time_fora_dados.save()
 
+                    operacao = 'cadastro_eventos_apifootball'
                     evento = core.esporte.models.Evento.objects.filter(id=response.get('fixture').get('id')).first()
                     if not evento:
                         evento = core.esporte.models.Evento()
@@ -102,7 +108,16 @@ class Apifootball(Integracao):
                     evento.save()
 
 
-
+            log = core.esporte.models.Log()
+            log.data = datetime_hoje
+            log.status = True
+            log.tipo_operacao = 'atualizacao da base completa'
+            log.informacao = 'sucesso'
             return True
         except:
+            log = core.esporte.models.Log()
+            log.data = datetime_hoje
+            log.status = True
+            log.tipo_operacao = operacao
+            log.informacao = 'erro na operação'
             return False
