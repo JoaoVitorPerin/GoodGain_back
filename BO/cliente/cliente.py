@@ -653,7 +653,10 @@ class Cliente():
      #abaixo informações de admin
      def get_todos_usuarios(self, cpf_cliente=None):
          try:
-             todos_usuarios = list(core.cliente.models.Cliente.objects.all().filter(cpf=cpf_cliente,username=self.username))
+             if not cpf_cliente or not self.username:
+                todos_usuarios = list(core.cliente.models.Cliente.objects.filter(cpf=cpf_cliente,username=self.username))
+             else:
+                todos_usuarios = list(core.cliente.models.Cliente.objects.all())
              return True, todos_usuarios
          except:
              return False, []
