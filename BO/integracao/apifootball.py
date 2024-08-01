@@ -52,7 +52,7 @@ class Apifootball(Integracao):
 
             for campeonato in campeonatos:
                 operacao = 'coleta campeonatos_apifootball'
-                resposta_atual = self.jogos_dia_liga(liga=campeonato.get('id'), date='2024-08-03', season=campeonato.get('season_atual'))
+                resposta_atual = self.jogos_dia_liga(liga=campeonato.get('id'), date=datetime_hoje, season=campeonato.get('season_atual'))
 
                 operacao = 'cadastro_times_apifootball'
                 for response in resposta_atual.get('response'):
@@ -116,6 +116,7 @@ class Apifootball(Integracao):
             log.status = True
             log.tipo_operacao = 'atualizacao da base completa'
             log.informacao = 'sucesso'
+            log.save()
             return True
         except:
             log = core.esporte.models.Log()
@@ -123,4 +124,5 @@ class Apifootball(Integracao):
             log.status = True
             log.tipo_operacao = operacao
             log.informacao = 'erro na operação'
+            log.save()
             return False

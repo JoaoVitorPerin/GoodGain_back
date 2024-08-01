@@ -14,7 +14,19 @@ class Esporte():
 
      # def simular_aposta(self, campeonato_id=None, time_a=None, time_b=None, num_gols=None):
      #     eventos = core.esporte.models
+     def get_log(self,operacao=None):
+         try:
+             logs = list(core.esporte.models.Log.objects.values().filter(tipo_operacao=operacao))
+             return logs
+         except:
+             return []
 
+     def get_operacoes(self, ):
+         try:
+             operacoes = list(core.esporte.models.Log.objects.values_list('tipo_operacao').distinct('tipo_operacao'))
+             return operacoes
+         except:
+             return []
      def get_eventos(self):
         try:
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')

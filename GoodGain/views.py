@@ -232,4 +232,17 @@ class ListarUsarios(APIView):
         username = self.request.GET.get('username')
         dados = BO.cliente.cliente.Cliente(username=username).get_todos_usuarios(cpf_cliente=cpf)
 
-        return JsonResponse({'status': dados})
+        return JsonResponse({'dados': dados})
+
+class ListarLogs(APIView):
+    def get(self, *args, **kwargs):
+        operacao = self.request.GET.get('operacao')
+        dados = BO.esporte.esporte.Esporte().get_log(operacao=operacao)
+
+        return JsonResponse({'dados': dados})
+
+class ListaOperacoes(APIView):
+    def get(self, *args, **kwargs):
+        dados = BO.esporte.esporte.Esporte().get_operacoes()
+
+        return JsonResponse({'dados': dados})

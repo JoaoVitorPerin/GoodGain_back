@@ -47,5 +47,7 @@ urlpatterns = [
     #inicio variaveis do admin
     re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados'),
     re_path('listar_usuarios', GoodGain.views.ListarUsarios.as_view(), name='listar_usuarios'),
+    re_path('listar_log', GoodGain.views.ListarLogs.as_view(), name='listar_log'),
+    re_path('listar_operacoes', GoodGain.views.ListaOperacoes.as_view(), name='listar_operacoes'),
 
 ]
