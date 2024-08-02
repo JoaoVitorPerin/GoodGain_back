@@ -515,7 +515,8 @@ class Cliente():
              #     return False, 'cpf já cadastrado no sistema'
              cliente = core.cliente.models.Cliente()
              cliente.username = self.username
-             cliente.set_password(raw_password=self.password)
+             if self.password:
+                cliente.set_password(raw_password=self.password)
              cliente.email = email
              cliente.cpf = Cliente.limpar_cpf(cpf)
              cliente.nome = nome
@@ -544,7 +545,8 @@ class Cliente():
                  return False, 'o email só pode estar vinculado a um unico usuário'
              cliente = core.cliente.models.Cliente.objects.filter(cpf=Cliente.limpar_cpf(cpf)).first()
              cliente.username = self.username
-             cliente.set_password(raw_password=self.password)
+             if self.password:
+                cliente.set_password(raw_password=self.password)
              cliente.email = email
              cliente.cpf = Cliente.limpar_cpf(cpf)
              cliente.nome = nome

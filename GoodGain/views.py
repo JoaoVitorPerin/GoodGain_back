@@ -79,6 +79,13 @@ class EventosFuturos(APIView):
 
         return JsonResponse({'status':True,'dados': dados})
 
+class EventosRecomendados(APIView):
+
+    def get(self, *args, **kwargs):
+        status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
+
+        return JsonResponse({'status':True,'dados': dados})
+
 
 class Historico(APIView):
 

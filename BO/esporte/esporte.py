@@ -2,6 +2,7 @@ import datetime
 import json
 
 import core.esporte.models
+import core.cliente.models
 
 
 
@@ -32,6 +33,23 @@ class Esporte():
              return []
      def get_eventos(self):
         try:
+            data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
+            lista_eventos = list(core.esporte.models.Evento.objects.values('id',
+                                                            'data',
+                                                            'time_a',
+                                                            'time_b',
+                                                            'resultado_time_a',
+                                                            'resultado_time_b',
+                                                            'resultado_partida',
+                                                            'campeonato',
+                                                            'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
+            return True, lista_eventos
+        except:
+            return False, []
+
+     def get_eventos_recomendados(self,cliente=None):
+        try:
+            core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cliente.pk)
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
             lista_eventos = list(core.esporte.models.Evento.objects.values('id',
                                                             'data',
