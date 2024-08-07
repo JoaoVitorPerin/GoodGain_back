@@ -5,6 +5,10 @@ import BO.integracao.sportradar
 import BO.integracao.apifootball
 import BO.esporte.esporte
 from rest_framework.views import APIView
+from BO.autenticacao.autenticacao import validar_perfil
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 import datetime
 
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -68,9 +72,10 @@ class EventoSimulado(APIView):
 class Dashboard(APIView):
 
     def get(self, *args, **kwargs):
-        cpf_user = self.request.GET.get('cpf_user')
-        dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
-        return JsonResponse({'dados': dados, 'tipos':lista_tipos, 'campeonatos': lista_campeonatos})
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            cpf_user = self.request.GET.get('cpf_user')
+            dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
+            return JsonResponse({'dados': dados, 'tipos':lista_tipos, 'campeonatos': lista_campeonatos})
 
 class EventosFuturos(APIView):
 
@@ -117,8 +122,22 @@ class VerficarCodigo(APIView):
         status, mensagem = BO.cliente.cliente.Cliente(password=password).verificar_codigo(email=email, codigo=codigo)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
-
+# @api_view(['POST'])
+# @permission_classes([AllowAny])
+# def minha_view(request):
+#     # Sua lógica de negócio aqui
+#     return Response({"mensagem": "Esta é uma página acessível sem autenticação."})
 class Cliente(APIView):
+
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'POST':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
     def get(self, *args, **kwargs):
         cpf = self.request.GET.get('cpf')
         status, mensagem, cliente = BO.cliente.cliente.Cliente().get_cliente(cpf=cpf)
@@ -139,7 +158,7 @@ class Cliente(APIView):
                                                                                                               cpf=cpf,
                                                                                                               data_nasc=data_nasc)
 
-        return JsonResponse({'status': status})
+        return JsonResponse({'status': status, 'descricao':mensagem})
 
     def put(self, *args, **kwargs):
         username = self.request.data.get('username')

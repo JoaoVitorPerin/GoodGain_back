@@ -150,7 +150,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # for localhost (REACT Default)     'http://192.168.0.50:3000/',  # for network      'http://localhost:8080/',  # for localhost (Developlemt)     'http://192.168.0.50:8080/',  # for network (Development) )
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timezone.timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timezone.timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': timezone.timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
