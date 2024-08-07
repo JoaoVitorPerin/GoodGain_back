@@ -51,8 +51,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 @staticmethod
 def validar_perfil(user=None, nivel_necessario=3):
         if not user:
-            raise 'usuário não foi fornecido'
+            return False, 'usuário não foi fornecido'
         if user.perfil.nivel > nivel_necessario:
-            raise 'usuário não possui nivel de acesso correto para acessar esta funcionalidade por favor faça um upgrade de conta'
+            return False, 'usuário não possui nivel de acesso correto para acessar esta funcionalidade por favor faça um upgrade de conta'
         else:
             return True, ''

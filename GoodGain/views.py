@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from BO.autenticacao.autenticacao import validar_perfil
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
+
 from rest_framework.response import Response
 import datetime
 
@@ -99,6 +100,13 @@ class Historico(APIView):
         status, lista_apostas_cliente = BO.cliente.cliente.Cliente().get_apostas_cliente(cpf_user=cpf_user)
         return JsonResponse({'status': status, 'lista_apostas_cliente': lista_apostas_cliente})
 
+
+class ValidarPerfil(APIView):
+
+    def get(self, *args, **kwargs):
+
+        status, descricao = validar_perfil(user=self.request.user,nivel_necessario=2)
+        return JsonResponse({'status': status, 'descricao': descricao})
 
 
 

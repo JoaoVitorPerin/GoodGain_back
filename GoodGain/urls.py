@@ -25,6 +25,7 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path('login', GoodGain.views.Login.as_view(), name='login'),
+    re_path('validar_perfil', GoodGain.views.ValidarPerfil.as_view(), name='validar_perfil'),
     re_path(r'^login$', GoodGain.views.MyTokenObtainPairView.as_view()),
     re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
     re_path('preferencias', GoodGain.views.Preferencias.as_view(), name='preferencias'),
