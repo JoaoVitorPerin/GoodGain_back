@@ -15,6 +15,13 @@ class Apifootball(Integracao):
         self.headers = {"x-rapidapi-key": "395b0fdfdfmshd8650bb40aff08dp1bf0f3jsnca2d0c8b1c4b",
                         "x-rapidapi-host": "api-football-v1.p.rapidapi.com"}
 
+    def get_info_jogos(self,evento_id=None):
+        self.url ="/v3/fixtures/events?fixture={}".format(evento_id)
+        params = {}
+        self.response = requests.get(self.url, headers=self.headers, params=params).json()
+
+        return self.response
+
     def jogos_dia_liga(self, liga="71",season="2024", date="2024-08-03"):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/fixtures"
         params = {"date":date,
@@ -41,6 +48,7 @@ class Apifootball(Integracao):
 
         return self.response
 
+    def atuali
     def atualizar_base(self, data=None):
         try:
             operacao = 'coleta campeonatos'

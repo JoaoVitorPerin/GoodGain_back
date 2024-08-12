@@ -168,22 +168,19 @@ class Cliente():
 
      def vitoria_time_a(self, time_a=None, campeonato=None, evento_id=None):
          try:
-            if not evento_id:
-                eventos_campeonato = list(core.esporte.models.Evento.objects.filter(time_a_id=time_a,campeonato=campeonato,resultado_partida__isnull=False))
-            else:
-                eventos_campeonato = list(core.esporte.models.Evento.objects.filter(time_a_id=time_a, campeonato=campeonato, evento_id=evento_id,resultado_partida__isnull=False))
+            campeonato_info = core.esporte.models.Campeonato.objects.filter(id=campeonato).values().first()
+            if not campeonato_info:
+                return {'status': False, 'resultado':0}
+            performace_time = core.esporte.models.PerformaceTime.objects.values().filter(time_id=time_a, season=campeonato_info['season_atual']).first()
 
             vitorias = 0
             empates = 0
-            if eventos_campeonato is not None:
-                for evento in  eventos_campeonato:
-                    resultado_partida = json.loads(evento.resultado_partida.replace("'",'"').replace('True','true').replace('False','false'))
-                    if resultado_partida['home_score'] > resultado_partida['away_score']:
-                        vitorias += 3
-                    elif resultado_partida['home_score'] == resultado_partida['away_score']:
-                        empates += 1
-                    else:
-                        pass
+            informacoes_time = json.loads(performace_time.get('info'))
+
+            vitorias = informacoes_time['fixtures']['wins']['total'] *3
+
+            empates = informacoes_time['fixtures']['draws']['total']
+
 
 
             return {'status':True,'resultado':vitorias + empates + 2}
@@ -192,27 +189,20 @@ class Cliente():
 
      def vitoria_time_b(self, time_b=None, campeonato=None, evento_id=None):
          try:
-             if not evento_id:
-                 eventos_campeonato = list(
-                     core.esporte.models.Evento.objects.filter(time_b_id=time_b, campeonato=campeonato,
-                                                               resultado_partida__isnull=False))
-             else:
-                 eventos_campeonato = list(
-                     core.esporte.models.Evento.objects.filter(time_b_id=time_b, campeonato=campeonato,
-                                                               evento_id=evento_id, resultado_partida__isnull=False))
+             campeonato_info = core.esporte.models.Campeonato.objects.filter(id=campeonato).values().first()
+             if not campeonato_info:
+                 return {'status': False, 'resultado': 0}
+             performace_time = core.esporte.models.PerformaceTime.objects.values().filter(time_id=time_b,
+                                                                                          season=campeonato_info[
+                                                                                              'season_atual']).first()
 
              vitorias = 0
              empates = 0
-             if eventos_campeonato is not None:
-                 for evento in eventos_campeonato:
-                     resultado_partida = json.loads(
-                         evento.resultado_partida.replace("'", '"').replace('True', 'true').replace('False', 'false'))
-                     if resultado_partida['home_score'] > resultado_partida['away_score']:
-                         vitorias += 3
-                     elif resultado_partida['home_score'] == resultado_partida['away_score']:
-                         empates += 1
-                     else:
-                         pass
+             informacoes_time = json.loads(performace_time.get('info'))
+
+             vitorias = informacoes_time['fixtures']['wins']['total'] * 3
+
+             empates = informacoes_time['fixtures']['draws']['total']
 
              return {'status': True, 'resultado': vitorias + empates}
          except:

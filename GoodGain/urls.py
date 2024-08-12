@@ -25,7 +25,7 @@ import GoodGain.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path('login', GoodGain.views.Login.as_view(), name='login'),
-    re_path('validar_perfil', GoodGain.views.ValidarPerfil.as_view(), name='validar_perfil'),
+    # re_path('validar_perfil', GoodGain.views.ValidarPerfil.as_view(), name='validar_perfil'),
     re_path(r'^login$', GoodGain.views.MyTokenObtainPairView.as_view()),
     re_path('cliente', GoodGain.views.Cliente.as_view(), name='cliente'),
     re_path('preferencias', GoodGain.views.Preferencias.as_view(), name='preferencias'),
@@ -48,6 +48,7 @@ urlpatterns = [
 
     #inicio variaveis do admin
     re_path('atualizar_dados', GoodGain.views.AtualizarDados.as_view(), name='atualizar_dados'),
+    re_path('atualizar_eventos_ocorridos', GoodGain.views.AtualizarEventosOcorridos.as_view(), name='atualizar_eventos_ocorridos'),
     re_path('listar_usuarios', GoodGain.views.ListarUsarios.as_view(), name='listar_usuarios'),
     re_path('listar_log', GoodGain.views.ListarLogs.as_view(), name='listar_log'),
     re_path('listar_operacoes', GoodGain.views.ListaOperacoes.as_view(), name='listar_operacoes'),

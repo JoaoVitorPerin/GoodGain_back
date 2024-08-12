@@ -88,6 +88,7 @@ class EventosFuturos(APIView):
 class EventosRecomendados(APIView):
 
     def get(self, *args, **kwargs):
+        validar_perfil(user=self.request.user, nivel_necessario=2)
         status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
 
         return JsonResponse({'status':True,'dados': dados})
@@ -256,6 +257,12 @@ class PegarVersusu(APIView):
 class AtualizarDados(APIView):
     def get(self, *args, **kwargs):
         data = self.request.GET.get('data')
+        dados = BO.integracao.apifootball.Apifootball().atualizar_base(data=data)
+
+        return JsonResponse({'status': dados})
+
+class AtualizarEventosOcorridos(APIView):
+    def get(self, *args, **kwargs):
         dados = BO.integracao.apifootball.Apifootball().atualizar_base(data=data)
 
         return JsonResponse({'status': dados})

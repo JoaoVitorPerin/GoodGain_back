@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.exceptions import AuthenticationFailed
+from django.core.exceptions import PermissionDenied
 from rest_framework.views import APIView
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -51,8 +52,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 @staticmethod
 def validar_perfil(user=None, nivel_necessario=3):
         if not user:
-            return False, 'usuário não foi fornecido'
+            raise PermissionDenied('usuário não foi fornecido')
         if user.perfil.nivel > nivel_necessario:
-            return False, 'usuário não possui nivel de acesso correto para acessar esta funcionalidade por favor faça um upgrade de conta'
+            raise PermissionDenied('usuário não possui nivel de acesso correto para acessar esta funcionalidade por favor faça um upgrade de conta')
         else:
-            return True, ''
+            pass
