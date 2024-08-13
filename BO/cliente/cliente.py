@@ -658,6 +658,6 @@ class Cliente():
                 todos_usuarios = list(core.cliente.models.Cliente.objects.filter(cpf=cpf_cliente,username=self.username))
              else:
                 todos_usuarios = list(core.cliente.models.Cliente.objects.values().all())
-             return True, todos_usuarios
+             return todos_usuarios
          except:
              return HttpResponseServerError("Descrição do erro ou mensagem personalizada.")
