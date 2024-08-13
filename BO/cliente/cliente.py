@@ -262,17 +262,6 @@ class Cliente():
              if time_b.get('status'):
                  dados['time_b'] = time_b
 
-             aposta = core.cliente.models.Aposta()
-             aposta.cliente_id = cpf_user
-             aposta.status = True
-             aposta.evento_id = evento.get('id')
-             aposta.campeonato_id = evento.get('campeonato_id')
-             aposta.time_1_id = evento.get('time_a_id')
-             aposta.time_2_id = evento.get('time_b_id')
-             aposta.odd = odd
-             aposta.tipo_aposta = 0
-             aposta.save()
-
              return dados
          except:
             dados['status'] = False
