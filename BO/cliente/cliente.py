@@ -249,23 +249,11 @@ class Cliente():
 
      def evento_simulado(self, cpf_user=None, evento=None, odd=None):
          try:
-             dados = {'status':True}
-             evento = core.esporte.models.Evento.objects.filter(id=evento).first()
-             time_a = self.calcular_tipo_1(odd=odd, campeonato=evento.get('campeonato_id'), time_1=evento.get('time_a_id'), time_2=evento.get('time_b_id'))
-             time_b = self.vitoria_time_a(campeonato=evento.get('campeonato_id'),
-                                                  time_a=evento.get('time_a_id'))
-             dados_25_gols = self.vitoria_time_b(campeonato=evento.get('campeonato_id'), time_b=evento.get('time_b_id'))
-             if dados_25_gols.get('status'):
-                 dados['dados_25_gols'] = dados_25_gols
-             if time_a.get('status'):
-                 dados['time_a'] = time_a
-             if time_b.get('status'):
-                 dados['time_b'] = time_b
+             evento = core.esporte.models.Evento.objects.values().filter(id=evento).first()
 
-             return dados
+             return evento
          except:
-            dados['status'] = False
-            return dados
+            return []
 
      def calcular_tipo_1(self, odd=None, campeonato=None, time_1=None, time_2=None):
          try:
