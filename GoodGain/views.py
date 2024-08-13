@@ -65,7 +65,7 @@ class SimularAposta(APIView):
 
 class EventoSimulado(APIView):
 
-    def post(self, *args, **kwargs):
+    def get(self, *args, **kwargs):
         cpf_user = self.request.GET.get('cpf_user')
         evento = self.request.GET.get('evento')
         status, dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
