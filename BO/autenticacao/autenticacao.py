@@ -56,4 +56,4 @@ def validar_perfil(user=None, nivel_necessario=3):
         if user.perfil.nivel > nivel_necessario:
             raise PermissionDenied('usuário não possui nivel de acesso correto para acessar esta funcionalidade por favor faça um upgrade de conta')
         else:
-            pass
+            return True

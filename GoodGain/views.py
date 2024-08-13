@@ -81,17 +81,17 @@ class Dashboard(APIView):
 class EventosFuturos(APIView):
 
     def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_eventos()
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos()
 
-        return JsonResponse({'status':True,'dados': dados})
+            return JsonResponse({'status':True,'dados': dados})
 
 class EventosRecomendados(APIView):
 
     def get(self, *args, **kwargs):
-        validar_perfil(user=self.request.user, nivel_necessario=2)
-        status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
-
-        return JsonResponse({'status':True,'dados': dados})
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
+            return JsonResponse({'status':True,'dados': dados})
 
 
 class Historico(APIView):

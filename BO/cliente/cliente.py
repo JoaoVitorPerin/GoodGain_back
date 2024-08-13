@@ -1,3 +1,4 @@
+from django.http import HttpResponseServerError
 
 import core.cliente.models
 import core.esporte.models
@@ -653,10 +654,10 @@ class Cliente():
      #abaixo informações de admin
      def get_todos_usuarios(self, cpf_cliente=None):
          try:
-             if not cpf_cliente or not self.username:
+             if cpf_cliente or self.username:
                 todos_usuarios = list(core.cliente.models.Cliente.objects.filter(cpf=cpf_cliente,username=self.username))
              else:
-                todos_usuarios = list(core.cliente.models.Cliente.objects.all())
+                todos_usuarios = list(core.cliente.models.Cliente.objects.values().all())
              return True, todos_usuarios
          except:
-             return False, []
+             return HttpResponseServerError("Descrição do erro ou mensagem personalizada.")
