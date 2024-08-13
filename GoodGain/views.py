@@ -68,8 +68,8 @@ class EventoSimulado(APIView):
     def get(self, *args, **kwargs):
         cpf_user = self.request.GET.get('cpf_user')
         evento = self.request.GET.get('evento')
-        status, dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
-        return JsonResponse({'status': status, 'campeonatos': dados})
+        dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
+        return JsonResponse({'campeonato': dados})
 class Dashboard(APIView):
 
     def get(self, *args, **kwargs):
