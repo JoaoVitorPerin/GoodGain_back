@@ -21,6 +21,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView
 )
 import GoodGain.views
+import core.cliente.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -53,7 +54,7 @@ urlpatterns = [
     re_path('listar_log', GoodGain.views.ListarLogs.as_view(), name='listar_log'),
     re_path('listar_operacoes', GoodGain.views.ListaOperacoes.as_view(), name='listar_operacoes'),
     re_path('editar_usuario', GoodGain.views.EditarUsuarioAdmin.as_view(), name='editar_usuario'),
-    re_path('listar_perfis', GoodGain.views.ListaPerfis.as_view(), name='listar_perfis'),
+    re_path('listar_perfis', core.cliente.views.Perfis.as_view(), name='listar_perfis'),
 
 
 ]
