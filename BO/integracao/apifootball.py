@@ -48,7 +48,7 @@ class Apifootball(Integracao):
 
         return self.response
 
-    def atuali
+
     def atualizar_base(self, data=None):
         try:
             operacao = 'coleta campeonatos'

@@ -65,33 +65,33 @@ class SimularAposta(APIView):
 
 class EventoSimulado(APIView):
 
-    def post(self, *args, **kwargs):
+    def get(self, *args, **kwargs):
         cpf_user = self.request.GET.get('cpf_user')
         evento = self.request.GET.get('evento')
-        status, dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
-        return JsonResponse({'status': status, 'campeonatos': dados})
+        dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
+        return JsonResponse({'campeonato': dados})
 class Dashboard(APIView):
 
     def get(self, *args, **kwargs):
         if validar_perfil(user=self.request.user, nivel_necessario=2):
             cpf_user = self.request.GET.get('cpf_user')
-            dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
+            dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahhsboard_cliente(cliente_id=cpf_user)
             return JsonResponse({'dados': dados, 'tipos':lista_tipos, 'campeonatos': lista_campeonatos})
 
 class EventosFuturos(APIView):
 
     def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_eventos()
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos()
 
-        return JsonResponse({'status':True,'dados': dados})
+            return JsonResponse({'status':True,'dados': dados})
 
 class EventosRecomendados(APIView):
 
     def get(self, *args, **kwargs):
-        validar_perfil(user=self.request.user, nivel_necessario=2)
-        status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
-
-        return JsonResponse({'status':True,'dados': dados})
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
+            return JsonResponse({'status':True,'dados': dados})
 
 
 class Historico(APIView):

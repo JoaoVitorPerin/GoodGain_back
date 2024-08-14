@@ -1,3 +1,4 @@
+from django.http import HttpResponseServerError
 
 import core.cliente.models
 import core.esporte.models
@@ -267,34 +268,11 @@ class Cliente():
 
      def evento_simulado(self, cpf_user=None, evento=None, odd=None):
          try:
-             dados = {'status':True}
-             evento = core.esporte.models.Evento.objects.filter(id=evento).first()
-             time_a = self.calcular_tipo_1(odd=odd, campeonato=evento.get('campeonato_id'), time_1=evento.get('time_a_id'), time_2=evento.get('time_b_id'))
-             time_b = self.vitoria_time_a(campeonato=evento.get('campeonato_id'),
-                                                  time_a=evento.get('time_a_id'))
-             dados_25_gols = self.vitoria_time_b(campeonato=evento.get('campeonato_id'), time_b=evento.get('time_b_id'))
-             if dados_25_gols.get('status'):
-                 dados['dados_25_gols'] = dados_25_gols
-             if time_a.get('status'):
-                 dados['time_a'] = time_a
-             if time_b.get('status'):
-                 dados['time_b'] = time_b
+             evento = core.esporte.models.Evento.objects.values().filter(id=evento).first()
 
-             aposta = core.cliente.models.Aposta()
-             aposta.cliente_id = cpf_user
-             aposta.status = True
-             aposta.evento_id = evento.get('id')
-             aposta.campeonato_id = evento.get('campeonato_id')
-             aposta.time_1_id = evento.get('time_a_id')
-             aposta.time_2_id = evento.get('time_b_id')
-             aposta.odd = odd
-             aposta.tipo_aposta = 0
-             aposta.save()
-
-             return dados
+             return evento
          except:
-            dados['status'] = False
-            return dados
+            return []
 
      def calcular_tipo_1(self, odd=None, campeonato=None, time_1=None, time_2=None):
          try:
@@ -672,10 +650,10 @@ class Cliente():
      #abaixo informações de admin
      def get_todos_usuarios(self, cpf_cliente=None):
          try:
-             if not cpf_cliente or not self.username:
+             if cpf_cliente or self.username:
                 todos_usuarios = list(core.cliente.models.Cliente.objects.filter(cpf=cpf_cliente,username=self.username))
              else:
-                todos_usuarios = list(core.cliente.models.Cliente.objects.all())
-             return True, todos_usuarios
+                todos_usuarios = list(core.cliente.models.Cliente.objects.values().all())
+             return todos_usuarios
          except:
-             return False, []
+             return HttpResponseServerError("Descrição do erro ou mensagem personalizada.")
