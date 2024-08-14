@@ -6,7 +6,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 import BO.cliente.cliente as bo_cliente
-import BO.autenticacao.login
+
 
 
 # Create your views here.
