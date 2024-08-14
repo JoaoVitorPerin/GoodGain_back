@@ -304,8 +304,8 @@ class EditarUsuarioAdmin(APIView):
             sobrenome = self.request.data.get('sobrenome')
             email = self.request.data.get('email')
             cpf = self.request.data.get('cpf')
-            data_nasc = self.request.data.get('data_nascimento')
-            perfil = self.request.data.get('perfil')
+            data_nasc = self.request.data.get('data_nasc')
+            perfil = self.request.data.get('perfil_id')
 
             status, mensagem = BO.cliente.cliente.Cliente(username=username, password=password).editar_cliente(nome=nome,
                                                                                                                sobrenome=sobrenome,

@@ -104,11 +104,10 @@ class Cliente():
                  return False, 'esse perfil não existe'
              cliente.perfil_id = perfil_id
              cliente.save()
-             return True, ''
+             return True
 
-         except Exception as e:  # Captura a exceção e armazena na variável e
-             print(e)  # Imprime ou faça log da exceção para ver o erro exato
-             return False, str(e)  # Retorna a mensagem de erro
+         except Exception as e:  # Captura a exceção e armazena na variável e # Imprime ou faça log da exceção para ver o erro exato
+             return False  # Retorna a mensagem de erro
 
 
      def get_apostas_cliente(self,cpf_user=None):
@@ -538,7 +537,8 @@ class Cliente():
              cliente.cpf = Cliente.limpar_cpf(cpf)
              cliente.nome = nome
              cliente.sobrenome = sobrenome
-             cliente.data_nascimento = Cliente.limpar_data(data_nasc)
+             if data_nasc:
+                cliente.data_nascimento = Cliente.limpar_data(data_nasc)
              if perfil:
                 cliente.perfil_id = perfil
              cliente.save()
