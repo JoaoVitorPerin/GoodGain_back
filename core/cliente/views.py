@@ -161,3 +161,21 @@ class CadastrarEndereco(View):
             return JsonResponse({'status': False, 'descricao': 'Erro ao cadastrar endereço!'}, safe=False)
         else:
             return JsonResponse({'status': True, 'endereco_id': endereco_id_novo}, safe=False)
+
+class Perfis(View):
+
+    def get(self, *args, **kwargs):
+
+        dados = BO.cliente.cliente.Cliente().get_perfis()
+
+        return JsonResponse({'dados': dados})
+
+    def put(self, *args, **kwargs):
+
+        cpf = self.request.data.get('cpf')
+        nome = self.request.data.get('nome')
+
+        atualiza_perfis = BO.cliente.cliente.Cliente(cpf=cpf, nome=nome)
+
+        return JsonResponse({'Perfis': atualiza_perfis})
+

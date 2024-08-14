@@ -55,4 +55,5 @@ urlpatterns = [
     re_path('editar_usuario', GoodGain.views.EditarUsuarioAdmin.as_view(), name='editar_usuario'),
     re_path('listar_perfis', GoodGain.views.ListaPerfis.as_view(), name='listar_perfis'),
 
+
 ]

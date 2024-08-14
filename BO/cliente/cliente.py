@@ -91,6 +91,25 @@ class Cliente():
      def get_perfis(self):
         return list(core.cliente.models.Perfis.objects.values().filter(status=True))
 
+     def editar_perfil_usuario(self, cpf=None, perfil_id=None):
+         try:
+             _, _, cliente_existe = self.get_cliente(cpf=Cliente.limpar_cpf(cpf))
+             if not cliente_existe:
+                 return False, 'cpf não encontrado no sistema'
+             cliente = core.cliente.models.Cliente.objects.filter(cpf=Cliente.limpar_cpf(cpf)).first()
+             if not cliente:
+                 return False, 'esse cliente não existe'
+             if perfil_id is None:
+                 return False, 'esse perfil não existe'
+             cliente.perfil_id = perfil_id
+             cliente.save()
+             return True, ''
+
+         except Exception as e:  # Captura a exceção e armazena na variável e
+             print(e)  # Imprime ou faça log da exceção para ver o erro exato
+             return False, str(e)  # Retorna a mensagem de erro
+
+
      def get_apostas_cliente(self,cpf_user=None):
         try:
             lista_apostas_cliente = list(core.cliente.models.Aposta.objects.values(
