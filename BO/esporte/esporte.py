@@ -47,6 +47,54 @@ class Esporte():
         except:
             return False, []
 
+     def get_eventos_campeonato(self, user=None):
+        try:
+            data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
+            preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=user.cpf).first()
+            if not preferencias.get('campeonato'):
+                lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values('id',
+                                                                'data',
+                                                                'time_a',
+                                                                'time_b',
+                                                                'resultado_time_a',
+                                                                'resultado_time_b',
+                                                                'resultado_partida',
+                                                                'campeonato',
+                                                                'campeonato__nome',
+                                                                'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
+            else:
+                lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values('id',
+                                                                               'data',
+                                                                               'time_a',
+                                                                               'time_b',
+                                                                               'resultado_time_a',
+                                                                               'resultado_time_b',
+                                                                               'resultado_partida',
+                                                                               'campeonato',
+                                                                               'campeonato__nome',
+                                                                               'season', 'status', 'time_a__nome',
+                                                                               'time_b__nome', 'time_a__logo',
+                                                                               'time_b__logo',
+                                                                               'campeonato__nome').filter(
+                    data__gte=data_hoje,campeonato_id__in=preferencias.get('campeonato')).order_by('data'))
+
+            dict_evento_campeonato = {}
+            for evento in lista_eventos_campeonatos:
+                lista_eventos = []
+                if evento['campeonato'] not in dict_evento_campeonato:
+                   dict_evento_campeonato[evento['campeonato']] = {'nome':'str','eventos':[]}
+                   lista_eventos.append(evento)
+                   dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
+                   dict_evento_campeonato[evento['campeonato']]['nome'] = evento['campeonato__nome']
+                else:
+                   lista_eventos = dict_evento_campeonato[evento['campeonato']]['eventos']
+                   lista_eventos.append(evento)
+                   dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
+                lista_eventos = []
+            return True, dict_evento_campeonato
+        except:
+            return False, []
+
      def get_eventos_recomendados(self,cliente=None):
         try:
             core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cliente.pk)

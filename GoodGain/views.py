@@ -86,6 +86,15 @@ class EventosFuturos(APIView):
 
             return JsonResponse({'status':True,'dados': dados})
 
+class EventosCampeonatos(APIView):
+
+    def get(self, *args, **kwargs):
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos_campeonato(user=self.request.user)
+
+            return JsonResponse({'status':status,'dados': dados})
+
+
 class EventosRecomendados(APIView):
 
     def get(self, *args, **kwargs):
@@ -199,6 +208,7 @@ class Preferencias(APIView):
     def post(self, *args, **kwargs):
         esporte = self.request.data.get('esporte')
         opcoes_apostas = self.request.data.get('opcoes_apostas')
+        campeonatos = self.request.data.get('campeonatos')
         cpf = self.request.data.get('cpf')
         valor = self.request.data.get('stack_aposta')
 
@@ -206,7 +216,8 @@ class Preferencias(APIView):
         status= BO.cliente.cliente.Cliente().cadastrar_preferencias(cpf=cpf,
                                                                           esporte=esporte,
                                                                           opcoes_apostas=opcoes_apostas,
-                                                                          valor=valor
+                                                                          valor=valor,
+                                                                          campeonatos=campeonatos
                                                                           )
 
         return JsonResponse({'status': status})
