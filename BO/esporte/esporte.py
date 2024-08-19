@@ -1,5 +1,6 @@
 import datetime
 import json
+import ast
 
 import core.esporte.models
 import core.cliente.models
@@ -51,7 +52,7 @@ class Esporte():
         try:
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
             preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=user.cpf).first()
-            if not preferencias.get('campeonato'):
+            if not preferencias.get('campeonato') or preferencias.get('campeonato')=='None':
                 lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values('id',
                                                                 'data',
                                                                 'time_a',
@@ -76,7 +77,7 @@ class Esporte():
                                                                                'time_b__nome', 'time_a__logo',
                                                                                'time_b__logo',
                                                                                'campeonato__nome').filter(
-                    data__gte=data_hoje,campeonato_id__in=preferencias.get('campeonato')).order_by('data'))
+                    data__gte=data_hoje,campeonato_id__in= ast.literal_eval(preferencias.get('campeonato')) if preferencias.get('campeonato') else []).order_by('data'))
 
             dict_evento_campeonato = {}
             for evento in lista_eventos_campeonatos:
