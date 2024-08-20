@@ -92,7 +92,10 @@ class Esporte():
                    lista_eventos.append(evento)
                    dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
                 lista_eventos = []
-            return True, dict_evento_campeonato
+            lista_eventos_informativos = []
+            for evento_informativo in dict_evento_campeonato:
+                lista_eventos_informativos.append(dict_evento_campeonato[evento_informativo])
+            return True, lista_eventos_informativos
         except:
             return False, []
 
