@@ -143,7 +143,7 @@ class Apifootball(Integracao):
 
 
             log = core.esporte.models.Log()
-            log.data = datetime_hoje
+            log.data = datetime.datetime.now().strftime('%Y-%m-%d')
             log.status = True
             log.tipo_operacao = 'atualizacao da base completa'
             log.informacao = 'sucesso'
@@ -151,7 +151,7 @@ class Apifootball(Integracao):
             return True
         except:
             log = core.esporte.models.Log()
-            log.data = datetime_hoje
+            log.data = datetime.datetime.now().strftime('%Y-%m-%d')
             log.status = True
             log.tipo_operacao = operacao
             log.informacao = 'erro na operação'
