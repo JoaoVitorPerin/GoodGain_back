@@ -1,7 +1,7 @@
 import datetime
-
+from datetime import timedelta
 import requests
-
+from django.utils.timezone import make_aware
 from BO.integracao.integracao import Integracao
 import core.esporte.models
 import json
@@ -41,6 +41,12 @@ class Apifootball(Integracao):
         return self.response
 
 
+    def get_info_evento(self, evento_id=None):
+        self.url = "/v3/fixtures/events?fixture=[[evento_id]]".replace('[[evento_id]]', evento_id)
+        params = {"fixture": evento_id,}
+        self.response = requests.get(self.url, headers=self.headers, params=params).json()
+        return self.response
+
     def todas_ligas(self, liga="71",season="2024", date="2024-08-03"):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/leagues"
         params = {}
@@ -48,7 +54,24 @@ class Apifootball(Integracao):
 
         return self.response
 
+    def atualizr_eventos_ocorridos(self):
+        try:
+            # Pega a data e hora atual
+            now = datetime.now()
+            # Define start_date para 00:01 do dia anterior
+            start_date = make_aware(datetime.combine(now.date() - timedelta(days=1), datetime.min.time())) + timedelta(
+                minutes=1)
+            # Define end_date para 23:59 do dia atual
+            end_date = make_aware(datetime.combine(now.date(), datetime.max.time())) - timedelta(minutes=1)
 
+            eventos = list(core.esporte.models.Evento.objects.values().filter(data__range=(start_date, end_date)))
+            dados = {}
+            for evento in eventos:
+                dados[evento.get('id')] = self.get_info_evento(evento_id=evento.get('id'))
+                evento.resultado_partida = dados[evento.get('id')]
+            return True
+        except:
+            return False
     def atualizar_base(self, data=None):
         try:
             operacao = 'coleta campeonatos'

@@ -366,13 +366,24 @@ class Cliente():
              'campeonatos':[],
              'stack_aposta':0.0
          }
-         user_preferencias = core.cliente.models.ClientePreferencias.objects.values().filter(cliente_id=cpf).first()
+         user_preferencias = list(core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf))
+         cliente_stack =core.cliente.models.Cliente.objects.values_list('stack_aposta').filter(cpf=cpf).first()[0]
+         lista_preferencias_campeonatos = []
+         lista_preferencias_tipo_aposta = []
+         lista_preferencias_esporte = []
+         for preferencia in user_preferencias:
+             if preferencia.tipo_preferencia == 'campeonato':
+                 lista_preferencias_campeonatos.append(preferencia.id_preferencia)
+             if preferencia.tipo_preferencia == 'tipo_aposta':
+                 lista_preferencias_tipo_aposta.append(preferencia.id_preferencia)
+             if preferencia.tipo_preferencia == 'esporte':
+                 lista_preferencias_esporte.append(preferencia.id_preferencia)
          if user_preferencias:
              response ={
-                 'esporte': ast.literal_eval(user_preferencias.get('esporte')) if user_preferencias.get('esporte') else [],
-                 'opcoes_apostas': ast.literal_eval(user_preferencias.get('opcoes_apostas')) if user_preferencias.get('opcoes_apostas') else [],
-                 'campeonatos': ast.literal_eval(user_preferencias.get('campeonato')) if user_preferencias.get('campeonato') else [],
-                 'stack_aposta': user_preferencias.get('stack_aposta')
+                 'esporte': lista_preferencias_esporte,
+                 'opcoes_apostas': lista_preferencias_tipo_aposta,
+                 'opcoes_campeonatos': lista_preferencias_campeonatos,
+                 'stack_aposta': cliente_stack if cliente_stack !=None else 00.00
              }
          return response
 
@@ -461,18 +472,41 @@ class Cliente():
          # Retorna True se a idade é 18 ou mais, caso contrário False
          return age >= 18
 
-     def cadastrar_preferencias(self, cpf=None, esporte=None,opcoes_apostas=None, valor=None, campeonatos=None):
+     def cadastrar_preferencias(self, cpf=None, esportes=[],opcoes_apostas=[], valor=None, campeonatos=[]):
          try:
-             preferencias = core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf).first()
-             if not preferencias:
-                preferencias = core.cliente.models.ClientePreferencias()
-             preferencias.cliente_id = cpf
-             preferencias.esporte = str(esporte)
-             preferencias.opcoes_apostas = str(opcoes_apostas)
-             preferencias.campeonato = str(campeonatos)
-             preferencias.status = True
-             preferencias.stack_aposta = valor
-             preferencias.save()
+             preferencias = list(core.cliente.models.ClientePreferencias.objects.filter(cliente_id=cpf))
+             cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()
+             if valor:
+                cliente.stack_aposta = valor
+                cliente.save()
+             for pref in preferencias:
+                 pref.delete()
+             if esportes:
+                 for esporte in esportes:
+                     preferencias = core.cliente.models.ClientePreferencias()
+                     preferencias.cliente_id = cpf
+                     preferencias.id_preferencia = esporte
+                     preferencias.tipo_preferencia = 'esporte'
+                     preferencias.status = True
+                     preferencias.save()
+             if opcoes_apostas:
+                 for opcoao_aposta in opcoes_apostas:
+                     preferencias = core.cliente.models.ClientePreferencias()
+                     preferencias.cliente_id = cpf
+                     preferencias.id_preferencia = opcoao_aposta
+                     preferencias.tipo_preferencia = 'tipo_aposta'
+                     preferencias.status = True
+                     preferencias.save()
+             if campeonatos:
+                 for campeonato in campeonatos:
+                     preferencias = core.cliente.models.ClientePreferencias()
+                     preferencias.cliente_id = cpf
+                     preferencias.id_preferencia = campeonato
+                     preferencias.tipo_preferencia = 'campeonato'
+                     preferencias.status = True
+                     preferencias.save()
+
+
              return True
          except:
              return False

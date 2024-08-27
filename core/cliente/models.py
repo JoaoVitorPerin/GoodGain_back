@@ -46,6 +46,7 @@ class Cliente(AbstractBaseUser):
     perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
     codigo_recuperacao = models.BigIntegerField(null=True)
     status = models.BooleanField(default=True, null=True)
+    stack_aposta = models.FloatField(null=True, default=00.00)
 
     objects = ClienteManager()
 
@@ -82,11 +83,10 @@ class ClientePreferencias(models.Model):
     :Edições:
     """
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
-    esporte = models.CharField(max_length=500, null=True)
-    campeonato = models.CharField(max_length=500, null=True)
+    id_preferencia = models.CharField(max_length=500, null=True)
     status = models.BooleanField(null=True, default=True)
-    opcoes_apostas = models.CharField(max_length=500, null=True)
-    stack_aposta = models.FloatField(null=True)
+    tipo_preferencia = models.CharField(max_length=500, null=True)
+
 
 
     class Meta:

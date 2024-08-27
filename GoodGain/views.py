@@ -208,17 +208,17 @@ class Preferencias(APIView):
     def post(self, *args, **kwargs):
         esporte = self.request.data.get('esporte')
         opcoes_apostas = self.request.data.get('opcoes_apostas')
-        campeonatos = self.request.data.get('campeonatos')
+        campeonatos = self.request.data.get('opcoes_campeonatos')
         cpf = self.request.data.get('cpf')
         valor = self.request.data.get('stack_aposta')
 
 
         status= BO.cliente.cliente.Cliente().cadastrar_preferencias(cpf=cpf,
-                                                                          esporte=esporte,
-                                                                          opcoes_apostas=opcoes_apostas,
-                                                                          valor=valor,
-                                                                          campeonatos=campeonatos
-                                                                          )
+                                                                    esportes=esporte,
+                                                                    opcoes_apostas=opcoes_apostas,
+                                                                    valor=valor,
+                                                                    campeonatos=campeonatos
+                                                                    )
 
         return JsonResponse({'status': status})
 
@@ -274,7 +274,7 @@ class AtualizarDados(APIView):
 
 class AtualizarEventosOcorridos(APIView):
     def get(self, *args, **kwargs):
-        dados = BO.integracao.apifootball.Apifootball().atualizar_base(data=data)
+        dados = BO.integracao.apifootball.Apifootball().atualizr_eventos_ocorridos()
 
         return JsonResponse({'status': dados})
 
