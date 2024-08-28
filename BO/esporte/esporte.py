@@ -120,7 +120,7 @@ class Esporte():
             return False, []
      def get_campeonatos(self):
          try:
-             campeonatos = list(core.esporte.models.Campeonato.objects.values())
+             campeonatos = list(core.esporte.models.Campeonato.objects.filter(status=True).values())
              return True, campeonatos
          except:
             return False, []
