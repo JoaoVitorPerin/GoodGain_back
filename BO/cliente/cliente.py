@@ -388,7 +388,7 @@ class Cliente():
          return response
 
      def get_preferencias(self):
-         opcoes_apostas = list(core.esporte.models.Tipo.objects.values().filter(tipo='OPCOES.APOSTA'))
+         opcoes_apostas = list(core.esporte.models.Tipo.objects.filter(tipo='OPCOES.APOSTA', status=True).values())
          esporte = list(core.esporte.models.Esporte.objects.values())
          retorno = {
              'opcoes_apostas':opcoes_apostas,
