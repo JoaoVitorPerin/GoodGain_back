@@ -63,6 +63,38 @@ class SimularAposta(APIView):
                                                                     casa_aposta=casa_aposta)
         return JsonResponse(dados)
 
+class PegarOdds(APIView):
+
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'GET':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+    def get(self, *args, **kwargs):
+        evento = self.request.GET.get('evento')
+        dados = BO.esporte.esporte.Esporte().get_odds(evento=evento)
+        return JsonResponse({'campeonato': dados})
+
+
+class PegarLive(APIView):
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'GET':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+    def get(self, *args, **kwargs):
+        evento = self.request.GET.get('evento')
+        dados = BO.esporte.esporte.Esporte().get_live( evento=evento)
+        return JsonResponse({'campeonato': dados})
+
 class EventoSimulado(APIView):
 
     def get(self, *args, **kwargs):
@@ -70,6 +102,7 @@ class EventoSimulado(APIView):
         evento = self.request.GET.get('evento')
         dados = BO.cliente.cliente.Cliente().evento_simulado(cpf_user=cpf_user, evento=evento)
         return JsonResponse({'campeonato': dados})
+
 class Dashboard(APIView):
 
     def get(self, *args, **kwargs):
@@ -274,7 +307,7 @@ class AtualizarDados(APIView):
 
 class AtualizarEventosOcorridos(APIView):
     def get(self, *args, **kwargs):
-        dados = BO.integracao.apifootball.Apifootball().atualizr_eventos_ocorridos()
+        dados = BO.integracao.apifootball.Apifootball().atualizar_eventos_ocorridos()
 
         return JsonResponse({'status': dados})
 

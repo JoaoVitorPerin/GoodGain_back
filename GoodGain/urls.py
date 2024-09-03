@@ -39,6 +39,9 @@ urlpatterns = [
     re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
     re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
     re_path('evento/simulado', GoodGain.views.EventoSimulado.as_view(), name='evento_simulado'),
+    re_path('pegar/odds', GoodGain.views.PegarOdds.as_view(), name='pegar_odds'),
+    re_path('live/evento', GoodGain.views.PegarLive.as_view(), name='live_evento'),
+
 
 
     re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),

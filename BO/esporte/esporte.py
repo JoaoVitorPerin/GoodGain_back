@@ -1,6 +1,7 @@
 import datetime
 import json
 import ast
+import BO.integracao.apifootball
 
 import core.esporte.models
 import core.cliente.models
@@ -25,6 +26,14 @@ class Esporte():
              return logs
          except:
              return []
+
+     def get_odds(self, evento=None):
+         odds_evento = BO.integracao.apifootball.Apifootball().get_odds_evento(evento=evento)
+         return odds_evento
+
+     def get_live(self, evento=None):
+         odds_evento = BO.integracao.apifootball.Apifootball().get_live_evento(evento=evento)
+         return odds_evento
 
      def get_operacoes(self, ):
          try:

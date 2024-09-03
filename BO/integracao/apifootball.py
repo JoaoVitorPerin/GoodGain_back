@@ -42,8 +42,8 @@ class Apifootball(Integracao):
 
 
     def get_info_evento(self, evento_id=None):
-        self.url = "/v3/fixtures/events?fixture=[[evento_id]]".replace('[[evento_id]]', evento_id)
-        params = {"fixture": evento_id,}
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?id=[[evento_id]]".replace('[[evento_id]]', evento_id)
+        params = {"id": evento_id,}
         self.response = requests.get(self.url, headers=self.headers, params=params).json()
         return self.response
 
@@ -54,21 +54,34 @@ class Apifootball(Integracao):
 
         return self.response
 
-    def atualizr_eventos_ocorridos(self):
+    def get_odds_evento(self, evento=None):
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/odds?fixture=[[evento_id]]".replace('[[evento_id]]', evento)
+        params = {"fixture": evento}
+        self.response = requests.get(self.url, headers=self.headers, params=params).json()
+        return self.response
+
+    def get_live_evento(self, evento=None):
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all&ids=[[evento_id]]".replace('[[evento_id]]', evento)
+        # params = {"ids": evento}
+        self.response = requests.get(self.url, headers=self.headers).json()
+        return self.response
+
+    def atualizar_eventos_ocorridos(self):
         try:
             # Pega a data e hora atual
-            now = datetime.now()
+            now = datetime.datetime.now()
             # Define start_date para 00:01 do dia anterior
-            start_date = make_aware(datetime.combine(now.date() - timedelta(days=1), datetime.min.time())) + timedelta(
+            start_date = make_aware(datetime.datetime.combine(now.date() - timedelta(days=1), datetime.datetime.min.time())) + timedelta(
                 minutes=1)
             # Define end_date para 23:59 do dia atual
-            end_date = make_aware(datetime.combine(now.date(), datetime.max.time())) - timedelta(minutes=1)
+            end_date = make_aware(datetime.datetime.combine(now.date(), datetime.datetime.max.time())) - timedelta(minutes=1)
 
-            eventos = list(core.esporte.models.Evento.objects.values().filter(data__range=(start_date, end_date)))
+            eventos = list(core.esporte.models.Evento.objects.filter(data__range=(start_date, end_date)))
             dados = {}
             for evento in eventos:
-                dados[evento.get('id')] = self.get_info_evento(evento_id=evento.get('id'))
-                evento.resultado_partida = dados[evento.get('id')]
+                dados[evento.id] = self.get_info_evento(evento_id=evento.id)
+                evento.resultado_partida = json.dumps(dados[evento.id]['response'])
+                evento.save()
             return True
         except:
             return False
