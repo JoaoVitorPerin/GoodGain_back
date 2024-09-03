@@ -44,7 +44,7 @@ class Esporte():
      def get_eventos(self):
         try:
             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
-            lista_eventos = list(core.esporte.models.Evento.objects.values('id',
+            lista_eventos_atuais = list(core.esporte.models.Evento.objects.values('id',
                                                             'data',
                                                             'time_a',
                                                             'time_b',
@@ -53,7 +53,23 @@ class Esporte():
                                                             'resultado_partida',
                                                             'campeonato',
                                                             'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
-            return True, lista_eventos
+            dict_evento_campeonato = {}
+            for evento in lista_eventos_atuais:
+                lista_eventos = []
+                if evento['campeonato'] not in dict_evento_campeonato:
+                    dict_evento_campeonato[evento['campeonato']] = {'nome': 'str', 'eventos': []}
+                    lista_eventos.append(evento)
+                    dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
+                    dict_evento_campeonato[evento['campeonato']]['nome'] = evento['campeonato__nome']
+                else:
+                    lista_eventos = dict_evento_campeonato[evento['campeonato']]['eventos']
+                    lista_eventos.append(evento)
+                    dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
+                lista_eventos = []
+            lista_eventos_informativos = []
+            for evento_informativo in dict_evento_campeonato:
+                lista_eventos_informativos.append(dict_evento_campeonato[evento_informativo])
+            return True, lista_eventos_informativos
         except:
             return False, []
 
