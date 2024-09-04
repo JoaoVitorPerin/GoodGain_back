@@ -125,6 +125,7 @@ class Cliente():
 'tipo_aposta',
 'is_aposta','evento__resultado_partida').filter(cliente_id=cpf_user, is_aposta=True).order_by('-id'))
             # verificar resultado da aposta
+
             for aposta in lista_apostas_cliente:
                 if aposta.get('evento__resultado_partida') is not None:
                     resultado_da_partida = json.loads(aposta.get('evento__resultado_partida'))
