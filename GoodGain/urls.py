@@ -40,6 +40,7 @@ urlpatterns = [
     re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
     re_path('evento/simulado', GoodGain.views.EventoSimulado.as_view(), name='evento_simulado'),
     re_path('pegar/odds', GoodGain.views.PegarOdds.as_view(), name='pegar_odds'),
+    re_path('pegar/predicoes', GoodGain.views.PegarPredicoes.as_view(), name='pegar_predicoes'),
     re_path('live/evento', GoodGain.views.PegarLive.as_view(), name='live_evento'),
 
 

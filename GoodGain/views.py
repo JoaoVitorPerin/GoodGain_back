@@ -76,7 +76,24 @@ class PegarOdds(APIView):
         return [permission() for permission in permission_classes]
     def get(self, *args, **kwargs):
         evento = self.request.GET.get('evento')
-        dados = BO.esporte.esporte.Esporte().get_odds(evento=evento)
+        tipo_aposta = self.request.GET.get('tipo_aposta')
+        dados = BO.esporte.esporte.Esporte().get_odds(evento=evento, tipo_aposta=tipo_aposta)
+        return JsonResponse({'campeonato': dados})
+
+class PegarPredicoes(APIView):
+
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'GET':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+    def get(self, *args, **kwargs):
+        evento = self.request.GET.get('evento')
+        dados = BO.esporte.esporte.Esporte().get_predicoes(evento_id=evento)
         return JsonResponse({'campeonato': dados})
 
 

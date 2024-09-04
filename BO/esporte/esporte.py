@@ -27,9 +27,23 @@ class Esporte():
          except:
              return []
 
-     def get_odds(self, evento=None):
+     def get_predicoes(self, evento_id=None):
+         predicoes = BO.integracao.apifootball.Apifootball().get_predictions(evento_id=evento_id)
+         return predicoes['response'][0]['predictions']
+     def get_odds(self, evento=None, tipo_aposta=None):
          odds_evento = BO.integracao.apifootball.Apifootball().get_odds_evento(evento=evento)
-         return odds_evento
+
+         lista_odds = []
+         #tratamento de odds de eventos
+         codigos_relacionais = core.esporte.models.Tipo.objects.values('codigo_externo','informacao').filter(codigo=tipo_aposta, tipo='CODIGO.RELACIONAL.APIFOOTBALL').first()
+         for casa_aposta in odds_evento['response'][0]['bookmakers']:
+             for aposta_tipo in casa_aposta['bets']:
+                 if aposta_tipo['id'] == int(codigos_relacionais.get('codigo_externo')):
+                    for valor_odd in aposta_tipo['values']:
+                        if str(valor_odd['value']) == codigos_relacionais.get('informacao'):
+                            lista_odds.append({'nome':str(valor_odd['odd']) +' - '+ str(casa_aposta['name']),
+                                               'valor_odd':float(valor_odd['odd'])})
+         return lista_odds
 
      def get_live(self, evento=None):
          odds_evento = BO.integracao.apifootball.Apifootball().get_live_evento(evento=evento)

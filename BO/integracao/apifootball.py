@@ -54,6 +54,12 @@ class Apifootball(Integracao):
 
         return self.response
 
+    def get_predictions(self, evento_id=None):
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/predictions?fixture=[[evento_id]]".replace('[[evento_id]]', evento_id)
+        params = {"fixture": evento_id}
+        self.response = requests.get(self.url, headers=self.headers, params=params).json()
+        return self.response
+
     def get_odds_evento(self, evento=None):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/odds?fixture=[[evento_id]]".replace('[[evento_id]]', evento)
         params = {"fixture": evento}

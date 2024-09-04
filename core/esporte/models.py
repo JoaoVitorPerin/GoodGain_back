@@ -31,6 +31,7 @@ class Tipo(models.Model):
     """
     id = models.AutoField(primary_key=True)
     codigo = models.CharField(max_length=100, null=True)
+    codigo_externo = models.CharField(max_length=100, null=True)
     informacao = models.CharField(max_length=100, null=True)
     tipo = models.CharField(max_length=100, null=True)
     status = models.BooleanField(null=True, default=True)
