@@ -258,7 +258,7 @@ class Cliente():
              return {'status': True, 'resultado': 0}
 
      def simular_aposta(self, casa_aposta=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
-         if tipo_aposta == '1':
+         if tipo_aposta == '5':
              dados = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
          if tipo_aposta == '2':
              dados = self.vitoria_time_a(time_a=time_1, campeonato=campeonato)

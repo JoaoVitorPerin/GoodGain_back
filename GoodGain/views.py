@@ -78,7 +78,7 @@ class PegarOdds(APIView):
         evento = self.request.GET.get('evento')
         tipo_aposta = self.request.GET.get('tipo_aposta')
         dados = BO.esporte.esporte.Esporte().get_odds(evento=evento, tipo_aposta=tipo_aposta)
-        return JsonResponse({'campeonato': dados})
+        return JsonResponse({'list_odds': dados})
 
 class PegarPredicoes(APIView):
 
