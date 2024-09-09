@@ -153,7 +153,7 @@ class Cliente():
                            continue
                 else:
                     aposta['status_aposta'] = 'EM ANDAMENTO'
-            return True, lista_apostas_cliente_tratada
+            return True, lista_apostas_cliente
         except:
             return False, []
 
