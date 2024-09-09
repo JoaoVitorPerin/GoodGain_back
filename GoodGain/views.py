@@ -94,7 +94,7 @@ class PegarPredicoes(APIView):
     def get(self, *args, **kwargs):
         evento = self.request.GET.get('evento')
         dados = BO.esporte.esporte.Esporte().get_predicoes(evento_id=evento)
-        return JsonResponse({'campeonato': dados})
+        return JsonResponse({'predicao': dados})
 
 
 class PegarLive(APIView):
