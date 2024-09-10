@@ -6,36 +6,55 @@
     <style>
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: collapse!important;
         }
         th, td {
-            border: 1px solid black;
+            border: 1px solid var(--text-color);
             padding: 8px;
             text-align: center;
+        }
+        .muito-recomendado {
+            color: #006400;
+        }
+        .recomendado {
+            color: #32CD32;
+        }
+        .arriscado {
+            color: #FFD700;
+        }
+        .nao-recomendado {
+            color: #FF8C00;
+        }
+        .nao-investir {
+            color: #FF0000;
         }
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th></th>
-            <th>MÉDIA DE GOLS GERAL</th>
-            <th>MÉDIA DE GOLS CASA/FORA</th>
-        </tr>
-        <tr>
-            <td>TIME DA CASA</td>
-            <td>{{ media_total_mandante }}</td>
-            <td>{{ media_mandante_casa }}</td>
-        </tr>
-        <tr>
-            <td>TIME DE FORA</td>
-            <td>{{ media_total_visitante }}</td>
-            <td>{{ media_visitante_fora }}</td>
-        </tr>
-    </table>
-    <div class="mt-3">
-        <p>Previsão de gols: {{ previsao_gols }}</p>
-        <p>Resultado: {{ descricao }}</p>
+    <p class="font-bold text-xl mb-1 {{ class_descricao }}">{{ descricao }}</p>
+    <div class="grid">
+        <div class="col-12">
+            <table class="w-full">
+                <tr>
+                    <th></th>
+                    <th><p class="font-bold text-sm">MÉDIA DE GOLS GERAL</p></th>
+                    <th><p class="font-bold text-sm">MÉDIA DE GOLS CASA/FORA</p></th>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME DA CASA</p></td>
+                    <td><p class="text-sm">{{ media_total_mandante|floatformat:2 }}</p></td>
+                    <td><p class="text-sm">{{ media_mandante_casa|floatformat:2 }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME DE FORA</p></td>
+                    <td><p class="text-sm">{{ media_total_visitante|floatformat:2 }}</p></td>
+                    <td><p class="text-sm">{{ media_visitante_fora|floatformat:2 }}</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="mt-1">
+        <p class="font-bold text-sm {{ class_descricao }}">Previsão de gols total: {{ previsao_gols|floatformat:2 }}</p>
     </div>
 </body>
 </html>
