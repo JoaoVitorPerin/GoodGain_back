@@ -160,7 +160,7 @@ class Cliente():
      def get_dahsboard_cliente(self, cliente_id=None):
         try:
 
-            apostas_cliente = list(core.cliente.models.Aposta.objects.filter(cliente_id=cliente_id))
+            apostas_cliente = list(core.cliente.models.Aposta.objects.filter(cliente_id=cliente_id, is_aposta=True))
             dict_campeonatos = {}
             dict_tipo_apostas = {}
             todas_odds = 0
@@ -621,13 +621,18 @@ class Cliente():
              if status_email:
                  return False, 'o email só pode estar vinculado a um unico usuário'
              cliente = core.cliente.models.Cliente.objects.filter(cpf=Cliente.limpar_cpf(cpf)).first()
-             cliente.username = self.username
+             if self.username:
+                cliente.username = self.username
              if self.password:
                 cliente.set_password(raw_password=self.password)
-             cliente.email = email
-             cliente.cpf = Cliente.limpar_cpf(cpf)
-             cliente.nome = nome
-             cliente.sobrenome = sobrenome
+             if email:
+                cliente.email = email
+             if cpf:
+                cliente.cpf = Cliente.limpar_cpf(cpf)
+             if nome:
+                cliente.nome = nome
+             if sobrenome:
+                cliente.sobrenome = sobrenome
              if data_nasc:
                 cliente.data_nascimento = Cliente.limpar_data(data_nasc)
              if perfil:

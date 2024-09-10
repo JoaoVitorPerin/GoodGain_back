@@ -125,7 +125,7 @@ class Dashboard(APIView):
     def get(self, *args, **kwargs):
         if validar_perfil(user=self.request.user, nivel_necessario=2):
             cpf_user = self.request.GET.get('cpf_user')
-            dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahhsboard_cliente(cliente_id=cpf_user)
+            dados, lista_tipos, lista_campeonatos = BO.cliente.cliente.Cliente().get_dahsboard_cliente(cliente_id=cpf_user)
             return JsonResponse({'dados': dados, 'tipos':lista_tipos, 'campeonatos': lista_campeonatos})
 
 class EventosFuturos(APIView):
