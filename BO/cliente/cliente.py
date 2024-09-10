@@ -259,7 +259,9 @@ class Cliente():
 
      def simular_aposta(self, casa_aposta=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
          if tipo_aposta == '5':
-             dados, html_retorno = self.calcular_tipo_1(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
+             dados, html_retorno = self.calcular_2_5(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
+         elif tipo_aposta == '8':
+             dados, html_retorno = self.calcular_ambos_marcam(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
 
          if dados.get('status'):
              aposta = core.cliente.models.Aposta()
@@ -286,7 +288,7 @@ class Cliente():
          except:
             return []
 
-     def calcular_tipo_1(self, odd=None, campeonato=None, time_1=None, time_2=None):
+     def calcular_2_5(self, odd=None, campeonato=None, time_1=None, time_2=None):
          try:
              context = {
                  'media_mandante_casa': 0.0,
@@ -333,6 +335,77 @@ class Cliente():
 
 
              html_content = render_to_string('retorno2.5gols.html', context)
+
+
+
+             return context , html_content
+         except:
+             context['status'] = False
+             return context,  html_content
+
+     def calcular_ambos_marcam(self, odd=None, campeonato=None, time_1=None, time_2=None):
+         try:
+             context = {
+                 'media_mandante_casa': 0.0,
+                 'media_visitante_fora': 0.0,
+                 'media_total_mandante': 0.0,
+                 'media_total_visitante': 0.0,
+                 'previsao_gols': 0.0,
+                 'descricao': 'Erro',
+                 'status': True
+             }
+
+             # (média
+             #  de gols marcados / sofridos casa time 1 + média de gols marcados / sofridos fora time 2 + média de gols marcados
+             #  / sofridos geral time 1 + média de gols marcados + sofridos geral time 2) / 4
+             season_campeonato = core.esporte.models.Campeonato.objects.values_list('season_atual', flat=True).filter(id=campeonato)
+             performace_time_1 = json.loads(core.esporte.models.PerformaceTime.objects.values_list('info', flat=True).filter(time_id=time_1, season=season_campeonato[0]).first())
+             performace_time_2 = json.loads(core.esporte.models.PerformaceTime.objects.values_list('info', flat=True).filter(time_id=time_2, season=season_campeonato[0]).first())
+             #Média de gols marcados + sofridos na condição do mandante, média de gols marcados + sofridos na condição do visitante, e as duas médias gerais desses dois times no campeonato
+             media_mandante_marcados = float(performace_time_1['goals']['for']['average']['total'])
+             media_mandante_sofridos = float(performace_time_1['goals']['against']['average']['total'])
+             media_visitante_marcados =float(performace_time_2['goals']['for']['average']['total'])
+             media_visitante_sofridos =float(performace_time_2['goals']['against']['average']['total'])
+             media_mandante = (media_mandante_marcados + media_visitante_sofridos)/2
+             media_visitante= (media_visitante_marcados + media_mandante_sofridos)/2
+             media_geral = (media_mandante + media_visitante)/2
+
+
+             if media_mandante >=1.45:
+                 descricao_mandante = 'Aposta recomendado'
+             elif media_mandante >=1.1:
+                 descricao_mandante = 'Aposta arriscada'
+             else:
+                 descricao_mandante = 'Não investir'
+
+             if media_visitante >=1.45:
+                 descricao_visitante = 'Aposta recomendado'
+             elif media_visitante >=1.1:
+                 descricao_visitante = 'Aposta arriscada'
+             else:
+                 descricao_visitante = 'Não investir'
+
+             if media_geral >=1.45:
+                 descricao_geral = 'Aposta recomendado'
+             else:
+                 descricao_geral = 'Não investir'
+
+             context ={
+            'media_mandante_marcados':media_mandante_marcados,
+            'media_mandante_sofridos':media_mandante_sofridos,
+            'media_visitante_marcados':media_visitante_marcados,
+            'media_visitante_sofridos':media_visitante_sofridos,
+            'media_mandante':media_mandante,
+            'media_visitante':media_visitante,
+            'media_geral':media_geral,
+            'descricao_mandante': descricao_mandante,
+            'descricao_visitante': descricao_visitante,
+            'descricao_geral': descricao_geral,
+            'status': True
+             }
+
+
+             html_content = render_to_string('ambosmarcam.html', context)
 
 
 

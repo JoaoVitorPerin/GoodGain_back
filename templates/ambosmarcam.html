@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Estatísticas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .recomendado {
+            background-color: #90EE90; /* Light green */
+        }
+        .nao-recomendado {
+            background-color: #FFB6C1; /* Light pink */
+        }
+        .nao-investir {
+            background-color: #FF6347; /* Tomato red */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th>MÉDIA DE GOLS MARCADOS</th>
+            <th>MÉDIA DE GOLS SOFRIDOS</th>
+            <th></th>
+            <th>MÉDIA</th>
+            <th>AMBAS MARCAM</th>
+        </tr>
+        <tr>
+            <td>TIME DA CASA</td>
+            <td>{{ media_mandante_marcados }}</td>
+            <td>{{ media_mandante_sofridos }}</td>
+            <td>TIME CASA MARCAR</td>
+            <td>{{ media_mandante }}</td>
+            <td>{{ descricao_mandante }}</td>
+        </tr>
+        <tr>
+            <td>TIME DE FORA</td>
+            <td>{{ media_visitante_marcados }}</td>
+            <td>{{ media_visitante_sofridos }}</td>
+            <td>TIME FORA MARCAR</td>
+            <td>{{ media_visitante }}</td>
+            <td>{{ descricao_visitante }}</td>
+        </tr>
+        <tr>
+            <td>GERAL</td>
+            <td colspan="3"></td>
+            <td>{{ media_geral }}</td>
+            <td>{{ descricao_geral }}</td>
+        </tr>
+    </table>
+</body>
+</html>
