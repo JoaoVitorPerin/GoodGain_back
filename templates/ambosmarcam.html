@@ -5,57 +5,76 @@
     <title>Tabela de Estatísticas</title>
     <style>
         table {
-            width: 100%;
-            border-collapse: collapse;
+            border-collapse: collapse!important;
+            vertical-align: top;
         }
         th, td {
-            border: 1px solid black;
+            border: 1px solid var(--text-color);
             padding: 8px;
             text-align: center;
         }
         .recomendado {
-            background-color: #90EE90; /* Light green */
+            background-color: #90EE90;
+            color: black;
         }
-        .nao-recomendado {
-            background-color: #FFB6C1; /* Light pink */
+        .arriscado {
+            background-color: #FFD700;
+            color: black;
         }
         .nao-investir {
-            background-color: #FF6347; /* Tomato red */
+            background-color: #FF6347;
+            color: black;
         }
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th></th>
-            <th>MÉDIA DE GOLS MARCADOS</th>
-            <th>MÉDIA DE GOLS SOFRIDOS</th>
-            <th></th>
-            <th>MÉDIA</th>
-            <th>AMBAS MARCAM</th>
-        </tr>
-        <tr>
-            <td>TIME DA CASA</td>
-            <td>{{ media_mandante_marcados }}</td>
-            <td>{{ media_mandante_sofridos }}</td>
-            <td>TIME CASA MARCAR</td>
-            <td>{{ media_mandante }}</td>
-            <td>{{ descricao_mandante }}</td>
-        </tr>
-        <tr>
-            <td>TIME DE FORA</td>
-            <td>{{ media_visitante_marcados }}</td>
-            <td>{{ media_visitante_sofridos }}</td>
-            <td>TIME FORA MARCAR</td>
-            <td>{{ media_visitante }}</td>
-            <td>{{ descricao_visitante }}</td>
-        </tr>
-        <tr>
-            <td>GERAL</td>
-            <td colspan="3"></td>
-            <td>{{ media_geral }}</td>
-            <td>{{ descricao_geral }}</td>
-        </tr>
-    </table>
+    <div class="grid">
+        <!-- Primeira Tabela -->
+        <div class="col-12 md:col-6">
+            <table class="w-full">
+                <tr>
+                    <th></th>
+                    <th><p class="font-bold text-sm">MÉDIA DE GOLS MARCADOS</p></th>
+                    <th><p class="font-bold text-sm">MÉDIA DE GOLS SOFRIDOS</p></th>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME DA CASA</p></td>
+                    <td><p class="text-sm">{{ media_mandante_marcados|floatformat:2 }}</p></td>
+                    <td><p class="text-sm">{{ media_mandante_sofridos|floatformat:2 }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME DE FORA</p></td>
+                    <td><p class="text-sm">{{ media_visitante_marcados|floatformat:2 }}</p></td>
+                    <td><p class="text-sm">{{ media_visitante_sofridos|floatformat:2 }}</p></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Segunda Tabela -->
+        <div class="col-12 md:col-6">
+            <table class="w-full">
+                <tr>
+                    <th></th>
+                    <th><p class="font-bold text-sm">MÉDIA GOLS</p></th>
+                    <th><p class="font-bold text-sm">RECOMENDAÇÃO</p></th>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME CASA MARCAR</p></td>
+                    <td><p class="text-sm">{{ media_mandante|floatformat:2 }}</p></td>
+                    <td class="{% if media_mandante >= 1.45 %}recomendado{% elif media_mandante >= 1.1 %}arriscado{% else %}nao-investir{% endif %}"><p class="text-sm font-bold">{{ descricao_mandante }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">TIME FORA MARCAR</p></td>
+                    <td><p class="text-sm">{{ media_visitante|floatformat:2 }}</p></td>
+                    <td class="{% if media_visitante >= 1.45 %}recomendado{% elif media_visitante >= 1.1 %}arriscado{% else %}nao-investir{% endif %}"><p class="text-sm font-bold">{{ descricao_visitante }}</p></td>
+                </tr>
+                <tr>
+                    <td><p class="font-bold text-sm">AMBOS MARCAR</p></td>
+                    <td><p class="text-sm">{{ media_geral|floatformat:2 }}</p></td>
+                    <td class="{% if media_geral >= 1.45 %}recomendado{% else %}nao-investir{% endif %}"><p class="text-sm font-bold">{{ descricao_geral }}</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

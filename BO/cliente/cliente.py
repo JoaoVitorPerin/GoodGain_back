@@ -296,6 +296,7 @@ class Cliente():
                  'media_total_mandante': 0.0,
                  'media_total_visitante': 0.0,
                  'previsao_gols': 0.0,
+                 'class_descricao': '',
                  'descricao': 'Erro',
                  'status': True
              }
@@ -313,15 +314,20 @@ class Cliente():
              media_total_visitante = float(performace_time_2['goals']['against']['average']['total']) + float(performace_time_2['goals']['for']['average']['total'])
              previsao_gols = (media_mandante_casa + media_visitante_fora + media_total_mandante + media_total_visitante)/4
              if previsao_gols >= 3:
-                 descricao = 'Aposta muito recomendado'
-             elif previsao_gols >=2.7:
-                 descricao = 'Aposta recomendado'
-             elif previsao_gols >=2.5:
-                 descricao = 'Aposta arriscada'
+                descricao = 'Aposta muito recomendada'
+                class_descricao = 'muito-recomendado'
+             elif previsao_gols >= 2.7:
+                descricao = 'Aposta recomendada'
+                class_descricao = 'recomendado'
+             elif previsao_gols >= 2.5:
+                descricao = 'Aposta arriscada'
+                class_descricao = 'arriscado'
              elif previsao_gols < 2.5 and previsao_gols > 2.4:
-                 descricao = 'Aposta não recomendada'
+                descricao = 'Aposta não recomendada'
+                class_descricao = 'nao-recomendado'
              else:
-                 descricao = 'Não investir'
+                descricao = 'Não investir'
+                class_descricao = 'nao-investir'
 
              context ={
             'media_mandante_casa':media_mandante_casa,
@@ -330,7 +336,8 @@ class Cliente():
             'media_total_visitante':media_total_visitante,
             'previsao_gols':previsao_gols,
             'descricao': descricao,
-            'status': True
+            'status': True,
+            'class_descricao': class_descricao
              }
 
 
