@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Média de Gols</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th>MÉDIA DE GOLS GERAL</th>
+            <th>MÉDIA DE GOLS CASA/FORA</th>
+        </tr>
+        <tr>
+            <td>TIME DA CASA</td>
+            <td>{{ media_total_mandante }}</td>
+            <td>{{ media_mandante_casa }}</td>
+        </tr>
+        <tr>
+            <td>TIME DE FORA</td>
+            <td>{{ media_total_visitante }}</td>
+            <td>{{ media_visitante_fora }}</td>
+        </tr>
+    </table>
+    <div class="mt-3">
+        <p>Previsão de gols: {{ previsao_gols }}</p>
+        <p>Resultado: {{ descricao }}</p>
+    </div>
+</body>
+</html>
