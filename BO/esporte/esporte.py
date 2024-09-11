@@ -6,9 +6,6 @@ import BO.integracao.apifootball
 import core.esporte.models
 import core.cliente.models
 
-
-
-
 class Esporte():
      def __init__(self, esporte = None):
          self.esporte = esporte
@@ -182,3 +179,53 @@ class Esporte():
              return True, performance_times
          except:
              return False, []
+
+     def get_campeonatos_api(self):
+         try:
+             campeonatos = BO.integracao.apifootball.Apifootball().get_todos_campeonatos()["response"]
+             campeonatos_filtrados = [
+                 {
+                     'id': campeonato['league']['id'],
+                     'name': f"{campeonato['league']['name']} - ({campeonato['country']['name']})"
+                 }
+                 for campeonato in campeonatos
+             ]
+             return True, campeonatos_filtrados
+         except:
+             return False, []
+
+     def enviar_campeonato(self, nome=None,campeonato_id=None, season=None):
+         try:
+             campeonato = core.esporte.models.Campeonato()
+             campeonato.nome = nome
+             campeonato.id = campeonato_id
+             campeonato.esporte_id = 1
+             campeonato.season_atual = season
+             campeonato.save()
+             return True, 'Campeonato cadastrado com sucesso!'
+         except:
+             return False, 'Erro ao cadastrar campeonato!'
+
+     def deletar_campeonato(self, campeonato_id=None):
+        try:
+            campeonato = core.esporte.models.Campeonato().objects.filter(id=campeonato_id).first()
+            campeonato.status = False
+            campeonato.save()
+            return True, 'Campeonato deletado com sucesso'
+        except:
+            return False, 'Erro ao deletar campeonato!'
+
+     def editar_campeonato(self, campeonato_id=None, nome=None, season=None):
+         try:
+             campeonato = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
+             if not campeonato:
+                 return False, 'Campeonato nao encontrado!'
+             if nome:
+                 campeonato.nome = nome
+             if season:
+                 campeonato.season = season
+             campeonato.status = True
+             campeonato.save()
+             return True, 'Campeonato editado com sucesso!'
+         except:
+             return False, 'Erro ao editar campeonato!'

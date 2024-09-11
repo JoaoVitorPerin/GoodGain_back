@@ -35,10 +35,47 @@ class ResetSenhaView(APIView):
 
 
 class Campeonato(APIView):
-
     def get(self, *args, **kwargs):
         status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
         return JsonResponse({'status': status, 'campeonatos': dados})
+
+    def post(self, *args, **kwargs):
+        campeonato_id = self.request.data.get('id')
+        nome = self.request.data.get('nome')
+        season = self.request.data.get('season')
+        status, mensagem = BO.esporte.esporte.Esporte().enviar_campeonato(nome=nome, campeonato_id=campeonato_id, season=season)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+    def delete(self, *args, **kwargs):
+        campeonato_id = self.request.GET.get('id')
+        status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+    def put(self, *args, **kwargs):
+        campeonato_id = self.request.data.get('id')
+        nome = self.request.data.get('nome')
+        season = self.request.data.get('season')
+        status, mensagem = BO.esporte.esporte.Esporte().editar_campeonato(campeonato_id=campeonato_id, nome=nome,
+                                                                          season=season)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+
+class ApiCampeonato(APIView):
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'POST':
+            permission_classes = [AllowAny]
+        elif self.request.method == 'GET':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+
+    def get(self, *args, **kwargs):
+        status, dados = BO.esporte.esporte.Esporte().get_campeonatos_api()
+        return JsonResponse({'status': status, 'ls_campeonatos': dados})
 
 class SimularAposta(APIView):
 

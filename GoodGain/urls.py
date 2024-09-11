@@ -34,7 +34,9 @@ urlpatterns = [
     re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
     re_path('verificar/codigo', GoodGain.views.VerficarCodigo.as_view(), name='reset_senha'),
 
-    re_path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
+    path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
+
+    path('api_campeonato', GoodGain.views.ApiCampeonato.as_view(), name='api_campeonato'),
 
     re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
     re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),

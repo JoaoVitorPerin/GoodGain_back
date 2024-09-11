@@ -176,3 +176,8 @@ class Apifootball(Integracao):
             log.informacao = 'erro na operação'
             log.save()
             return False
+
+    def get_todos_campeonatos(self):
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/leagues"
+        self.response = requests.get(self.url, headers=self.headers).json()
+        return self.response
