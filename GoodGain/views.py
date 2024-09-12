@@ -35,6 +35,14 @@ class ResetSenhaView(APIView):
 
 
 class Campeonato(APIView):
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+
+        permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
+
     def get(self, *args, **kwargs):
         status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
         return JsonResponse({'status': status, 'campeonatos': dados})
@@ -47,7 +55,7 @@ class Campeonato(APIView):
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
     def delete(self, *args, **kwargs):
-        campeonato_id = self.request.GET.get('id')
+        campeonato_id = self.request.data.get('id')
         status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 

@@ -208,7 +208,7 @@ class Esporte():
 
      def deletar_campeonato(self, campeonato_id=None):
         try:
-            campeonato = core.esporte.models.Campeonato().objects.filter(id=campeonato_id).first()
+            campeonato = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
             campeonato.status = False
             campeonato.save()
             return True, 'Campeonato deletado com sucesso'
@@ -223,7 +223,7 @@ class Esporte():
              if nome:
                  campeonato.nome = nome
              if season:
-                 campeonato.season = season
+                 campeonato.season_atual = season
              campeonato.status = True
              campeonato.save()
              return True, 'Campeonato editado com sucesso!'
