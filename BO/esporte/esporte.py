@@ -196,6 +196,9 @@ class Esporte():
 
      def enviar_campeonato(self, nome=None,campeonato_id=None, season=None):
          try:
+             validaCampeonatoExistente = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
+             if validaCampeonatoExistente:
+                 return False, 'Campeonato já cadastrado no sistema!'
              campeonato = core.esporte.models.Campeonato()
              campeonato.nome = nome
              campeonato.id = campeonato_id
