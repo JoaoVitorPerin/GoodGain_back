@@ -183,18 +183,22 @@ class Esporte():
      def get_campeonatos_api(self):
          try:
              campeonatos = BO.integracao.apifootball.Apifootball().get_todos_campeonatos()["response"]
-             campeonatos_filtrados = [
-                 {
-                     'id': campeonato['league']['id'],
-                     'name': f"{campeonato['league']['name']} - ({campeonato['country']['name']})"
-                 }
-                 for campeonato in campeonatos
-             ]
-             return True, campeonatos_filtrados
+             for campeonato in campeonatos:
+                 validaCampeonatoExistente = core.esporte.models.Campeonato.objects.filter(id=campeonato['league']['id']).first()
+                 if validaCampeonatoExistente:
+                     continue
+                 novo_campeonato = core.esporte.models.Campeonato()
+                 novo_campeonato.id = campeonato['league']['id']
+                 novo_campeonato.nome = f"{campeonato['league']['name']} - ({campeonato['country']['name']})"
+                 novo_campeonato.esporte_id = 1
+                 novo_campeonato.season_atual = campeonato['seasons'][-1]["year"]
+                 novo_campeonato.imagem = campeonato['league']['logo']
+                 novo_campeonato.status = False
+                 novo_campeonato.save()
+             return True, "Campeonatos da API salvos com sucesso!"
          except:
-             return False, []
-
-     def enviar_campeonato(self, nome=None,campeonato_id=None, season=None):
+             return False, "Erro ao salvar os campeonatos da API!"
+     def enviar_campeonato(self, nome=None,campeonato_id=None, season=None, imagem=None):
          try:
              validaCampeonatoExistente = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
              if validaCampeonatoExistente:
@@ -202,6 +206,7 @@ class Esporte():
              campeonato = core.esporte.models.Campeonato()
              campeonato.nome = nome
              campeonato.id = campeonato_id
+             campeonato.imagem = imagem
              campeonato.esporte_id = 1
              campeonato.season_atual = season
              campeonato.save()
@@ -218,7 +223,7 @@ class Esporte():
         except:
             return False, 'Erro ao deletar campeonato!'
 
-     def editar_campeonato(self, campeonato_id=None, nome=None, season=None):
+     def editar_campeonato(self, campeonato_id=None, nome=None, season=None, imagem=None):
          try:
              campeonato = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
              if not campeonato:
@@ -227,6 +232,8 @@ class Esporte():
                  campeonato.nome = nome
              if season:
                  campeonato.season_atual = season
+             if imagem:
+                 campeonato.imagem = imagem
              campeonato.status = True
              campeonato.save()
              return True, 'Campeonato editado com sucesso!'

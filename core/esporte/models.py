@@ -85,11 +85,10 @@ class Campeonato(models.Model):
     """
     id = models.CharField(primary_key=True)
     nome = models.CharField(max_length=100, null=True)
+    imagem = models.CharField(max_length=150, null=True)
     esporte = models.ForeignKey('esporte.Esporte', on_delete=models.DO_NOTHING, null=True)
     status = models.BooleanField(null=True, default=True)
     season_atual = models.CharField(max_length=100, null=True)
-
-
 
     class Meta:
         db_table = u'"public\".\"campeonato"'

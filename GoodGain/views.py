@@ -51,7 +51,8 @@ class Campeonato(APIView):
         campeonato_id = self.request.data.get('id')
         nome = self.request.data.get('nome')
         season = self.request.data.get('season')
-        status, mensagem = BO.esporte.esporte.Esporte().enviar_campeonato(nome=nome, campeonato_id=campeonato_id, season=season)
+        imagem = self.request.data.get('imagem')
+        status, mensagem = BO.esporte.esporte.Esporte().enviar_campeonato(nome=nome, campeonato_id=campeonato_id, season=season, imagem=imagem)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
     def delete(self, *args, **kwargs):
@@ -63,8 +64,9 @@ class Campeonato(APIView):
         campeonato_id = self.request.data.get('id')
         nome = self.request.data.get('nome')
         season = self.request.data.get('season')
+        imagem = self.request.data.get('imagem')
         status, mensagem = BO.esporte.esporte.Esporte().editar_campeonato(campeonato_id=campeonato_id, nome=nome,
-                                                                          season=season)
+                                                                          season=season, imagem=imagem)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
 
@@ -82,8 +84,8 @@ class ApiCampeonato(APIView):
         return [permission() for permission in permission_classes]
 
     def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_campeonatos_api()
-        return JsonResponse({'status': status, 'ls_campeonatos': dados})
+        status, mensagem = BO.esporte.esporte.Esporte().get_campeonatos_api()
+        return JsonResponse({'status': status, 'mensagem': mensagem})
 
 class SimularAposta(APIView):
 
