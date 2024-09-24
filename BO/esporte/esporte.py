@@ -52,91 +52,106 @@ class Esporte():
              return operacoes
          except:
              return []
+
      def get_eventos(self):
-        try:
-            data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
-            lista_eventos_atuais = list(core.esporte.models.Evento.objects.values('id',
-                                                            'data',
-                                                            'time_a',
-                                                            'time_b',
-                                                            'resultado_time_a',
-                                                            'resultado_time_b',
-                                                            'resultado_partida',
-                                                            'campeonato',
-                                                            'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
-            dict_evento_campeonato = {}
-            for evento in lista_eventos_atuais:
-                lista_eventos = []
-                if evento['campeonato'] not in dict_evento_campeonato:
-                    dict_evento_campeonato[evento['campeonato']] = {'nome': 'str', 'eventos': []}
-                    lista_eventos.append(evento)
-                    dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
-                    dict_evento_campeonato[evento['campeonato']]['nome'] = evento['campeonato__nome']
-                else:
-                    lista_eventos = dict_evento_campeonato[evento['campeonato']]['eventos']
-                    lista_eventos.append(evento)
-                    dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
-                lista_eventos = []
-            lista_eventos_informativos = []
-            for evento_informativo in dict_evento_campeonato:
-                lista_eventos_informativos.append(dict_evento_campeonato[evento_informativo])
-            return True, lista_eventos_informativos
-        except:
-            return False, []
+         try:
+             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
+             lista_eventos_atuais = list(core.esporte.models.Evento.objects.values(
+                 'id', 'data', 'time_a', 'time_b', 'resultado_time_a', 'resultado_time_b',
+                 'resultado_partida', 'campeonato', 'season', 'status',
+                 'time_a__nome', 'time_b__nome', 'time_a__logo', 'time_b__logo',
+                 'campeonato__nome', 'campeonato__classificacao'
+             ).filter(data__gte=data_hoje).order_by('data'))
+
+             dict_evento_campeonato = {}
+             for evento in lista_eventos_atuais:
+                 campeonato_id = evento['campeonato']
+
+                 # Carrega e decodifica a classificação, se estiver presente
+                 classificacao = evento['campeonato__classificacao']
+                 if classificacao:
+                     try:
+                         classificacao = json.loads(classificacao)
+                     except json.JSONDecodeError:
+                         classificacao = None
+
+                 if campeonato_id not in dict_evento_campeonato:
+                     dict_evento_campeonato[campeonato_id] = {
+                         'nome': evento['campeonato__nome'],
+                         'classificacao': classificacao,
+                         'eventos': []
+                     }
+
+                 # Adiciona o evento à lista de eventos do campeonato
+                 dict_evento_campeonato[campeonato_id]['eventos'].append(evento)
+
+             # Converte o dicionário para uma lista
+             lista_eventos_informativos = list(dict_evento_campeonato.values())
+
+             return True, lista_eventos_informativos
+
+         except Exception as e:
+             print(f"Erro ao obter eventos: {str(e)}")
+             return False, []
+
+     import json
+     import datetime
 
      def get_eventos_campeonato(self, user=None):
-        try:
-            data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
-            preferencias = list(core.cliente.models.ClientePreferencias.objects.values('id_preferencia').filter(cliente_id=user.cpf,tipo_preferencia='campeonato'))
-            lista_campeonatos = []
-            for preferencia in preferencias:
-                lista_campeonatos.append(preferencia['id_preferencia'])
-            if lista_campeonatos==[]:
-                lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values('id',
-                                                                'data',
-                                                                'time_a',
-                                                                'time_b',
-                                                                'resultado_time_a',
-                                                                'resultado_time_b',
-                                                                'resultado_partida',
-                                                                'campeonato',
-                                                                'campeonato__nome',
-                                                                'season','status','time_a__nome','time_b__nome','time_a__logo','time_b__logo','campeonato__nome').filter(data__gte=data_hoje).order_by('data'))
-            else:
-                lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values('id',
-                                                                               'data',
-                                                                               'time_a',
-                                                                               'time_b',
-                                                                               'resultado_time_a',
-                                                                               'resultado_time_b',
-                                                                               'resultado_partida',
-                                                                               'campeonato',
-                                                                               'campeonato__nome',
-                                                                               'season', 'status', 'time_a__nome',
-                                                                               'time_b__nome', 'time_a__logo',
-                                                                               'time_b__logo',
-                                                                               'campeonato__nome').filter(
-                    data__gte=data_hoje,campeonato_id__in=lista_campeonatos).order_by('data'))
+         try:
+             data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
 
-            dict_evento_campeonato = {}
-            for evento in lista_eventos_campeonatos:
-                lista_eventos = []
-                if evento['campeonato'] not in dict_evento_campeonato:
-                   dict_evento_campeonato[evento['campeonato']] = {'nome':'str','eventos':[]}
-                   lista_eventos.append(evento)
-                   dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
-                   dict_evento_campeonato[evento['campeonato']]['nome'] = evento['campeonato__nome']
-                else:
-                   lista_eventos = dict_evento_campeonato[evento['campeonato']]['eventos']
-                   lista_eventos.append(evento)
-                   dict_evento_campeonato[evento['campeonato']]['eventos'] = lista_eventos
-                lista_eventos = []
-            lista_eventos_informativos = []
-            for evento_informativo in dict_evento_campeonato:
-                lista_eventos_informativos.append(dict_evento_campeonato[evento_informativo])
-            return True, lista_eventos_informativos
-        except:
-            return False, []
+             # Buscar as preferências do usuário
+             preferencias = list(
+                 core.cliente.models.ClientePreferencias.objects.values('id_preferencia').filter(cliente_id=user.cpf,
+                                                                                                 tipo_preferencia='campeonato'))
+             lista_campeonatos = [preferencia['id_preferencia'] for preferencia in preferencias]
+
+             # Se não houver preferências, busca todos os campeonatos
+             if not lista_campeonatos:
+                 lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values(
+                     'id', 'data', 'time_a', 'time_b', 'resultado_time_a', 'resultado_time_b',
+                     'resultado_partida', 'campeonato', 'campeonato__nome', 'campeonato__classificacao',
+                     'season', 'status', 'time_a__nome', 'time_b__nome', 'time_a__logo', 'time_b__logo'
+                 ).filter(data__gte=data_hoje).order_by('data'))
+             else:
+                 lista_eventos_campeonatos = list(core.esporte.models.Evento.objects.values(
+                     'id', 'data', 'time_a', 'time_b', 'resultado_time_a', 'resultado_time_b',
+                     'resultado_partida', 'campeonato', 'campeonato__nome', 'campeonato__classificacao',
+                     'season', 'status', 'time_a__nome', 'time_b__nome', 'time_a__logo', 'time_b__logo'
+                 ).filter(data__gte=data_hoje, campeonato_id__in=lista_campeonatos).order_by('data'))
+
+             # Dicionário para agrupar eventos por campeonato
+             dict_evento_campeonato = {}
+             for evento in lista_eventos_campeonatos:
+                 campeonato_id = evento['campeonato']
+
+                 # Carrega e decodifica a classificação, se estiver presente
+                 classificacao = evento.get('campeonato__classificacao', None)
+                 if classificacao:
+                     try:
+                         classificacao = json.loads(classificacao)
+                     except json.JSONDecodeError:
+                         classificacao = None
+
+                 if campeonato_id not in dict_evento_campeonato:
+                     dict_evento_campeonato[campeonato_id] = {
+                         'nome': evento['campeonato__nome'],
+                         'classificacao': classificacao,
+                         'eventos': []
+                     }
+
+                 # Adiciona o evento à lista de eventos do campeonato
+                 dict_evento_campeonato[campeonato_id]['eventos'].append(evento)
+
+             # Converte o dicionário para uma lista
+             lista_eventos_informativos = list(dict_evento_campeonato.values())
+
+             return True, lista_eventos_informativos
+
+         except Exception as e:
+             print(f"Erro ao obter eventos do campeonato: {str(e)}")
+             return False, []
 
      def get_eventos_recomendados(self,cliente=None):
         try:

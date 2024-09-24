@@ -101,6 +101,30 @@ class Apifootball(Integracao):
             campeonatos = list(core.esporte.models.Campeonato.objects.values().filter(status=True))
 
             for campeonato in campeonatos:
+                standingCampeonato = self.get_standing_campeonato(id_campeonato=campeonato['id'], season=campeonato["season_atual"])["response"][0]["league"]["standings"][0]
+                list_standing = []
+                for time in standingCampeonato:
+                    list_standing.append({
+                        "rank": time["rank"],
+                        "nome": time["team"]["name"],
+                        "logo": time["team"]["logo"],
+                        "pontos": time["points"],
+                        "diferenca_gols": time["goalsDiff"],
+                        "forma": time["form"],
+                        "qtd_jogos": time["all"]["played"]
+                    })
+
+                if list_standing:
+                    infos_campeonato = core.esporte.models.Campeonato()
+                    infos_campeonato.id = campeonato["id"]
+                    infos_campeonato.nome = campeonato["nome"]
+                    infos_campeonato.esporte_id = campeonato["esporte_id"]
+                    infos_campeonato.season_atual = campeonato["season_atual"]
+                    infos_campeonato.imagem =campeonato['imagem'] if campeonato['imagem'] else ''
+                    infos_campeonato.status = campeonato['status']
+                    infos_campeonato.classificacao = json.dumps(list_standing)
+                    infos_campeonato.save()
+
                 operacao = 'coleta campeonatos_apifootball'
                 resposta_atual = self.jogos_dia_liga(liga=campeonato.get('id'), date=datetime_hoje, season=campeonato.get('season_atual'))
 
@@ -181,3 +205,9 @@ class Apifootball(Integracao):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/leagues"
         self.response = requests.get(self.url, headers=self.headers).json()
         return self.response
+
+    def get_standing_campeonato(self, id_campeonato=None, season=None):
+        querystring = {"league": id_campeonato, "season": season}
+        self.url = "https://api-football-v1.p.rapidapi.com/v3/standings"
+        self.response = requests.get(self.url, headers=self.headers, params=querystring)
+        return json.loads(self.response.text)
