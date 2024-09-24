@@ -371,7 +371,8 @@ class AtualizarDados(APIView):
 
 class AtualizarEventosOcorridos(APIView):
     def get(self, *args, **kwargs):
-        dados = BO.integracao.apifootball.Apifootball().atualizar_eventos_ocorridos()
+        data = self.request.GET.get('data')
+        dados = BO.integracao.apifootball.Apifootball().atualizar_eventos_ocorridos(data=data)
 
         return JsonResponse({'status': dados})
 

@@ -5,6 +5,7 @@ from django.utils.timezone import make_aware
 from BO.integracao.integracao import Integracao
 import core.esporte.models
 import json
+import zoneinfo
 
 
 class Apifootball(Integracao):
@@ -72,17 +73,24 @@ class Apifootball(Integracao):
         self.response = requests.get(self.url, headers=self.headers).json()
         return self.response
 
-    def atualizar_eventos_ocorridos(self):
+    def atualizar_eventos_ocorridos(self, data=None):
         try:
-            # Pega a data e hora atual
-            now = datetime.datetime.now()
-            # Define start_date para 00:01 do dia anterior
-            start_date = make_aware(datetime.datetime.combine(now.date() - timedelta(days=1), datetime.datetime.min.time())) + timedelta(
-                minutes=1)
-            # Define end_date para 23:59 do dia atual
-            end_date = make_aware(datetime.datetime.combine(now.date(), datetime.datetime.max.time())) - timedelta(minutes=1)
+            now = datetime.datetime.now() - timedelta(days=1)
+            if not data:
+                dia_especifico = now.strftime('%Y-%m-%d')
 
-            eventos = list(core.esporte.models.Evento.objects.filter(data__range=(start_date, end_date)))
+                # Início e fim do dia no formato ISO 8601 com fuso horário UTC
+                start_date = f'{dia_especifico}T00:00:00+00:00'
+                end_date = f'{dia_especifico}T23:59:59+00:00'
+
+            else:
+                dia_especifico = data
+
+                # Início e fim do dia no formato ISO 8601 com fuso horário UTC
+                start_date = f'{dia_especifico}T00:00:00+00:00'
+                end_date = f'{dia_especifico}T23:59:59+00:00'
+
+            eventos = list(core.esporte.models.Evento.objects.filter(data__gte=start_date, data__lte=end_date))
             dados = {}
             for evento in eventos:
                 dados[evento.id] = self.get_info_evento(evento_id=evento.id)
