@@ -257,7 +257,7 @@ class Cliente():
          except:
              return {'status': True, 'resultado': 0}
 
-     def simular_aposta(self, casa_aposta=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
+     def simular_aposta(self, casa_aposta=None, evento_id=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
          if tipo_aposta == '5':
              dados, html_retorno = self.calcular_2_5(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
          elif tipo_aposta == '8':
@@ -265,6 +265,7 @@ class Cliente():
 
          if dados.get('status'):
              aposta = core.cliente.models.Aposta()
+             aposta.evento = evento_id
              aposta.cliente_id = cpf_user
              aposta.status = True
              aposta.campeonato_id = campeonato
