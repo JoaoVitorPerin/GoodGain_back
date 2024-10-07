@@ -169,9 +169,12 @@ class Esporte():
             return True, lista_eventos
         except:
             return False, []
-     def get_campeonatos(self):
+     def get_campeonatos(self, all_campeonatos=None):
          try:
-             campeonatos = list(core.esporte.models.Campeonato.objects.filter(status=True).values())
+             if(all_campeonatos):
+                campeonatos = list(core.esporte.models.Campeonato.objects.values())
+             else:
+                 campeonatos = list(core.esporte.models.Campeonato.objects.filter(status=True).values())
              return True, campeonatos
          except:
             return False, []
@@ -213,21 +216,21 @@ class Esporte():
              return True, "Campeonatos da API salvos com sucesso!"
          except:
              return False, "Erro ao salvar os campeonatos da API!"
-     def enviar_campeonato(self, nome=None,campeonato_id=None, season=None, imagem=None):
+
+     def alterarStatusCampeonato(self, campeonato_id=None):
          try:
-             validaCampeonatoExistente = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
-             if validaCampeonatoExistente:
-                 return False, 'Campeonato já cadastrado no sistema!'
-             campeonato = core.esporte.models.Campeonato()
-             campeonato.nome = nome
-             campeonato.id = campeonato_id
-             campeonato.imagem = imagem
-             campeonato.esporte_id = 1
-             campeonato.season_atual = season
+             campeonato = core.esporte.models.Campeonato.objects.filter(id=campeonato_id).first()
+
+             if campeonato is None:
+                 return False, 'Campeonato não encontrado'
+
+             campeonato.status = not campeonato.status
+
              campeonato.save()
-             return True, 'Campeonato cadastrado com sucesso!'
-         except:
-             return False, 'Erro ao cadastrar campeonato!'
+
+             return True, 'Status do campeonato alterado com sucesso'
+         except Exception as e:
+             return False, f'Erro ao alterar status do campeonato: {str(e)}'
 
      def deletar_campeonato(self, campeonato_id=None):
         try:

@@ -44,15 +44,13 @@ class Campeonato(APIView):
         return [permission() for permission in permission_classes]
 
     def get(self, *args, **kwargs):
-        status, dados = BO.esporte.esporte.Esporte().get_campeonatos()
+        all_campeonatos = self.request.GET.get('all_campeonatos')
+        status, dados = BO.esporte.esporte.Esporte().get_campeonatos(all_campeonatos)
         return JsonResponse({'status': status, 'campeonatos': dados})
 
     def post(self, *args, **kwargs):
         campeonato_id = self.request.data.get('id')
-        nome = self.request.data.get('nome')
-        season = self.request.data.get('season')
-        imagem = self.request.data.get('imagem')
-        status, mensagem = BO.esporte.esporte.Esporte().enviar_campeonato(nome=nome, campeonato_id=campeonato_id, season=season, imagem=imagem)
+        status, mensagem = BO.esporte.esporte.Esporte().alterarStatusCampeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
     def delete(self, *args, **kwargs):
