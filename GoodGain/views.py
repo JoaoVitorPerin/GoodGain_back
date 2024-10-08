@@ -53,11 +53,6 @@ class Campeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().alterarStatusCampeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
-    def delete(self, *args, **kwargs):
-        campeonato_id = self.request.data.get('id')
-        status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
-        return JsonResponse({'status': status, 'mensagem': mensagem})
-
     def put(self, *args, **kwargs):
         campeonato_id = self.request.data.get('id')
         nome = self.request.data.get('nome')
@@ -66,6 +61,13 @@ class Campeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().editar_campeonato(campeonato_id=campeonato_id, nome=nome,
                                                                           season=season, imagem=imagem)
         return JsonResponse({'status': status, 'mensagem': mensagem})
+
+    def delete(self, *args, **kwargs):
+        campeonato_id = self.request.data.get('id')
+        status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+
 
 
 class ApiCampeonato(APIView):
@@ -85,7 +87,8 @@ class ApiCampeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().get_campeonatos_api()
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
-class SimularAposta(APIView):
+
+class Aposta(APIView):
 
     def post(self, *args, **kwargs):
         cpf_user = self.request.POST.get('cpf_user')
@@ -109,6 +112,12 @@ class SimularAposta(APIView):
                                                                     is_aposta=is_aposta,
                                                                     casa_aposta=casa_aposta)
         return JsonResponse(dados)
+
+    def delete(self, *args, **kwargs):
+        cpf = self.request.GET.get('cpf')
+        status, mensagem = BO.cliente.cliente.Cliente().deletar_cliente(cpf=cpf)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
 
 class PegarOdds(APIView):
 

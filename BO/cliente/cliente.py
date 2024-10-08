@@ -126,7 +126,14 @@ class Cliente():
 'is_aposta','evento__resultado_partida').filter(cliente_id=cpf_user, is_aposta=True).order_by('-id'))
             # verificar resultado da aposta
 
+            tipos_aposta= core.esporte.models.Tipo.objects.values().filter(tipo= 'OPCOES.APOSTA', status=True)
+            dict_apostas = {}
+            for tipo in tipos_aposta:
+                dict_apostas[tipo.get('id')] = tipo.get('informacao')
+
+
             for aposta in lista_apostas_cliente:
+                aposta['nome_tipo_aposta'] = dict_apostas[int(aposta['tipo_aposta'])]
                 if aposta.get('evento__resultado_partida') is not None:
                     resultado_da_partida = json.loads(aposta.get('evento__resultado_partida'))
 
@@ -698,6 +705,15 @@ class Cliente():
             return True, ''
         except:
             return False, 'não foi possivel deletar o cliente'
+
+     def deletar_aposta(self, cpf=None, aposta_id=None):
+         try:
+             aposta = core.cliente.models.Aposta.objects.filter(cpf=cpf, id=aposta_id).first()
+             aposta.status = False
+             aposta.save()
+             return True, ''
+         except:
+             return False, 'não foi possivel cancelar a aposta'
 
 
      def validar_email(self, email=None):
