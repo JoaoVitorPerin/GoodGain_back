@@ -49,7 +49,7 @@ class Campeonato(APIView):
         return JsonResponse({'status': status, 'campeonatos': dados})
 
     def post(self, *args, **kwargs):
-        campeonato_id = self.request.data.get('id')
+        campeonato_id = self.request.data.get('campeonato_id')
         status, mensagem = BO.esporte.esporte.Esporte().alterarStatusCampeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
