@@ -100,7 +100,7 @@ class Aposta(APIView):
         valor = self.request.POST.get('valor')
         is_aposta = self.request.POST.get('is_aposta')
         casa_aposta = self.request.POST.get('casa_aposta')
-        evento_id = self.request.POST.get('evento_id')
+        evento_id = self.request.POST.get('eventoId')
         dados = BO.cliente.cliente.Cliente().simular_aposta(cpf_user=cpf_user,
                                                             evento_id=evento_id,
                                                                     campeonato=campeonato,
