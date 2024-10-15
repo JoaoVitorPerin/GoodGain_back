@@ -284,7 +284,7 @@ class Cliente():
 
          if dados.get('status'):
              aposta = core.cliente.models.Aposta()
-             aposta.evento = evento_id
+             aposta.evento_id = evento_id
              aposta.cliente_id = cpf_user
              aposta.status = True
              aposta.campeonato_id = campeonato
