@@ -82,6 +82,18 @@ class Cliente():
          else:
              return data
 
+     def pegar_cartao(self,cliente_id=None):
+         return
+
+     def editar_cartao(self):
+         return
+
+     def criar_cartao(self,cliente=None,token_cartao=None,ultimos_quatro_digitos=None,data_expiracao=None,nome_titular=None):
+         return
+
+     def deletar_cartao(self):
+         return
+
      def get_cliente(self, cpf=None):
         try:
             cliente = core.cliente.models.Cliente.objects.values().filter(cpf=cpf).first()

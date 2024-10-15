@@ -233,6 +233,41 @@ class GetCampeonatosTImes(APIView):
         status, dados = BO.esporte.esporte.Esporte().get_times_campeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'times': dados})
 
+class EfetuarPagamento(APIView):
+    def post(self, *args, **kwargs):
+        return JsonResponse({})
+
+class ClienteCartao(APIView):
+
+    def get(self, *args, **kwargs):
+        cliente = self.request.GET.get('cliente_id')
+        status, dados = BO.cliente.cliente.Cliente().pegar_cartao(cliente_id=cliente)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def post(self, *args, **kwargs):
+        cliente = self.request.GET.get('cliente')
+        token_cartao= self.request.GET.get('token_cartao')
+        ultimos_quatro_digitos= self.request.GET.get('ultimos_quatro_digitos')
+        data_expiracao= self.request.GET.get('data_expiracao')
+        nome_titular= self.request.GET.get('nome_titular')
+        status, dados = BO.cliente.cliente.Cliente().criar_cartao(cliente=cliente,
+                                                                  token_cartao=token_cartao,
+                                                                  ultimos_quatro_digitos=ultimos_quatro_digitos,
+                                                                  data_expiracao=data_expiracao,
+                                                                  nome_titular=nome_titular,)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def put(self, *args, **kwargs):
+        cartao_id = self.request.GET.get('cartao_id')
+        status, dados = BO.cliente.cliente.Cliente().editar_cartao(cartao_id=cartao_id)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def delete(self, *args, **kwargs):
+        cartao_id = self.request.GET.get('cartao_id')
+        status, dados = BO.cliente.cliente.Cliente().deletar_cartao(cartao_id=cartao_id)
+        return JsonResponse({'status': status, 'times': dados})
+
+
 class VerficarCodigo(APIView):
 
     def get(self, *args, **kwargs):

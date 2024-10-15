@@ -33,6 +33,8 @@ urlpatterns = [
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
     re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
     re_path('verificar/codigo', GoodGain.views.VerficarCodigo.as_view(), name='reset_senha'),
+    re_path('cliente/cartao', GoodGain.views.ClienteCartao.as_view(), name='cliente/cartao'),
+    re_path('efetuar_pagamento', GoodGain.views.VerficarCodigo.as_view(), name='efetuar_pagamento'),
 
     path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 

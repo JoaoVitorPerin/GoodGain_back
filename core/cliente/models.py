@@ -57,6 +57,45 @@ class Cliente(AbstractBaseUser):
         db_table = '"public"."cliente"'
 
 
+class ClienteCarteira(models.Model):
+    """
+    :Nome da classe/função: Perfis
+    :descrição: Classe de Perfis
+    :Criação: Thiago Jungles Caron - 06/04/2024
+    :Edições:
+    """
+    nome = models.CharField(max_length=100, primary_key=True)
+    status = models.BooleanField(null=True, default=True)
+    cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
+    token_cartao = models.CharField(max_length=1000, null=True)
+    ultimos_quatro_digitos = models.CharField(max_length=1000, null=True)
+    data_expiracao = models.CharField(max_length=1000, null=True)
+    nome_titular = models.CharField(max_length=1000, null=True)
+
+
+    class Meta:
+        db_table = u'"public\".\"cliente_carteira"'
+
+
+class ClienteAssinatura(models.Model):
+    """
+    :Nome da classe/função: Perfis
+    :descrição: Classe de Perfis
+    :Criação: Thiago Jungles Caron - 06/04/2024
+    :Edições:
+    """
+    cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
+    perfil = models.ForeignKey('cliente.Perfis', on_delete=models.DO_NOTHING, null=True)
+    data = models.CharField(max_length=40, null=True)
+    status = models.BooleanField(null=True, default=True)
+    acao = models.CharField(max_length=1000, null=True)
+
+
+    class Meta:
+        db_table = u'"public\".\"log_assinaturas"'
+
+
+
 
 class Perfis(models.Model):
     """
@@ -68,6 +107,7 @@ class Perfis(models.Model):
     nome = models.CharField(max_length=100, primary_key=True)
     nm_descritivo = models.CharField(max_length=50, null=True)
     status = models.BooleanField(null=True, default=True)
+    valor = models.FloatField(null=True)
     nivel = models.IntegerField(null=True)
 
 
