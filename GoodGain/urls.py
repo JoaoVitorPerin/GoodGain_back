@@ -46,8 +46,6 @@ urlpatterns = [
     re_path('pegar/predicoes', GoodGain.views.PegarPredicoes.as_view(), name='pegar_predicoes'),
     re_path('live/evento', GoodGain.views.PegarLive.as_view(), name='live_evento'),
 
-
-
     re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),
     re_path('home_info_usuarios', GoodGain.views.EventosCampeonatos.as_view(), name='home_preferencias'),
     # re_path('futuros/eventos', GoodGain.views.EventosRecomendados.as_view(), name='eventos_recomendados'),

@@ -1,51 +1,41 @@
-# syntax=docker/dockerfile:1
+# STAGE 1: Build
+FROM python:3.12-slim AS build
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
+# Diretório de trabalho dentro do contêiner
+WORKDIR /usr/src/app
 
-# Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
+# Copia os arquivos de dependências (requirements.txt)
+COPY requirements.txt .
 
-ARG PYTHON_VERSION=3.12.0
-FROM python:${PYTHON_VERSION}-slim as base
+# Instala as dependências do projeto
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Prevents Python from writing pyc files.
-ENV PYTHONDONTWRITEBYTECODE=1
+# STAGE 2: Run
+FROM python:3.12-slim
 
-# Keeps Python from buffering stdout and stderr to avoid situations where
-# the application crashes without emitting any logs due to buffering.
-ENV PYTHONUNBUFFERED=1
+# Define o diretório de trabalho no contêiner
+WORKDIR /usr/src/app
 
-WORKDIR /app
+# Copia as dependências instaladas na fase de build
+COPY --from=build /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=build /usr/local/bin /usr/local/bin
 
-# Create a non-privileged user that the app will run under.
-# See https://docs.docker.com/go/dockerfile-user-best-practices/
-ARG UID=10001
-RUN adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "/nonexistent" \
-    --shell "/sbin/nologin" \
-    --no-create-home \
-    --uid "${UID}" \
-    appuser
-
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
-# Leverage a bind mount to requirements.txt to avoid having to copy them into
-# into this layer.
-RUN --mount=type=cache,target=/root/.cache/pip \
-    --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
-
-# Switch to the non-privileged user to run the application.
-USER appuser
-
-# Copy the source code into the container.
+# Copia o código da aplicação para o contêiner
 COPY . .
 
-# Expose the port that the application listens on.
+# Variáveis de ambiente necessárias para o Django
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Exemplo de configuração para usar PostgreSQL (ajustar conforme necessário)
+ENV DB_HOST=aws-0-sa-east-1.pooler.supabase.com
+ENV DB_NAME=postgres
+ENV DB_USER=postgres.yplatbhotdufskjaiich
+ENV DB_PASSWORD=vUsNlDt6tWxrBXt3
+ENV DB_PORT=6543
+# Expor a porta 8000 (padrão do Django)
 EXPOSE 8000
 
-# Run the application.
+# Comando para rodar a aplicação
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
