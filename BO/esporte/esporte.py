@@ -95,47 +95,47 @@ class Esporte():
              return False, []
 
 
-     def get_eventos_recomendados(self):
+     def get_recomendados(self, cliente=None):
          try:
+             preferencias = list(
+                 core.cliente.models.ClientePreferencias.objects.values_list('id_preferencia', flat=True).filter(cliente_id=cliente.cpf,
+                                                                                                 tipo_preferencia='tipo_aposta'))
              data_hoje = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S%z')
 
-             lista_evento_recomendacao = []
-             lista_eventos_recomendados = list(core.esporte.models.EventoRecomendacao.objects.values('informacao', 'evento_id').filter(data__gte=data_hoje).order_by('data'))
+             dict_evento_recomendacao = {}
+             dict_evento_tipo_aposta_nomes =  {}
+             lista_nomes_aposta = []
+             lista_eventos_recomendados = list(core.esporte.models.EventoRecomendacao.objects.values('informacao', 'evento_id', 'tipo_aposta__informacao').filter(data__gte=data_hoje, tipo_aposta__id__in=preferencias).order_by('data'))
              for recomendacao in lista_eventos_recomendados:
-                 lista_evento_recomendacao[recomendacao.get('evento_id')] = recomendacao.get('informacao')
+                 dict_evento_recomendacao[recomendacao.get('evento_id')] = recomendacao.get('informacao')
+                 dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')] = recomendacao.get('tipo_aposta__informacao')
+                 lista_nomes_aposta.append(recomendacao.get('tipo_aposta__informacao'))
 
              lista_eventos_atuais = list(core.esporte.models.Evento.objects.values(
                  'id', 'data', 'time_a', 'time_b', 'resultado_time_a', 'resultado_time_b',
                  'resultado_partida', 'campeonato', 'season', 'status',
                  'time_a__nome', 'time_b__nome', 'time_a__logo', 'time_b__logo',
                  'campeonato__nome', 'campeonato__classificacao'
-             ).filter(data__gte=data_hoje, id__in=lista_evento_recomendacao).order_by('data'))
+             ).filter(data__gte=data_hoje, id__in=dict_evento_recomendacao).order_by('data'))
 
 
-             dict_evento_campeonato = {}
+             dict_evento_tipo_aposta = {}
              for evento in lista_eventos_atuais:
-                 campeonato_id = evento['campeonato']
-                 evento['informacao'] = lista_evento_recomendacao[evento['id']]
-                 # Carrega e decodifica a classificação, se estiver presente
-                 classificacao = evento['campeonato__classificacao']
-                 if classificacao:
-                     try:
-                         classificacao = json.loads(classificacao)
-                     except json.JSONDecodeError:
-                         classificacao = None
 
-                 if campeonato_id not in dict_evento_campeonato:
-                     dict_evento_campeonato[campeonato_id] = {
-                         'nome': evento['campeonato__nome'],
-                         'classificacao': classificacao,
+                 evento['informacao'] = dict_evento_recomendacao[evento['id']]
+                 evento['nome_tipo_aposta'] = dict_evento_tipo_aposta_nomes[evento['id']]
+                 tipo_aposta_nome = evento['nome_tipo_aposta']
+
+                 if tipo_aposta_nome not in dict_evento_tipo_aposta:
+                     dict_evento_tipo_aposta[tipo_aposta_nome] = {
+                         'nome': evento['nome_tipo_aposta'],
                          'eventos': []
                      }
-
                  # Adiciona o evento à lista de eventos do campeonato
-                 dict_evento_campeonato[campeonato_id]['eventos'].append(evento)
+                 dict_evento_tipo_aposta[tipo_aposta_nome]['eventos'].append(evento)
 
              # Converte o dicionário para uma lista
-             lista_eventos_informativos = list(dict_evento_campeonato.values())
+             lista_eventos_informativos = list(dict_evento_tipo_aposta.values())
 
              return True, lista_eventos_informativos
 

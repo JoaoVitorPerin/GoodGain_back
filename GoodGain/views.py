@@ -196,7 +196,7 @@ class EventosRecomendados(APIView):
 
     def get(self, *args, **kwargs):
         if validar_perfil(user=self.request.user, nivel_necessario=2):
-            status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
+            status, dados = BO.esporte.esporte.Esporte().get_recomendados(cliente=self.request.user)
             return JsonResponse({'status':True,'dados': dados})
 
 class EventosCampeonatos(APIView):
