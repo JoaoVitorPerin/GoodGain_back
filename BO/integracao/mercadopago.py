@@ -37,7 +37,7 @@ class Mercadopago(Integracao):
     response = create_subscription(
         payer_email="test_user@testuser.com",
         preapproval_plan_id="2c938084726fca480172750000000000",
-        reason="Yoga classes",
+        reason=reason,
         external_reference="YG-1234"
     )
     print(response)

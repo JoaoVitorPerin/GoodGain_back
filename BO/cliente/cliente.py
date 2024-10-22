@@ -277,6 +277,7 @@ class Cliente():
              return {'status': True, 'resultado': 0}
 
      def simular_aposta(self, casa_aposta=None, evento_id=None, cpf_user=None, campeonato=None, time_1=None, time_2=None, odd=None,tipo_aposta=None, valor=None, is_aposta=False):
+         # TODO Lembre que todo e qualquer calculo que for criado nessa etapa devera ser adicionado ao fluxo de precalculo
          if tipo_aposta == '5':
              dados, html_retorno = self.calcular_2_5(odd=odd, campeonato=campeonato, time_1=time_1, time_2=time_2)
          elif tipo_aposta == '8':

@@ -64,7 +64,7 @@ class ClienteCarteira(models.Model):
     :Criação: Thiago Jungles Caron - 06/04/2024
     :Edições:
     """
-    nome = models.CharField(max_length=100, primary_key=True)
+    nome = models.CharField(max_length=100)
     status = models.BooleanField(null=True, default=True)
     cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True)
     token_cartao = models.CharField(max_length=1000, null=True)

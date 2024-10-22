@@ -48,8 +48,8 @@ urlpatterns = [
     re_path('live/evento', GoodGain.views.PegarLive.as_view(), name='live_evento'),
 
     re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),
+    re_path('eventos/recomendados', GoodGain.views.EventosRecomendados.as_view(), name='eventos_recomendados'),
     re_path('home_info_usuarios', GoodGain.views.EventosCampeonatos.as_view(), name='home_preferencias'),
-    # re_path('futuros/eventos', GoodGain.views.EventosRecomendados.as_view(), name='eventos_recomendados'),
     re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard'),
     re_path('historico', GoodGain.views.Historico.as_view(), name='historico'),
 

@@ -6,6 +6,8 @@ from BO.integracao.integracao import Integracao
 import core.esporte.models
 import json
 import zoneinfo
+from BO.esporte.esporte import Esporte
+from BO.cliente.cliente import Cliente
 
 
 class Apifootball(Integracao):
@@ -101,6 +103,8 @@ class Apifootball(Integracao):
             return False
     def atualizar_base(self, data=None):
         try:
+            contagem_calcular_2_5 = 0
+            contagem_ambos_marcam = 0
             operacao = 'coleta campeonatos'
             if not data:
                 datetime_hoje = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -192,6 +196,20 @@ class Apifootball(Integracao):
                     evento.season = response.get('league').get('season')
                     evento.save()
 
+                    # predicoes = Esporte().get_predicoes(evento_id=evento.id)
+                    if contagem_calcular_2_5 <= 20:
+                        dados_calcular_2_5, _ = Cliente().calcular_2_5(campeonato=int(campeonato.get('id')), time_1=evento.time_a_id,time_2=evento.time_b_id)
+                        # if dados_calcular_2_5.get('class_descricao') == 'recomendado' or dados_calcular_2_5.get('class_descricao') == 'muito-recomendado':
+                        self.salvar_recomendacao(evento_id=evento.id,tipo_aposta_id=5, informacao=dados_calcular_2_5.get('class_descricao'), data=evento.data)
+                        contagem_calcular_2_5 += 1
+
+                    if contagem_ambos_marcam <= 20:
+                        dados_calcular_ambos_marcam, _ = Cliente().calcular_ambos_marcam(campeonato=int(campeonato.get('id')), time_1=evento.time_a_id,time_2=evento.time_b_id)
+                        # if dados_calcular_ambos_marcam.get('class_descricao') == 'recomendado' or dados_calcular_ambos_marcam.get('class_descricao') == 'muito-recomendado':
+                        self.salvar_recomendacao(evento_id=evento.id, tipo_aposta_id=8, informacao=dados_calcular_ambos_marcam.get('descricao_geral'), data=evento.data)
+                        contagem_ambos_marcam += 1
+
+
 
             log = core.esporte.models.Log()
             log.data = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -208,6 +226,16 @@ class Apifootball(Integracao):
             log.informacao = 'erro na operação'
             log.save()
             return False
+
+    def salvar_recomendacao(self, evento_id=None, tipo_aposta_id=None, informacao=None, data=None):
+        evento_recomendacao = core.esporte.models.EventoRecomendacao.objects.filter(evento_id=evento_id,tipo_aposta_id=tipo_aposta_id)
+        if not evento_recomendacao:
+            evento_recomendacao = core.esporte.models.EventoRecomendacao()
+            evento_recomendacao.evento_id = evento_id
+            evento_recomendacao.tipo_aposta_id = tipo_aposta_id
+            evento_recomendacao.informacao = informacao
+            evento_recomendacao.data = data
+            evento_recomendacao.save()
 
     def get_todos_campeonatos(self):
         self.url = "https://api-football-v1.p.rapidapi.com/v3/leagues"
