@@ -53,11 +53,6 @@ class Campeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().alterarStatusCampeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
-    def delete(self, *args, **kwargs):
-        campeonato_id = self.request.data.get('id')
-        status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
-        return JsonResponse({'status': status, 'mensagem': mensagem})
-
     def put(self, *args, **kwargs):
         campeonato_id = self.request.data.get('id')
         nome = self.request.data.get('nome')
@@ -66,6 +61,13 @@ class Campeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().editar_campeonato(campeonato_id=campeonato_id, nome=nome,
                                                                           season=season, imagem=imagem)
         return JsonResponse({'status': status, 'mensagem': mensagem})
+
+    def delete(self, *args, **kwargs):
+        campeonato_id = self.request.data.get('id')
+        status, mensagem = BO.esporte.esporte.Esporte().deletar_campeonato(campeonato_id=campeonato_id)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
+
 
 
 class ApiCampeonato(APIView):
@@ -85,7 +87,8 @@ class ApiCampeonato(APIView):
         status, mensagem = BO.esporte.esporte.Esporte().get_campeonatos_api()
         return JsonResponse({'status': status, 'mensagem': mensagem})
 
-class SimularAposta(APIView):
+
+class Aposta(APIView):
 
     def post(self, *args, **kwargs):
         cpf_user = self.request.POST.get('cpf_user')
@@ -97,7 +100,7 @@ class SimularAposta(APIView):
         valor = self.request.POST.get('valor')
         is_aposta = self.request.POST.get('is_aposta')
         casa_aposta = self.request.POST.get('casa_aposta')
-        evento_id = self.request.POST.get('evento_id')
+        evento_id = self.request.POST.get('eventoId')
         dados = BO.cliente.cliente.Cliente().simular_aposta(cpf_user=cpf_user,
                                                             evento_id=evento_id,
                                                                     campeonato=campeonato,
@@ -109,6 +112,12 @@ class SimularAposta(APIView):
                                                                     is_aposta=is_aposta,
                                                                     casa_aposta=casa_aposta)
         return JsonResponse(dados)
+
+    def delete(self, *args, **kwargs):
+        cpf = self.request.GET.get('cpf')
+        status, mensagem = BO.cliente.cliente.Cliente().deletar_cliente(cpf=cpf)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
+
 
 class PegarOdds(APIView):
 
@@ -183,6 +192,13 @@ class EventosFuturos(APIView):
 
             return JsonResponse({'status':True,'dados': dados})
 
+class EventosRecomendados(APIView):
+
+    def get(self, *args, **kwargs):
+        if validar_perfil(user=self.request.user, nivel_necessario=2):
+            status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
+            return JsonResponse({'status':True,'dados': dados})
+
 class EventosCampeonatos(APIView):
 
     def get(self, *args, **kwargs):
@@ -192,12 +208,7 @@ class EventosCampeonatos(APIView):
             return JsonResponse({'status':status,'dados': dados})
 
 
-class EventosRecomendados(APIView):
 
-    def get(self, *args, **kwargs):
-        if validar_perfil(user=self.request.user, nivel_necessario=2):
-            status, dados = BO.esporte.esporte.Esporte().get_eventos_recomendados(cliente=self.request.user)
-            return JsonResponse({'status':True,'dados': dados})
 
 
 class Historico(APIView):
@@ -223,6 +234,41 @@ class GetCampeonatosTImes(APIView):
         campeonato_id = self.request.GET.get('campeonato_id')
         status, dados = BO.esporte.esporte.Esporte().get_times_campeonato(campeonato_id=campeonato_id)
         return JsonResponse({'status': status, 'times': dados})
+
+class EfetuarPagamento(APIView):
+    def post(self, *args, **kwargs):
+        return JsonResponse({})
+
+class ClienteCartao(APIView):
+
+    def get(self, *args, **kwargs):
+        cliente = self.request.GET.get('cliente_id')
+        status, dados = BO.cliente.cliente.Cliente().pegar_cartao(cliente_id=cliente)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def post(self, *args, **kwargs):
+        cliente = self.request.GET.get('cliente')
+        token_cartao= self.request.GET.get('token_cartao')
+        ultimos_quatro_digitos= self.request.GET.get('ultimos_quatro_digitos')
+        data_expiracao= self.request.GET.get('data_expiracao')
+        nome_titular= self.request.GET.get('nome_titular')
+        status, dados = BO.cliente.cliente.Cliente().criar_cartao(cliente=cliente,
+                                                                  token_cartao=token_cartao,
+                                                                  ultimos_quatro_digitos=ultimos_quatro_digitos,
+                                                                  data_expiracao=data_expiracao,
+                                                                  nome_titular=nome_titular,)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def put(self, *args, **kwargs):
+        cartao_id = self.request.GET.get('cartao_id')
+        status, dados = BO.cliente.cliente.Cliente().editar_cartao(cartao_id=cartao_id)
+        return JsonResponse({'status': status, 'times': dados})
+
+    def delete(self, *args, **kwargs):
+        cartao_id = self.request.GET.get('cartao_id')
+        status, dados = BO.cliente.cliente.Cliente().deletar_cartao(cartao_id=cartao_id)
+        return JsonResponse({'status': status, 'times': dados})
+
 
 class VerficarCodigo(APIView):
 

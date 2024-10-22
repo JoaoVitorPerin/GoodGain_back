@@ -34,21 +34,23 @@ urlpatterns = [
     re_path('alterar/senha', GoodGain.views.AlterarsenhaView.as_view(), name='alterar_senha'),
     re_path('reset/senha', GoodGain.views.ResetSenhaView.as_view(), name='reset_senha'),
     re_path('verificar/codigo', GoodGain.views.VerficarCodigo.as_view(), name='reset_senha'),
+    re_path('cliente/cartao', GoodGain.views.ClienteCartao.as_view(), name='cliente/cartao'),
+    re_path('efetuar_pagamento', GoodGain.views.VerficarCodigo.as_view(), name='efetuar_pagamento'),
 
     path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 
     path('api_campeonato', GoodGain.views.ApiCampeonato.as_view(), name='api_campeonato'),
 
     re_path('times/championship', GoodGain.views.GetCampeonatosTImes.as_view(), name='time_championship'),
-    re_path('simular/aposta', GoodGain.views.SimularAposta.as_view(), name='simular_aposta'),
+    re_path('simular/aposta', GoodGain.views.Aposta.as_view(), name='simular_aposta'),
     re_path('evento/simulado', GoodGain.views.EventoSimulado.as_view(), name='evento_simulado'),
     re_path('pegar/odds', GoodGain.views.PegarOdds.as_view(), name='pegar_odds'),
     re_path('pegar/predicoes', GoodGain.views.PegarPredicoes.as_view(), name='pegar_predicoes'),
     re_path('live/evento', GoodGain.views.PegarLive.as_view(), name='live_evento'),
 
     re_path('futuros/eventos', GoodGain.views.EventosFuturos.as_view(), name='futuros_eventos'),
+    re_path('eventos/recomendados', GoodGain.views.EventosRecomendados.as_view(), name='eventos_recomendados'),
     re_path('home_info_usuarios', GoodGain.views.EventosCampeonatos.as_view(), name='home_preferencias'),
-    # re_path('futuros/eventos', GoodGain.views.EventosRecomendados.as_view(), name='eventos_recomendados'),
     re_path('dashboard', GoodGain.views.Dashboard.as_view(), name='dashboard'),
     re_path('historico', GoodGain.views.Historico.as_view(), name='historico'),
 

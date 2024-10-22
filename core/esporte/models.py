@@ -148,3 +148,20 @@ class Log(models.Model):
     tipo_operacao = models.CharField(max_length=100,null=True)
     class Meta:
         db_table = u'"public\".\"log"'
+
+
+class EventoRecomendacao(models.Model):
+    """
+            :Nome da classe/função: EventoRecomendacao
+            :descrição: Classe para que tenhas precalculos dos eventos ao atualizar a base de informações da API
+            :Criação: Thiago Jungles Caron - 10/10/2024
+            :Edições:
+            """
+    data = models.CharField(null=True)
+    status = models.BooleanField(null=True, default=True)
+    informacao = models.CharField(max_length=200, null=True)
+    evento = models.ForeignKey('esporte.Evento', on_delete=models.DO_NOTHING, null=True)
+    tipo_aposta = models.ForeignKey('esporte.Tipo', on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        db_table = u'"public\".\"evento_recomendacao"'
