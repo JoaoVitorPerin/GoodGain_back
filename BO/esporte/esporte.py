@@ -105,11 +105,28 @@ class Esporte():
              dict_evento_recomendacao = {}
              dict_evento_tipo_aposta_nomes =  {}
              lista_nomes_aposta = []
+             lista_tipo_aposta_evento = []
              lista_eventos_recomendados = list(core.esporte.models.EventoRecomendacao.objects.values('informacao', 'evento_id', 'tipo_aposta__informacao').filter(data__gte=data_hoje, tipo_aposta__id__in=preferencias).order_by('data'))
              for recomendacao in lista_eventos_recomendados:
-                 dict_evento_recomendacao[recomendacao.get('evento_id')] = recomendacao.get('informacao')
-                 dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')] = recomendacao.get('tipo_aposta__informacao')
-                 lista_nomes_aposta.append(recomendacao.get('tipo_aposta__informacao'))
+                 if  recomendacao.get('evento_id') not in dict_evento_recomendacao:
+                    dict_evento_recomendacao[recomendacao.get('evento_id')] = {}
+                    dict_evento_recomendacao[recomendacao.get('evento_id')][
+                        recomendacao.get('tipo_aposta__informacao')] = recomendacao.get('informacao')
+
+                 else:
+                    dict_evento_recomendacao[recomendacao.get('evento_id')][recomendacao.get('tipo_aposta__informacao')] = recomendacao.get('informacao')
+
+                 if recomendacao.get('evento_id') not in dict_evento_tipo_aposta_nomes:
+                     dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')] = {}
+                     lista_tipo_aposta_evento.append(recomendacao.get('tipo_aposta__informacao'))
+                     dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')][
+                         'lista_tipos'] = lista_tipo_aposta_evento
+                     lista_tipo_aposta_evento = []
+                 else:
+                    lista_tipo_aposta_evento = dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')]['lista_tipos']
+                    lista_tipo_aposta_evento.append(recomendacao.get('tipo_aposta__informacao'))
+                    dict_evento_tipo_aposta_nomes[recomendacao.get('evento_id')]['lista_tipos'] = lista_tipo_aposta_evento
+                    lista_tipo_aposta_evento = []
 
              lista_eventos_atuais = list(core.esporte.models.Evento.objects.values(
                  'id', 'data', 'time_a', 'time_b', 'resultado_time_a', 'resultado_time_b',
@@ -122,17 +139,18 @@ class Esporte():
              dict_evento_tipo_aposta = {}
              for evento in lista_eventos_atuais:
 
-                 evento['informacao'] = dict_evento_recomendacao[evento['id']]
+
                  evento['nome_tipo_aposta'] = dict_evento_tipo_aposta_nomes[evento['id']]
                  tipo_aposta_nome = evento['nome_tipo_aposta']
-
-                 if tipo_aposta_nome not in dict_evento_tipo_aposta:
-                     dict_evento_tipo_aposta[tipo_aposta_nome] = {
-                         'nome': evento['nome_tipo_aposta'],
-                         'eventos': []
-                     }
+                 for tipo_aposta in dict_evento_tipo_aposta_nomes[evento['id']].get('lista_tipos'):
+                     if tipo_aposta not in dict_evento_tipo_aposta:
+                         dict_evento_tipo_aposta[tipo_aposta] = {
+                             'nome': tipo_aposta,
+                             'eventos': []
+                         }
+                     evento[tipo_aposta] = dict_evento_recomendacao[evento['id']][tipo_aposta]
                  # Adiciona o evento à lista de eventos do campeonato
-                 dict_evento_tipo_aposta[tipo_aposta_nome]['eventos'].append(evento)
+                     dict_evento_tipo_aposta[tipo_aposta]['eventos'].append(evento)
 
              # Converte o dicionário para uma lista
              lista_eventos_informativos = list(dict_evento_tipo_aposta.values())
