@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-zz(zy=a9017=f)x)(g8pe!3im(=xp1gdikdri6uu)y9xc%-^e4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost2.com.br", "localhost"]
-
+ALLOWED_HOSTS = ["localhost2.com.br", "localhost", 'http://localhost:80', 'http://good_gain_front:80']
 
 # Application definition
 
@@ -94,6 +93,7 @@ DATABASES = {
     }
 }
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -146,7 +146,7 @@ EMAIL_HOST_USER = 'goodgainoficcial@gmail.com'
 EMAIL_HOST_PASSWORD = 'owud ytml arlk djtj'
 
 
-CORS_ORIGIN_WHITELIST = ['http://localhost:4200']
+CORS_ORIGIN_WHITELIST = ['http://localhost:4200','http://localhost:80', 'http://good_gain_front:80']
 CORS_ALLOW_ALL_ORIGINS = True
 # for localhost (REACT Default)     'http://192.168.0.50:3000/',  # for network      'http://localhost:8080/',  # for localhost (Developlemt)     'http://192.168.0.50:8080/',  # for network (Development) )
 
