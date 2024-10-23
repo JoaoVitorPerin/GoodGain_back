@@ -13,3 +13,5 @@ jwcrypto== 1.5.6
 pycparser== 2.22
 PyJWT
 djangorestframework-simplejwt==5.3.1
+gunicorn
+wsgi
