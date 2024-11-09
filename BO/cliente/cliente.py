@@ -176,63 +176,94 @@ class Cliente():
         except:
             return False, []
 
-     def get_dahsboard_cliente(self, cliente_id=None):
-        try:
+     def get_dashboard_cliente(self, cliente_id=None):
+         try:
+             # Filtra as apostas do cliente com is_aposta=True
+             apostas_cliente = list(core.cliente.models.Aposta.objects.filter(cliente_id=cliente_id, is_aposta=True))
 
-            apostas_cliente = list(core.cliente.models.Aposta.objects.filter(cliente_id=cliente_id, is_aposta=True))
-            dict_campeonatos = {}
-            dict_tipo_apostas = {}
-            todas_odds = 0
-            valor_apostado = 0.0
-            valor_anterior = 0
-            tipo_aposta_mais_escolhida = 'nenhuma'
-            for aposta in apostas_cliente:
-                if aposta.campeonato_id not in dict_campeonatos:
-                    dict_campeonatos[aposta.campeonato_id] = 1
-                else:
-                    dict_campeonatos[aposta.campeonato_id] = dict_campeonatos[aposta.campeonato_id] + 1
-                if aposta.tipo_aposta not in dict_tipo_apostas:
-                    dict_tipo_apostas[aposta.tipo_aposta] = 1
-                else:
-                    dict_tipo_apostas[aposta.tipo_aposta] = dict_tipo_apostas[aposta.tipo_aposta] + 1
-                todas_odds+= float(aposta.odd)
-                valor_apostado += aposta.valor if aposta.valor is not None else 0
-            if todas_odds:
-                media_odds = todas_odds/len(apostas_cliente)
-            else:
-                media_odds = 0.0
+             dict_campeonatos = {}
+             dict_tipo_apostas = {}
+             todas_odds = 0
+             valor_apostado = 0.0
+             valor_anterior = 0
+             tipo_aposta_mais_escolhida = 'nenhuma'
 
-            if valor_apostado:
-                media_valor_apostado = valor_apostado/len(apostas_cliente)
-            else:
-                media_valor_apostado = 0.0
+             tipos_apostas = {
+                 tipo['id']: tipo['informacao']
+                 for tipo in core.esporte.models.Tipo.objects.values('id', 'informacao')
+             }
 
-            for tipo_aposta in dict_tipo_apostas:
-                valor_atual = dict_tipo_apostas[tipo_aposta]
-                if valor_atual > valor_anterior:
-                   valor_anterior = valor_atual
-                   tipo_aposta_mais_escolhida = tipo_aposta
-            lista_grafico_campeonato = []
-            lista_grafico_tipo = []
-            for campeonato in dict_campeonatos:
-                lista_grafico_campeonato.append({'campeonato': campeonato, 'valor':dict_campeonatos[campeonato]})
-            for tipo_aposta in dict_tipo_apostas:
-                lista_grafico_tipo.append({'tipo_aposta': tipo_aposta, 'valor': dict_tipo_apostas[tipo_aposta]})
+             # Processa as apostas para calcular os dados do dashboard
+             for aposta in apostas_cliente:
+                 # Contagem de campeonatos
+                 if aposta.campeonato_id not in dict_campeonatos:
+                     dict_campeonatos[aposta.campeonato_id] = 1
+                 else:
+                     dict_campeonatos[aposta.campeonato_id] += 1
 
+                 # Contagem de tipos de apostas
+                 if aposta.tipo_aposta not in dict_tipo_apostas:
+                     dict_tipo_apostas[aposta.tipo_aposta] = 1
+                 else:
+                     dict_tipo_apostas[aposta.tipo_aposta] += 1
 
-            dados = {'status': True,
-                     'qtd_apostas': len(apostas_cliente),
-                     'media_odds': media_odds,
-                     'valor_apostado': media_valor_apostado,
-                     'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
-                     'grafico_campeonatos': lista_grafico_campeonato,
-                     'grafico_tipo_aposta': lista_grafico_tipo}
-            lista_tipos = list(core.esporte.models.Tipo.objects.values('id', 'informacao'))
-            lista_campeonatos = list(core.esporte.models.Campeonato.objects.values('id', 'nome'))
+                 # Soma das odds
+                 todas_odds += float(aposta.odd) if aposta.odd else 0
 
-            return dados, lista_tipos, lista_campeonatos
-        except:
-            return {'status': False}, [], []
+                 # Soma do valor apostado
+                 valor_apostado += aposta.valor if aposta.valor is not None else 0
+
+             # Cálculo das médias
+             media_odds = todas_odds / len(apostas_cliente) if len(apostas_cliente) > 0 else 0.0
+             media_valor_apostado = valor_apostado / len(apostas_cliente) if len(apostas_cliente) > 0 else 0.0
+
+             # Determinar o tipo de aposta mais escolhido
+             for tipo_aposta, valor_atual in dict_tipo_apostas.items():
+                 if valor_atual > valor_anterior:
+                     valor_anterior = valor_atual
+                     tipo_aposta_mais_escolhida = tipo_aposta
+
+             # Lista para os gráficos
+             lista_grafico_campeonato = [{'campeonato': campeonato, 'valor': valor}
+                                         for campeonato, valor in dict_campeonatos.items()]
+             lista_grafico_tipo = [{'tipo_aposta': tipo_aposta, 'valor': valor}
+                                   for tipo_aposta, valor in dict_tipo_apostas.items()]
+
+             # Serializa a tabela de apostas
+             tabela_aposta = [
+                 {
+                     'id': aposta.id,
+                     'campeonato_id': aposta.campeonato.nome if aposta.campeonato else None,
+                     'tipo_aposta_nome': tipos_apostas.get(int(aposta.tipo_aposta), 'Desconhecido'),
+                     'odd': aposta.odd,
+                     'valor': aposta.valor,
+                     'time_1': aposta.time_1.nome if aposta.time_1 else None,
+                     'time_2': aposta.time_2.nome if aposta.time_2 else None
+                 }
+                 for aposta in apostas_cliente
+             ]
+
+             # Dados de retorno
+             dados = {
+                 'status': True,
+                 'qtd_apostas': len(apostas_cliente),
+                 'media_odds': media_odds,
+                 'valor_apostado': media_valor_apostado,
+                 'tipo_aposta_mais_escolhida': tipo_aposta_mais_escolhida,
+                 'grafico_campeonatos': lista_grafico_campeonato,
+                 'grafico_tipo_aposta': lista_grafico_tipo,
+                 'tabela_aposta': tabela_aposta
+             }
+
+             # Lista de tipos e campeonatos
+             lista_tipos = list(core.esporte.models.Tipo.objects.values('id', 'informacao'))
+             lista_campeonatos = list(core.esporte.models.Campeonato.objects.values('id', 'nome'))
+
+             return dados, lista_tipos, lista_campeonatos
+
+         except Exception as e:
+             # Retorna erro em caso de exceção
+             return {'status': False, 'error': str(e)}, [], []
 
      def vitoria_time_a(self, time_a=None, campeonato=None, evento_id=None):
          try:
