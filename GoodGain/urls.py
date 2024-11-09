@@ -37,6 +37,8 @@ urlpatterns = [
     re_path('cliente/cartao', GoodGain.views.ClienteCartao.as_view(), name='cliente/cartao'),
     re_path('efetuar_pagamento', GoodGain.views.VerficarCodigo.as_view(), name='efetuar_pagamento'),
 
+    re_path('selecionar_plano',GoodGain.views.SelecionarPlano.as_view(), name='selecionar_plano'),
+
     path('campeonato', GoodGain.views.Campeonato.as_view(), name='campeonato'),
 
     path('api_campeonato', GoodGain.views.ApiCampeonato.as_view(), name='api_campeonato'),

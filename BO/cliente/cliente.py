@@ -710,6 +710,20 @@ class Cliente():
              print(e)  # Imprime ou faça log da exceção para ver o erro exato
              return False, str(e)  # Retorna a mensagem de erro
 
+     def selecionar_plano(self, cpf=None, perfil_id=None):
+        try:
+
+            cliente = core.cliente.models.Cliente.objects.filter(cpf=Cliente.limpar_cpf(cpf)).first()
+            if(not cliente):
+                return False, 'Usuário não encontrado!'
+
+            cliente.perfil_id = perfil_id
+            cliente.save()
+            return True, 'Plano selecionado com sucesso!'
+
+        except Exception as e:
+            return False, str(e)
+
      def deletar_cliente(self, cpf=None):
         try:
             cliente = core.cliente.models.Cliente.objects.filter(cpf=cpf).first()

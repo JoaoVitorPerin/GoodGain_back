@@ -269,9 +269,27 @@ class ClienteCartao(APIView):
         status, dados = BO.cliente.cliente.Cliente().deletar_cartao(cartao_id=cartao_id)
         return JsonResponse({'status': status, 'times': dados})
 
+class SelecionarPlano(APIView):
+    def get_permissions(self):
+        """
+        Instancia e retorna a lista de permissões que essa view requer.
+        """
+        if self.request.method == 'POST':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
+    def post(self, *args, **kwargs):
+        cpf = self.request.data.get('cpf')
+        perfil_id = self.request.data.get('perfil_id')
+
+        status, mensagem = BO.cliente.cliente.Cliente().selecionar_plano(cpf=cpf,perfil_id=perfil_id)
+        return JsonResponse({'status': status, 'mensagem': mensagem})
 
 class VerficarCodigo(APIView):
-
+    def get_permissions(self):
+        permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
     def get(self, *args, **kwargs):
         email = self.request.GET.get('email')
         status, mensagem = BO.cliente.cliente.Cliente().gerar_codigo(email=email)
