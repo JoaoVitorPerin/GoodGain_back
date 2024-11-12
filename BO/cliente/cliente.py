@@ -4,6 +4,7 @@ import core.cliente.models
 import core.esporte.models
 import jwt
 import datetime
+import pytz
 import random
 import ast
 import json
@@ -148,28 +149,37 @@ class Cliente():
                 aposta['nome_tipo_aposta'] = dict_apostas[int(aposta['tipo_aposta'])]
                 if aposta.get('evento__resultado_partida') is not None:
                     resultado_da_partida = json.loads(aposta.get('evento__resultado_partida'))
+                    data_hora_especificada = datetime.datetime.fromisoformat(resultado_da_partida[0]['fixture']['date'])
 
-                    # verificação de tipo de aposta 2.5+
-                    if aposta.get('tipo_aposta') == '5':
-                       if resultado_da_partida[0]['goals']['home'] + resultado_da_partida[0]['goals']['away'] >= 2:
-                           aposta['status_aposta'] = 'ACERTOU'
-                           lista_apostas_cliente_tratada.append(aposta)
-                           continue
-                       else:
-                           aposta['status_aposta'] ='NÃO ACERTOU'
-                           lista_apostas_cliente_tratada.append(aposta)
-                           continue
+                    # Obter a data e hora atual no mesmo fuso horário
+                    data_hora_atual = datetime.datetime.now(pytz.utc)
 
-                    # verificação de tipo de aposta ambas marcam
-                    if aposta.get('tipo_aposta') == '8':
-                       if resultado_da_partida[0]['goals']['home'] >=1 and resultado_da_partida[0]['goals']['away'] >= 1:
-                           aposta['status_aposta'] = 'ACERTOU'
-                           lista_apostas_cliente_tratada.append(aposta)
-                           continue
-                       else:
-                           aposta['status_aposta'] ='NÃO ACERTOU'
-                           lista_apostas_cliente_tratada.append(aposta)
-                           continue
+                    # Comparar as datas
+
+                    if data_hora_atual >= data_hora_especificada:
+                        # verificação de tipo de aposta 2.5+
+                        if aposta.get('tipo_aposta') == '5':
+                           if resultado_da_partida[0]['goals']['home'] + resultado_da_partida[0]['goals']['away'] >= 2:
+                               aposta['status_aposta'] = 'ACERTOU'
+                               lista_apostas_cliente_tratada.append(aposta)
+                               continue
+                           else:
+                               aposta['status_aposta'] ='NÃO ACERTOU'
+                               lista_apostas_cliente_tratada.append(aposta)
+                               continue
+
+                        # verificação de tipo de aposta ambas marcam
+                        if aposta.get('tipo_aposta') == '8':
+                           if resultado_da_partida[0]['goals']['home'] >=1 and resultado_da_partida[0]['goals']['away'] >= 1:
+                               aposta['status_aposta'] = 'ACERTOU'
+                               lista_apostas_cliente_tratada.append(aposta)
+                               continue
+                           else:
+                               aposta['status_aposta'] ='NÃO ACERTOU'
+                               lista_apostas_cliente_tratada.append(aposta)
+                               continue
+                    else:
+                        aposta['status_aposta'] = 'EM ANDAMENTO'
                 else:
                     aposta['status_aposta'] = 'EM ANDAMENTO'
             return True, lista_apostas_cliente
