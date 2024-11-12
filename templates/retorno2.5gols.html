@@ -14,24 +14,32 @@
             text-align: center;
         }
         .muito-recomendado {
-            color: #006400;
+            background-color: #006400;
+            color: #fff;
         }
         .recomendado {
-            color: #32CD32;
+            background-color: #32CD32;
+            color: #000;
         }
         .arriscado {
-            color: #FFD700;
+            background-color: #FFD700;
+            color: #000;
         }
         .nao-recomendado {
-            color: #FF8C00;
+            background-color: #FF8C00;
+            color: #fff;
         }
         .nao-investir {
-            color: #FF0000;
+            background-color: #FF0000;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <p class="font-bold text-xl mb-1 {{ class_descricao }}">{{ descricao }}</p>
+    <div class="w-full mb-1 text-center {{ class_descricao }}" >
+        <p class="font-bold text-xl">{{ descricao }}</p>
+        <p class="font-bold text-sm {{ class_descricao }}">Previsão de gols total: {{ previsao_gols|floatformat:2 }}</p>
+    </div>
     <div class="grid">
         <div class="col-12">
             <table class="w-full">
@@ -52,9 +60,6 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <div class="mt-1">
-        <p class="font-bold text-sm {{ class_descricao }}">Previsão de gols total: {{ previsao_gols|floatformat:2 }}</p>
     </div>
 </body>
 </html>

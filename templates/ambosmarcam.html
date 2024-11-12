@@ -28,7 +28,12 @@
     </style>
 </head>
 <body>
-    <div class="grid">
+    <div class="w-full mb-1 text-center">
+            <div class="{% if media_geral >= 1.45 %}recomendado{% else %}nao-investir{% endif %}" >
+            <p class="font-bold text-xl">{{ descricao_geral }}</p>
+            <p class="font-bold text-sm">Previsão de ambos marcam: {{ media_geral|floatformat:2 }}</p>
+    </div>
+    <div class="grid mt-2">
         <!-- Primeira Tabela -->
         <div class="col-12 md:col-6">
             <table class="w-full">

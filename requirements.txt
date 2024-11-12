@@ -14,3 +14,4 @@ pycparser== 2.22
 PyJWT
 djangorestframework-simplejwt==5.3.1
 gunicorn
+pytz==2024.2
